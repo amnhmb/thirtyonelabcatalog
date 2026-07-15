@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThirtyOne Lab Official</title>
+    
+    <link rel="icon" type="image/jpeg" href="Logo Favicon.png">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #1a1a1a; 
+            color: #f8fafc;
+            padding: 50px 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px; 
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .header-logo {
+            width: 50px; 
+            height: auto;
+            margin-right: 15px; 
+            border-top-left-radius: 12px;    
+            border-bottom-left-radius: 12px; 
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #FF6B00 0%, #FF0000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #d1d5db; 
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .store-info {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background: #222;
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .store-socials {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .store-socials a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px; 
+        }
+
+        .icon-img {
+            height: 1.8em; 
+            width: auto;   
+            object-fit: contain;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .store-socials a:hover {
+            color: #FF6B00;
+        }
+        
+        .store-socials a:hover .icon-img {
+            transform: scale(1.9); 
+        }
+
+        .store-contact {
+            font-size: 0.9rem;
+            color: #d1d5db;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .store-contact span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .store-address {
+            font-size: 0.85rem;
+            text-align: center;
+            line-height: 1.4;
+            margin-top: 5px;
+            border-top: 1px solid #333;
+            padding-top: 12px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .store-address a {
+            color: #9ca3af;            
+            text-decoration: none;     
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;                  
+        }
+
+        .store-address a:hover {
+            color: #FF6B00;
+        }
+        
+        .store-address a:hover .icon-img {
+            transform: scale(1.9); 
+        }
+
+        .edition-buttons-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .edition-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .edition-btn.primary {
+            background: #262626;
+            color: #a3a3a3;
+            border-color: #404040;
+        }
+
+        .edition-btn.world-cup {
+            background: #262626;
+            color: #a3a3a3;
+            border-color: #404040;
+        }
+
+        .edition-btn.primary.active {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF0000 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .edition-btn.world-cup.active {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%); 
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .edition-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px; 
+            padding: 10px 0;
+        }
+
+        .product-card {
+            background: #262626; 
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            border: 2px solid #333; 
+            display: none; 
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            border-color: #FF6B00; 
+        }
+
+        .product-card.prod-wc:hover {
+            border-color: #d4af37;
+        }
+
+        .image-container {
+            position: relative;
+            background: #111111; 
+            width: 100%;
+            padding-top: 125%; 
+            overflow: hidden;
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.8s ease 0.3s; 
+        }
+
+        .image-container .img-back {
+            opacity: 0; 
+        }
+
+        /* PERUBAHAN DI SINI: Auto-slide/hover hanya berfungsi jika kad TIDAK mempunyai kelas 'no-slide' */
+        .product-card.prod-wc:not(.no-slide):hover .image-container .img-front {
+            opacity: 0;
+        }
+        .product-card.prod-wc:not(.no-slide):hover .image-container .img-back {
+            opacity: 1;
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF6B00; 
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10; 
+            font-family: Arial, sans-serif;
+        }
+
+        .badge-wc {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #d4af37; 
+            color: #1a1a1a;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10; 
+            font-family: Arial, sans-serif;
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;        
+            padding-top: 60px;       
+            padding-bottom: 20px;    
+            width: 100%;
+        }
+
+        .page-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50px; 
+            border: 2px solid #333;
+            background: #262626;
+            color: #f8fafc;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-btn:hover {
+            border-color: #FF6B00;
+            color: #FF6B00;
+            transform: scale(1.05);
+        }
+
+        .page-btn.active {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF0000 100%);
+            border-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(255, 107, 0, 0.4);
+        }
+
+        /* LIGHTBOX OVERLAY */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.95); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 85%;
+            max-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+            border: 1px solid #333;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            width: 45px;
+            height: 45px;
+            background: #FF6B00;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 26px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease, background 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2010;
+        }
+
+        .lightbox-close:hover {
+            background: #FF0000;
+            transform: scale(1.1);
+        }
+
+        /* REKA BENTUK MODEN BARU UNTUK BUTANG NAVIGASI KURSOR LIGHTBOX */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.08); /* Efek lutsinar */
+            backdrop-filter: blur(10px); /* Efek Glassmorphism */
+            -webkit-backdrop-filter: blur(10px);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none; 
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2005;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Rekabentuk simbol anak panah dalaman menggunakan SVG berciri moden */
+        .lightbox-nav svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: #FF6B00;
+            border-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
+        }
+
+        .lightbox-nav.prev { left: 40px; }
+        .lightbox-nav.next { right: 40px; }
+
+        .lightbox-nav.prev:hover svg { transform: translateX(-2px); }
+        .lightbox-nav.next:hover svg { transform: translateX(2px); }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 1024px) {
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .lightbox-nav.prev { left: 25px; }
+            .lightbox-nav.next { right: 25px; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2rem; }
+            .header-logo { width: 40px; margin-right: 10px; }
+            body { padding: 30px 15px; }
+            .catalog-grid { grid-template-columns: repeat(1, 1fr); gap: 20px; }
+            .lightbox-close { top: -55px; right: 0px; }
+            .lightbox-nav { width: 48px; height: 48px; }
+            .lightbox-nav.prev { left: 15px; }
+            .lightbox-nav.next { right: 15px; }
+            .lightbox-nav svg { width: 20px; height: 20px; }
+            .lightbox-content { max-width: 95%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-title-container">
+                <img src="Logo Header.jpg" alt="ThirtyOne Lab Logo" class="header-logo">
+                <h1>ThirtyOne Lab Official</h1>
+            </div>
+            <p>Discover our full range of custom apparel in one place.</p>
+            
+            <div class="store-info">
+                <div class="store-socials">
+                    <a href="https://www.tiktok.com/@thirtyonelabofficial" target="_blank">
+                        <img src="Favicon Tiktok.png" alt="TikTok" class="icon-img"> TikTok
+                    </a>
+                    <a href="https://www.instagram.com/thirtyonelab" target="_blank">
+                        <img src="Favicon IG.png" alt="Instagram" class="icon-img"> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/thirtyonelab" target="_blank">
+                        <img src="Favicon FB.png" alt="Facebook" class="icon-img"> Facebook
+                    </a>
+                    <a href="https://wa.me/601125614436" target="_blank">
+                        <img src="Favicon WhatsApp.png" alt="WhatsApp" class="icon-img"> WhatsApp
+                    </a>
+                </div>
+                <div class="store-contact">
+                    <span>
+                        <img src="Favicon Email.png" alt="Email" class="icon-img"> thirtyonelabofficial@gmail.com
+                    </span>
+                </div>
+                <div class="store-address">
+                    <a href="https://maps.app.goo.gl/L6R3bP8RUKCmdaNK9" target="_blank">
+                        <img src="Favicon Address.png" alt="Address" class="icon-img"> 26A, Jalan 1, Taman Bukit Cantik, 43000 Kajang, Selangor, Malaysia
+                    </a>
+                </div>
+            </div>
+
+            <div class="edition-buttons-container">
+                <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne Lab 2026 Edition</button>
+                <button class="edition-btn world-cup" id="btnWC" onclick="switchEdition('worldcup')">World Cup Edition</button>
+            </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid">
+            <!-- 2026 Cards Omitted for Space, assume they stay here as originally written -->
+            <!-- [Kekalkan semua <div class="product-card prod-2026"> anda di sini...] -->
+            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Sublimation (1).jpg" alt="Sublimation (1).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Sublimation (2).jpg" alt="Sublimation (2).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Sublimation (3).jpg" alt="Sublimation (3).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Sublimation (4).jpg" alt="Sublimation (4).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Sublimation (5).jpg" alt="Sublimation (5).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (6).jpg" alt="Sublimation (6).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (7).jpg" alt="Sublimation (7).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (8).jpg" alt="Sublimation (8).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (9).jpg" alt="Sublimation (9).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (10).jpg" alt="Sublimation (10).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (11).jpg" alt="Sublimation (11).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (12).jpg" alt="Sublimation (12).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (13).jpg" alt="Sublimation (13).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (14).jpg" alt="Sublimation (14).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (15).jpg" alt="Sublimation (15).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (16).jpg" alt="Sublimation (16).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (17).jpg" alt="Sublimation (17).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (18).jpg" alt="Sublimation (18).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (19).jpg" alt="Sublimation (19).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (20).jpg" alt="Sublimation (20).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (21).jpg" alt="Sublimation (21).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (22).jpg" alt="Sublimation (22).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (23).jpg" alt="Sublimation (23).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (24).jpg" alt="Sublimation (24).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (25).jpg" alt="Sublimation (25).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (26).jpg" alt="Sublimation (26).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (27).jpg" alt="Sublimation (27).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (28).jpg" alt="Sublimation (28).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (29).jpg" alt="Sublimation (29).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (30).jpg" alt="Sublimation (30).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (31).jpg" alt="Sublimation (31).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (32).jpg" alt="Sublimation (32).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (33).jpg" alt="Sublimation (33).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (34).jpg" alt="Sublimation (34).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (35).jpg" alt="Sublimation (35).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (36).jpg" alt="Sublimation (36).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (37).jpg" alt="Sublimation (37).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (38).jpg" alt="Sublimation (38).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (39).jpg" alt="Sublimation (39).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (40).jpg" alt="Sublimation (40).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (41).jpg" alt="Sublimation (41).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (42).jpg" alt="Sublimation (42).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (43).jpg" alt="Sublimation (43).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (44).jpg" alt="Sublimation (44).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (45).jpg" alt="Sublimation (45).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (46).jpg" alt="Sublimation (46).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (47).jpg" alt="Sublimation (47).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (48).jpg" alt="Sublimation (48).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (49).jpg" alt="Sublimation (49).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (50).jpg" alt="Sublimation (50).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (51).jpg" alt="Sublimation (51).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (52).jpg" alt="Sublimation (52).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (53).jpg" alt="Sublimation (53).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (54).jpg" alt="Sublimation (54).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (55).jpg" alt="Sublimation (55).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (56).jpg" alt="Sublimation (56).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (57).jpg" alt="Sublimation (57).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (58).jpg" alt="Sublimation (58).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (59).jpg" alt="Sublimation (59).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (60).jpg" alt="Sublimation (60).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (61).jpg" alt="Sublimation (61).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (62).jpg" alt="Sublimation (62).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (63).jpg" alt="Sublimation (63).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (64).jpg" alt="Sublimation (64).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (65).jpg" alt="Sublimation (65).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (66).jpg" alt="Sublimation (66).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (67).jpg" alt="Sublimation (67).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (68).jpg" alt="Sublimation (68).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (69).jpg" alt="Sublimation (69).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (70).jpg" alt="Sublimation (70).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (71).jpg" alt="Sublimation (71).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (72).jpg" alt="Sublimation (72).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (73).jpg" alt="Sublimation (73).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (74).jpg" alt="Sublimation (74).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (75).jpg" alt="Sublimation (75).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (76).jpg" alt="Sublimation (76).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (77).jpg" alt="Sublimation (77).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (78).jpg" alt="Sublimation (78).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (79).jpg" alt="Sublimation (79).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (80).jpg" alt="Sublimation (80).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (81).jpg" alt="Sublimation (81).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (82).jpg" alt="Sublimation (82).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (83).jpg" alt="Sublimation (83).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (84).jpg" alt="Sublimation (84).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (85).jpg" alt="Sublimation (85).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (86).jpg" alt="Sublimation (86).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (87).jpg" alt="Sublimation (87).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (88).jpg" alt="Sublimation (88).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (89).jpg" alt="Sublimation (89).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (90).jpg" alt="Sublimation (90).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (91).jpg" alt="Sublimation (91).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (92).jpg" alt="Sublimation (92).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (93).jpg" alt="Sublimation (93).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (94).jpg" alt="Sublimation (94).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (95).jpg" alt="Sublimation (95).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (96).jpg" alt="Sublimation (96).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (97).jpg" alt="Sublimation (97).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (98).jpg" alt="Sublimation (98).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (99).jpg" alt="Sublimation (99).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (100).jpg" alt="Sublimation (100).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (101).jpg" alt="Sublimation (101).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (102).jpg" alt="Sublimation (102).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (103).jpg" alt="Sublimation (103).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (104).jpg" alt="Sublimation (104).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Sublimation (105).jpg" alt="Sublimation (105).jpg"></div></div>
+
+            <!-- Kekalkan Auto-slide untuk Argentina, Brazil, Portugal -->
+            <div class="product-card prod-wc">
+                <div class="image-container">
+                    <span class="badge-wc">World Cup</span>
+                    <img src="WC Argentina (1).png" alt="WC Argentina Front" class="img-front">
+                    <img src="WC Argentina (2).jpg" alt="WC Argentina Back" class="img-back">
+                </div>
+            </div>
+            <div class="product-card prod-wc">
+                <div class="image-container">
+                    <span class="badge-wc">World Cup</span>
+                    <img src="WC Brazil (1).png" alt="WC Brazil Front" class="img-front">
+                    <img src="WC Brazil (2).jpg" alt="WC Brazil Back" class="img-back">
+                </div>
+            </div>
+            <div class="product-card prod-wc">
+                <div class="image-container">
+                    <span class="badge-wc">World Cup</span>
+                    <img src="WC Portugal (1).png" alt="WC Portugal Front" class="img-front">
+                    <img src="WC Portugal (2).jpg" alt="WC Portugal Back" class="img-back">
+                </div>
+            </div>
+
+            <!-- PERUBAHAN DI SINI: Ditambah kelas 'no-slide' pada WC Spain dan WC England -->
+            <div class="product-card prod-wc no-slide">
+                <div class="image-container">
+                    <span class="badge-wc">World Cup</span>
+                    <img src="WC Spain (2).jpg" alt="WC Spain Back" class="img-front">
+                </div>
+            </div>
+            <div class="product-card prod-wc no-slide">
+                <div class="image-container">
+                    <span class="badge-wc">World Cup</span>
+                    <img src="WC England (2).jpg" alt="WC England Back" class="img-front">
+                </div>
+            </div>
+        </div> 
+        
+        <div class="pagination-container" id="paginationContainer"></div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous Image">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">×</button>
+            <img src="" alt="Preview Gambar Baju" id="lightboxImg">
+        </div>
+        <button class="lightbox-nav next" id="lightboxNext" aria-label="Next Image">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </div>
+
+    <script>
+        const cardsPerPage = 16;
+        const catalogGrid = document.getElementById('catalogGrid');
+        
+        const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026'));
+        const allCardsWC = Array.from(catalogGrid.getElementsByClassName('prod-wc'));
+        
+        let currentEdition = '2026';
+        let currentCards = allCards2026; 
+        let currentPage = 1;
+
+        let lightboxImagesArray = [];
+        let currentLightboxIndex = 0;
+
+        function displayPage(page) {
+            currentPage = page;
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+
+            Array.from(catalogGrid.getElementsByClassName('product-card')).forEach(card => {
+                card.style.display = 'none';
+            });
+
+            currentCards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = 'block'; 
+                }
+            });
+
+            setupPaginationButtons();
+        }
+
+        function setupPaginationButtons() {
+            const paginationContainer = document.getElementById('paginationContainer');
+            paginationContainer.innerHTML = '';
+            const totalPages = Math.ceil(currentCards.length / cardsPerPage);
+
+            if (totalPages <= 1) return; 
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.innerText = i;
+                button.classList.add('page-btn');
+                
+                if (i === currentPage) {
+                    button.classList.add('active');
+                }
+
+                button.addEventListener('click', () => {
+                    displayPage(i);
+                    window.scrollTo({
+                        top: catalogGrid.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        function switchEdition(edition) {
+            if (currentEdition === edition) return;
+            
+            currentEdition = edition;
+            const btn2026 = document.getElementById('btn2026');
+            const btnWC = document.getElementById('btnWC');
+
+            if (edition === '2026') {
+                currentCards = allCards2026;
+                btn2026.classList.add('active');
+                btnWC.classList.remove('active');
+            } else {
+                currentCards = allCardsWC;
+                btnWC.classList.add('active');
+                btn2026.classList.remove('active');
+            }
+
+            displayPage(1); 
+        }
+
+        // ====== LOGIK LIGHTBOX POP-UP KEMAS KINI ======
+        const lightboxOverlay = document.getElementById('lightboxOverlay');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        catalogGrid.addEventListener('click', (e) => {
+            const card = e.target.closest('.product-card');
+            if (card) {
+                const imgs = Array.from(card.querySelectorAll('.image-container img'));
+                lightboxImagesArray = imgs.map(img => img.src);
+                
+                let imgBack = card.querySelector('.img-back');
+                let initialSrc = imgs[0].src; 
+
+                if (imgBack && window.getComputedStyle(imgBack).opacity === "1") {
+                    initialSrc = imgBack.src; 
+                }
+
+                currentLightboxIndex = lightboxImagesArray.indexOf(initialSrc);
+                if(currentLightboxIndex === -1) currentLightboxIndex = 0;
+
+                updateLightboxImage();
+                
+                if (lightboxImagesArray.length > 1) {
+                    lightboxPrev.style.display = 'flex';
+                    lightboxNext.style.display = 'flex';
+                } else {
+                    lightboxPrev.style.display = 'none';
+                    lightboxNext.style.display = 'none';
+                }
+
+                lightboxOverlay.classList.add('active'); 
+                document.body.classList.add('no-scroll'); 
+            }
+        });
+
+        function updateLightboxImage() {
+            if (lightboxImagesArray.length > 0) {
+                lightboxImg.src = lightboxImagesArray[currentLightboxIndex];
+            }
+        }
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (lightboxImagesArray.length > 1) {
+                currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImagesArray.length;
+                updateLightboxImage();
+            }
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (lightboxImagesArray.length > 1) {
+                currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImagesArray.length) % lightboxImagesArray.length;
+                updateLightboxImage();
+            }
+        });
+
+        lightboxClose.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            closeLightbox();
+        });
+
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target === lightboxOverlay) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightboxOverlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            lightboxImg.src = ""; 
+            lightboxImagesArray = [];
+        }
+
+        displayPage(1);
+    </script>
+</body>
+</html>
