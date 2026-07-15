@@ -1,0 +1,543 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #faf9f5; /* Warna Milky Off-White yang sangat selesa dan premium */
+    color: #1a1a1a;      /* Teks utama berwarna gelap agar mudah dibaca */
+    padding: 50px 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container {
+    max-width: 1400px; 
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.header-logo {
+    width: 80px; 
+    height: auto;
+    margin-right: 15px; 
+    border-top-left-radius: 12px;    
+    border-bottom-left-radius: 12px; 
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    overflow: hidden;
+}
+
+/* GRADASI JUDUL: Diubah menjadi merah tua ke merah terang */
+.header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ff0000, #990000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.header p {
+    font-size: 1rem;
+    color: #4b5563; /* Warna kelabu gelap sederhana untuk subtajuk */
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* KOTAK INFO KEDAI: Diubah kepada kad putih bersih dengan border halus */
+.store-info {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.store-info p {
+    font-size: 1.05rem;
+    color: #1a1a1a;       /* Tukar kepada hitam pekat supaya jelas */
+    font-weight: 500;     /* Tebalkan sedikit */
+    margin-bottom: 15px;  /* Beri ruang dengan link bawah */
+    text-align: center;
+}
+
+.store-socials {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*.store-socials a {
+    color: #333;          
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.03); 
+    transition: all 0.3s ease;
+    text-decoration: none;
+}*/
+
+.store-socials a {
+    color: #374151; /* Warna ikon & teks kelabu gelap */
+    text-decoration: none; /* Membuang garisan bawah pada teks */
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    
+    /* --- KEMASKINI BAHAGIAN INI UNTUK LETAK DI TENGAH --- */
+    display: inline-flex;      /* Menggunakan inline-flex supaya elemen sebaris */
+    align-items: center;       /* Menyelaraskan ikon dan teks betul-betul di tengah secara menegak */
+    justify-content: center;   /* Menyelaraskan kandungan di tengah secara mendatar */
+    gap: 8px;                  /* Jarak antara ikon dan teks */
+    line-height: 1;            /* Menghalang tinggi baris (line height) daripada menolak teks ke bawah */
+}
+
+.icon-img {
+    height: 1.9em; 
+    width: auto;   
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+/* HOVER SOSIAL MEDIA: Diubah menjadi Merah */
+.store-socials a:hover {
+    color: #FF0000;
+}
+
+.store-socials a:hover .icon-img {
+    transform: scale(1.9); 
+}
+
+.store-contact {
+    font-size: 0.9rem;
+    color: #4b5563;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.store-contact span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.store-address {
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.4;
+    margin-top: 5px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.store-address a {
+    color: #6b7280;            
+    text-decoration: none;     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;                  
+}
+
+/* HOVER ALAMAT: Diubah menjadi Merah */
+.store-address a:hover {
+    color: #FF0000;
+}
+
+.store-address a:hover .icon-img {
+    transform: scale(1.9); 
+}
+
+.edition-buttons-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* BUTANG EDISI (BIASA): Berwarna kelabu cerah dengan teks gelap */
+.edition-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;              
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.edition-btn.primary {
+    background: #e5e7eb;
+    color: #4b5563;
+    border-color: #d1d5db;
+}
+
+.edition-btn.world-cup {
+    background: #e5e7eb;
+    color: #4b5563;
+    border-color: #d1d5db;
+
+    font-family: 'Birthstone', cursive; 
+    text-transform: none;              
+    font-size: 1.7rem;
+}
+
+/* TOMBOL AKTIF (2026): Gradasi merah terang ke merah gelap & bayangan merah */
+.edition-btn.primary.active {
+    background: linear-gradient(135deg, #FF0000 0%, #B71C1C 100%);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.35);
+}
+
+.edition-btn.world-cup.active {
+    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%); 
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.edition-btn:hover {
+    transform: translateY(-2px);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px; 
+    padding: 10px 0;
+}
+
+/* KAD PRODUK: Diubah kepada latar belakang putih bersih agar kontra dengan background milky */
+.product-card {
+    background: #ffffff; 
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    border: 2px solid #e5e7eb; 
+    display: none; 
+    cursor: pointer;
+}
+
+/* BORDER HOVER KARTU PROD 2026: Diubah menjadi Merah */
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.12);
+    border-color: #FF0000; 
+}
+
+.product-card.prod-wc:hover {
+    border-color: #d4af37;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+}
+
+.image-container {
+    position: relative;
+    background: #f3f4f6; /* Warna placeholder gambar yang lebih cerah */
+    width: 100%;
+    padding-top: 125%; 
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.8s ease 0.3s; 
+}
+
+.image-container .img-back {
+    opacity: 0; 
+}
+
+.product-card.prod-wc:not(.no-slide):hover .image-container .img-front {
+    opacity: 0;
+}
+.product-card.prod-wc:not(.no-slide):hover .image-container .img-back {
+    opacity: 1;
+}
+
+/* BADGE NEW: Latar belakang diubah menjadi Merah */
+.badge-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #FF0000; 
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10; 
+    font-family: Arial, sans-serif;
+}
+
+.badge-wc {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #d4af37; 
+    color: #1a1a1a;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10; 
+    font-family: Arial, sans-serif;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;        
+    padding-top: 60px;       
+    padding-bottom: 20px;    
+    width: 100%;
+}
+
+/* BUTANG PAGINASI: Diubah menjadi putih bersih dengan sempadan nipis */
+.page-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50px; 
+    border: 2px solid #e5e7eb;
+    background: #ffffff;
+    color: #4b5563;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HOVER NAVIGASI HALAMAN: Diubah menjadi Merah */
+.page-btn:hover {
+    border-color: #FF0000;
+    color: #FF0000;
+    transform: scale(1.05);
+}
+
+/* NAVIGASI HALAMAN AKTIF: Gradasi Merah */
+.page-btn.active {
+    background: linear-gradient(135deg, #FF0000 0%, #B71C1C 100%);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+/* LIGHTBOX OVERLAY (Kekal Gelap Gelita agar gambar menonjol sepenuhnya) */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.95); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 85%;
+    max-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    border: 1px solid #333;
+}
+
+/* TOMBOL CLOSE LIGHTBOX: Diubah latar belakangnya menjadi Merah (#FF0000) */
+.lightbox-close {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 45px;
+    height: 45px;
+    background: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2010;
+}
+
+.lightbox-close:hover {
+    background: #B71C1C; /* Merah gelap saat hover */
+    transform: scale(1.1);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2005;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-nav svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s ease;
+}
+
+/* NAVIGASI LIGHTBOX HOVER: Diubah menjadi Merah */
+.lightbox-nav:hover {
+    background: #FF0000;
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.lightbox-nav.prev { left: 40px; }
+.lightbox-nav.next { right: 40px; }
+
+.lightbox-nav.prev:hover svg { transform: translateX(-2px); }
+.lightbox-nav.next:hover svg { transform: translateX(2px); }
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* --- STYLE FOOTER --- */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px; /* Jarak antara kandungan atas dengan footer */
+    border-top: 1px solid #e5e7eb; /* Garisan pemisah yang halus */
+    width: 100%;
+}
+
+.site-footer p {
+    font-size: 0.85rem;
+    color: #6b7280; /* Warna kelabu lembut supaya tidak terlalu menyerlah */
+    font-weight: 500;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 1024px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .lightbox-nav.prev { left: 25px; }
+    .lightbox-nav.next { right: 25px; }
+}
+
+@media (max-width: 768px) {
+    .header h1 { font-size: 2.2rem; }
+    .header-logo { width: 70px; margin-right: 10px; }
+    body { padding: 30px 15px; }
+    .catalog-grid { grid-template-columns: repeat(1, 1fr); gap: 20px; }
+    .lightbox-close { top: -55px; right: 0px; }
+    .lightbox-nav { width: 48px; height: 48px; }
+    .lightbox-nav.prev { left: 15px; }
+    .lightbox-nav.next { right: 15px; }
+    .lightbox-nav svg { width: 20px; height: 20px; }
+    .lightbox-content { max-width: 95%; }
+}
