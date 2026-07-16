@@ -418,52 +418,6 @@
             }
         }
 
-        async function copyLightboxImage() {
-            const imgElement = document.getElementById('lightboxImg');
-            const copyBtn = document.getElementById('lightboxCopyBtn');
-            
-            if (!imgElement.src) return;
-
-            try {
-                // Tukar status butang sementara proses muat turun gambar berlaku
-                copyBtn.innerText = "⏳ Menyalin...";
-                copyBtn.disabled = true;
-
-                // Ambil data gambar baju yang sedang dipaparkan dari server
-                const response = await fetch(imgElement.src);
-                const blob = await response.blob();
-                
-                // Simpan fail gambar ke clipboard peranti pengguna
-                await navigator.clipboard.write([
-                    new ClipboardItem({ [blob.type]: blob })
-                ]);
-                
-                // Tukar teks butang tanda berjaya
-                copyBtn.innerText = "✅ Gambar Disalin!";
-                copyBtn.style.background = "#4CAF50";
-                
-                // Kembalikan ke asal selepas 2.5 saat
-                setTimeout(() => {
-                    copyBtn.innerText = "📋 Salin Gambar";
-                    copyBtn.style.background = "#333333";
-                    copyBtn.disabled = false;
-                }, 2500);
-                
-                alert("Gambar baju berjaya disalin! Sila klik 'Order via WhatsApp' dan 'Paste' (Tampal) terus gambar tersebut di dalam ruangan chat.");
-            } catch (err) {
-                // Jika pelayar web/peranti pelanggan menyekat atau tidak menyokong fungsi salin gambar
-                copyBtn.innerText = "❌ Gagal Salin";
-                copyBtn.style.background = "#d9534f";
-                
-                setTimeout(() => {
-                    copyBtn.innerText = "📋 Salin Gambar";
-                    copyBtn.style.background = "#333333";
-                    copyBtn.disabled = false;
-                }, 2500);
-
-                alert("Peranti anda tidak membenarkan salin gambar automatik. Sila buat tangkapan skrin (screenshot) atau gunakan pautan teks WhatsApp yang disediakan.");
-            }
-        }
     </script>
 </body>
 </html>
