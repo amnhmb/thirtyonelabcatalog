@@ -213,7 +213,13 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    user-select: none;         /* Standard */
 }
+
 
 .edition-btn.primary {
     background: #e5e7eb;
@@ -520,6 +526,12 @@ body.no-scroll {
     font-weight: 500;
 }
 
+/* Membuang kesan highlight biru apabila elemen diketik di telefon pintar */
+.edition-btn, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 1024px) {
     .catalog-grid {
@@ -540,6 +552,7 @@ body.no-scroll {
     .lightbox-nav.next { right: 15px; }
     .lightbox-nav svg { width: 20px; height: 20px; }
     .lightbox-content { max-width: 95%; }
+
 
     /* Elemen pembungkus untuk kesan fade/blur di hujung kiri & kanan */
     .scroll-fade-wrapper {
@@ -575,3 +588,4 @@ body.no-scroll {
         height: 50px;               /* Tinggi tetap/statik */
     }
 }
+
