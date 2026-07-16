@@ -50,9 +50,10 @@ body {
 
 /* GRADASI JUDUL: Diubah menjadi merah tua ke merah terang */
 .header h1 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.2rem;                    /* Anda boleh besarkan sedikit saiznya (asal: 2.8rem) kerana fon ini jenis kompak */
+    font-weight: 400;                     /* Bebas Neue secara lalai menggunakan weight 400 */
+    letter-spacing: 2px;                  /* Tambah sedikit jarak huruf untuk gaya yang lebih premium */
     text-transform: uppercase;
     background: linear-gradient(135deg, #ff0000, #990000 100%);
     -webkit-background-clip: text;
@@ -127,7 +128,7 @@ body {
 }
 
 .icon-img {
-    height: 1.9em; 
+    height: 1.5em; 
     width: auto;   
     object-fit: contain;
     display: block;
@@ -140,7 +141,7 @@ body {
 }
 
 .store-socials a:hover .icon-img {
-    transform: scale(1.9); 
+    transform: scale(1.4); 
 }
 
 .store-contact {
@@ -213,7 +214,13 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    user-select: none;         /* Standard */
 }
+
 
 .edition-btn.primary {
     background: #e5e7eb;
@@ -520,6 +527,50 @@ body.no-scroll {
     font-weight: 500;
 }
 
+/* Membuang kesan highlight biru apabila elemen diketik di telefon pintar */
+.edition-btn, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* --- STYLE BUTANG WHATSAPP DALAM POP-UP --- */
+.lightbox-content {
+    display: flex;
+    flex-direction: column; /* Susun gambar dan butang secara menegak */
+    align-items: center;
+    gap: 12px;              /* Dikurangkan sedikit jarak antara gambar dan butang (asal: 15px) */
+}
+
+.lightbox-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;               /* Kurangkan jarak antara ikon dan teks (asal: 10px) */
+    background-color: #25D366; 
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;     /* Dikecilkan saiz teks (asal: 1rem) */
+    padding: 8px 20px;      /* Dikecilkan padding atas-bawah & kiri-kanan (asal: 12px 28px) */
+    border-radius: 20px;    /* Laraskan kebulatan mengikut saiz butang baru (asal: 30px) */
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    width: 70%;             /* Kurangkan lebar peratusan (asal: 80%) */
+    max-width: 220px;       /* Hadkan lebar maksimum yang lebih kecil (asal: 300px) */
+}
+
+.lightbox-wa-btn img {
+    height: 1.6em !important; /* Dikecilkan saiz ikon WhatsApp (asal: 1.5em) */
+    width: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.lightbox-wa-btn:hover {
+    background-color: #128C7E; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 1024px) {
     .catalog-grid {
@@ -530,8 +581,22 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
-    .header h1 { font-size: 2.2rem; }
-    .header-logo { width: 70px; margin-right: 10px; }
+
+    .header-title-container {
+        gap: 6px;              
+        margin-bottom: 8px;    
+        align-items: center;   
+    } 
+    .header-logo { 
+        width: 95px;           
+        height: auto; 
+        margin-right: 0px;     
+    }
+    .header h1 { 
+        font-size: 3.2rem;      
+        line-height: 0.95;       
+        margin-bottom: 0px; 
+    }
     body { padding: 30px 15px; }
     .catalog-grid { grid-template-columns: repeat(1, 1fr); gap: 20px; }
     .lightbox-close { top: -55px; right: 0px; }
@@ -540,4 +605,61 @@ body.no-scroll {
     .lightbox-nav.next { right: 15px; }
     .lightbox-nav svg { width: 20px; height: 20px; }
     .lightbox-content { max-width: 95%; }
+
+
+    /* Elemen pembungkus untuk kesan fade/blur di hujung kiri & kanan */
+    .scroll-fade-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        /* Mencipta kesan gradient transparent di kiri (0-5%) dan kanan (95-100%) */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .edition-buttons-container {
+        display: flex;
+        flex-wrap: nowrap;          /* Kekal satu baris */
+        overflow-x: auto;           /* Boleh skrol kiri kanan */
+        justify-content: flex-start; 
+        width: 100%;
+        /* Tambah padding kiri & kanan supaya butang pertama/terakhir tidak terus hilang terpotong */
+        padding: 15px 20px;          
+        gap: 12px;
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none;      /* Sorok bar skrol Firefox */
+    }
+
+    /* Sorok bar skrol Chrome & Safari */
+    .edition-buttons-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .edition-btn {
+        flex: 0 0 auto;             /* Halang butang mengecut */
+        white-space: nowrap;        /* Teks lurus tidak pecah */
+        height: 50px;               /* Tinggi tetap/statik */
+    }
+
+    .lightbox-content img {
+        max-height: 65vh; 
+    }
+    .lightbox-wa-btn {
+        font-size: 0.8rem;   
+        padding: 7px 16px;   
+        width: 75%;          
+        max-width: 200px;    
+        
+        /* --- TAMBAH INI: Untuk memberi jarak yang selesa antara ikon besar & teks --- */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;            
+    }
+
+    .lightbox-wa-btn img {
+        /* --- UBAH DI SINI: Tukar dari 1.3em kepada nilai yang lebih besar --- */
+        height: 1.6em !important; /* Anda boleh tukar ke 1.6em atau 1.8em mengikut kesesuaian mata */
+    }
 }
+

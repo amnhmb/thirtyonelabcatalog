@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThirtyOne Lab Official</title>
+
+    <meta name="description" content="ThirtyOne Lab Official - Kedai cetak baju custom apparel specialist di Kajang, Selangor.">
+    <meta name="keywords" content="ThirtyOne Lab, custom apparel, custom jersey, custom jersi, print jersey, cetak baju">
     
     <link rel="icon" type="image/jpeg" href="Image/Favicon/Logo Favicon.png">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -51,10 +56,13 @@
                 </div>
             </div>
 
-            <div class="edition-buttons-container">
-                <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne Lab 2026 Edition</button>
-                <button class="edition-btn world-cup" id="btnWC" onclick="switchEdition('worldcup')"><img src="Image/Favicon/WCup.png" alt="World Cup" class="icon-img" style="height: 1.4em;"> World Cup 2026 Edition</button>
-            </div>
+            <div class="scroll-fade-wrapper">
+    <div class="edition-buttons-container">
+        <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne Lab 2026 Edition</button>
+        <button class="edition-btn world-cup" id="btnWC" onclick="switchEdition('worldcup')"><img src="Image/Favicon/WCup.png" alt="World Cup" class="icon-img" style="height: 1.4em;"> World Cup 2026 Edition</button>
+    </div>
+    
+</div>
         </div>
 
         <div class="catalog-grid" id="catalogGrid">
@@ -209,6 +217,9 @@
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightboxClose">×</button>
             <img src="" alt="Preview Gambar Baju" id="lightboxImg">
+            <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
+                <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
+            </a>
         </div>
         <button class="lightbox-nav next" id="lightboxNext" aria-label="Next Image">
             <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -377,6 +388,26 @@
         }
 
         displayPage(1);
+
+        // 1. Dapatkan rujukan elemen butang WhatsApp baru di bahagian atas skrip
+        const lightboxWaBtn = document.getElementById('lightboxWaBtn');
+        const myWhatsAppNumber = "601125507190"; // Nombor WhatsApp Business anda
+
+        function updateLightboxImage() {
+            if (lightboxImagesArray.length > 0) {
+                const currentSrc = lightboxImagesArray[currentLightboxIndex];
+                lightboxImg.src = currentSrc;
+
+                // Dapatkan nama fail sahaja (contoh: Sublimation (1).jpg) untuk dimasukkan dalam teks
+                const fileName = currentSrc.substring(currentSrc.lastIndexOf('/') + 1);
+
+                // Bina ayat pesanan teks beserta link gambar baju
+                const message = `Salam ThirtyOne Lab, saya berminat nak order baju ini:\n\nLink Gambar: ${currentSrc}`;
+                
+                // Kemas kini pautan href pada butang WhatsApp
+                lightboxWaBtn.href = `https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`;
+            }
+        }
     </script>
 </body>
 </html>
