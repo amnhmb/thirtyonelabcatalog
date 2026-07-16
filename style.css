@@ -50,9 +50,10 @@ body {
 
 /* GRADASI JUDUL: Diubah menjadi merah tua ke merah terang */
 .header h1 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;                    /* Anda boleh besarkan sedikit saiznya (asal: 2.8rem) kerana fon ini jenis kompak */
+    font-weight: 400;                     /* Bebas Neue secara lalai menggunakan weight 400 */
+    letter-spacing: 2px;                  /* Tambah sedikit jarak huruf untuk gaya yang lebih premium */
     text-transform: uppercase;
     background: linear-gradient(135deg, #ff0000, #990000 100%);
     -webkit-background-clip: text;
@@ -542,7 +543,7 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
-    .header h1 { font-size: 2.2rem; }
+    .header h1 { font-size: 2.8rem; }
     .header-logo { width: 70px; margin-right: 10px; }
     body { padding: 30px 15px; }
     .catalog-grid { grid-template-columns: repeat(1, 1fr); gap: 20px; }
