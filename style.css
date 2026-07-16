@@ -543,7 +543,10 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
-    .header h1 { font-size: 3.2rem; }
+    .header h1 { font-size: 3.2rem; 
+        line-height: 0.95;       
+        margin-bottom: 5px;
+    }
     .header-logo { width: 70px; margin-right: 10px; }
     body { padding: 30px 15px; }
     .catalog-grid { grid-template-columns: repeat(1, 1fr); gap: 20px; }
