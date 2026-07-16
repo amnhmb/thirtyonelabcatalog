@@ -128,7 +128,7 @@ body {
 }
 
 .icon-img {
-    height: 1.9em; 
+    height: 1.5em; 
     width: auto;   
     object-fit: contain;
     display: block;
@@ -141,7 +141,7 @@ body {
 }
 
 .store-socials a:hover .icon-img {
-    transform: scale(1.9); 
+    transform: scale(1.7); 
 }
 
 .store-contact {
