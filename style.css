@@ -589,6 +589,17 @@ body.no-scroll {
     text-align: center;
 }
 
+img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 1024px) {
     .catalog-grid {
@@ -660,7 +671,23 @@ body.no-scroll {
     }
 
     .lightbox-content img {
-        max-height: 65vh; 
+        max-height: 65vh;
+
+        -webkit-user-select: auto !important;
+        -khtml-user-select: auto !important;
+        -moz-user-select: auto !important;
+        -o-user-select: auto !important;
+        user-select: auto !important;
+        
+        /* Membenarkan semula menu 'Save Image' / 'Copy' keluar di phone (Android/iOS) */
+        -webkit-touch-callout: default !important;
+        
+        /* Membenarkan semula gambar ditarik (drag) jika di desktop */
+        -webkit-user-drag: auto !important;
+        user-drag: auto !important;
+        
+        pointer-events: auto !important; /* Memastikan gambar boleh menerima sentuhan/klik */
+
     }
     .lightbox-wa-btn {
         font-size: 0.8rem;   
