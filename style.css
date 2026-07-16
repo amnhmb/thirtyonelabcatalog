@@ -582,7 +582,7 @@ body.no-scroll {
 }
 
 .lightbox-instruction-text {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #6b7280; /* Warna kelabu lembut yang profesional */
     font-weight: 600;
     margin: 5px 0 0 0;
@@ -681,7 +681,7 @@ body.no-scroll {
     }
 
     .lightbox-instruction-text {
-        font-size: 0.8rem; /* Kecilkan sedikit saiz tulisan di skrin telefon */
+        font-size: 1rem; /* Kecilkan sedikit saiz tulisan di skrin telefon */
         margin: 3px 0;
     }
 }
