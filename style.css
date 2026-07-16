@@ -540,4 +540,38 @@ body.no-scroll {
     .lightbox-nav.next { right: 15px; }
     .lightbox-nav svg { width: 20px; height: 20px; }
     .lightbox-content { max-width: 95%; }
+
+    /* Elemen pembungkus untuk kesan fade/blur di hujung kiri & kanan */
+    .scroll-fade-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        /* Mencipta kesan gradient transparent di kiri (0-5%) dan kanan (95-100%) */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .edition-buttons-container {
+        display: flex;
+        flex-wrap: nowrap;          /* Kekal satu baris */
+        overflow-x: auto;           /* Boleh skrol kiri kanan */
+        justify-content: flex-start; 
+        width: 100%;
+        /* Tambah padding kiri & kanan supaya butang pertama/terakhir tidak terus hilang terpotong */
+        padding: 15px 20px;          
+        gap: 12px;
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none;      /* Sorok bar skrol Firefox */
+    }
+
+    /* Sorok bar skrol Chrome & Safari */
+    .edition-buttons-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .edition-btn {
+        flex: 0 0 auto;             /* Halang butang mengecut */
+        white-space: nowrap;        /* Teks lurus tidak pecah */
+        height: 50px;               /* Tinggi tetap/statik */
+    }
 }
