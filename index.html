@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="ThirtyOne Lab Official Catalog" />
+    <meta property="og:description" content="Discover our full range of custom apparel in one place. Order your favorite design now!" />
+    <meta property="og:image" content="https://amnhmb.github.io/thirtyonelabcatalog/Image/Favicon/Logo%20Favicon.png" />
+    <meta property="og:url" content="https://amnhmb.github.io/thirtyonelabcatalog/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ThirtyOne Lab" />
+
     <title>ThirtyOne Lab Official</title>
 
     <meta name="description" content="ThirtyOne Lab Official - Kedai cetak baju custom apparel specialist di Kajang, Selangor.">
@@ -389,22 +397,24 @@
 
         displayPage(1);
 
-        // 1. Dapatkan rujukan elemen butang WhatsApp baru di bahagian atas skrip
         const lightboxWaBtn = document.getElementById('lightboxWaBtn');
-        const myWhatsAppNumber = "601125507190"; // Nombor WhatsApp Business anda
+        const myWhatsAppNumber = "601125614436"; // Nombor WhatsApp anda
 
         function updateLightboxImage() {
             if (lightboxImagesArray.length > 0) {
+                // currentSrc akan mengambil URL gambar baju sebenar yang sedang di-zoom (Bukan gambar logo)
                 const currentSrc = lightboxImagesArray[currentLightboxIndex];
                 lightboxImg.src = currentSrc;
 
-                // Dapatkan nama fail sahaja (contoh: Sublimation (1).jpg) untuk dimasukkan dalam teks
-                const fileName = currentSrc.substring(currentSrc.lastIndexOf('/') + 1);
+                // Mengambil nama fail sahaja (Contoh: Sublimation (3).jpg atau WC Argentina (1).png)
+                let fileName = currentSrc.substring(currentSrc.lastIndexOf('/') + 1);
+                fileName = decodeURIComponent(fileName).replace(/\.[^/.]+$/, ""); // Membuang tulisan (.jpg / .png) agar kemas
 
-                // Bina ayat pesanan teks beserta link gambar baju
-                const message = `Salam ThirtyOne Lab, saya berminat nak order baju ini:\n\nLink Gambar: ${currentSrc}`;
+                // Membina ayat pesanan. Pautan '${currentSrc}' di bawah akan berubah secara automatik mengikut baju yang dipilih!
+                const message = `*Saya berminat dengan baju ini:* \n\n`+
+                                `*Link Product:* ${currentSrc}`;
                 
-                // Kemas kini pautan href pada butang WhatsApp
+                // Memasukkan mesej dynamic ke butang WhatsApp
                 lightboxWaBtn.href = `https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`;
             }
         }
