@@ -225,9 +225,14 @@
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightboxClose">×</button>
             <img src="" alt="Preview Gambar Baju" id="lightboxImg">
-            <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
-                <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
-            </a>
+            <div class="lightbox-action-buttons">
+                <button id="lightboxCopyBtn" class="lightbox-copy-btn" onclick="copyLightboxImage()">
+                    📋 Salin Gambar
+                </button>
+                <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
+                    <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
+                </a>
+            </div>
         </div>
         <button class="lightbox-nav next" id="lightboxNext" aria-label="Next Image">
             <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -402,20 +407,62 @@
 
         function updateLightboxImage() {
             if (lightboxImagesArray.length > 0) {
-                // currentSrc akan mengambil URL gambar baju sebenar yang sedang di-zoom (Bukan gambar logo)
+                // Ambil URL gambar baju sebenar yang sedang di-zoom
                 const currentSrc = lightboxImagesArray[currentLightboxIndex];
                 lightboxImg.src = currentSrc;
 
-                // Mengambil nama fail sahaja (Contoh: Sublimation (3).jpg atau WC Argentina (1).png)
-                let fileName = currentSrc.substring(currentSrc.lastIndexOf('/') + 1);
-                fileName = decodeURIComponent(fileName).replace(/\.[^/.]+$/, ""); // Membuang tulisan (.jpg / .png) agar kemas
-
-                // Membina ayat pesanan. Pautan '${currentSrc}' di bawah akan berubah secara automatik mengikut baju yang dipilih!
-                const message = `*Saya berminat dengan baju ini:* \n\n`+
-                                `*Link Product:* ${currentSrc}`;
+                // --- EDIT DI SINI: Ayat mesej teks yang bersih tanpa link dan tanpa kod nama baju ---
+                const message = `Saya berminat dengan baju ini.`;
                 
-                // Memasukkan mesej dynamic ke butang WhatsApp
+                // Memasukkan mesej ke butang WhatsApp
                 lightboxWaBtn.href = `https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`;
+            }
+        }
+
+        async function copyLightboxImage() {
+            const imgElement = document.getElementById('lightboxImg');
+            const copyBtn = document.getElementById('lightboxCopyBtn');
+            
+            if (!imgElement.src) return;
+
+            try {
+                // Tukar status butang sementara proses muat turun gambar berlaku
+                copyBtn.innerText = "⏳ Menyalin...";
+                copyBtn.disabled = true;
+
+                // Ambil data gambar baju yang sedang dipaparkan dari server
+                const response = await fetch(imgElement.src);
+                const blob = await response.blob();
+                
+                // Simpan fail gambar ke clipboard peranti pengguna
+                await navigator.clipboard.write([
+                    new ClipboardItem({ [blob.type]: blob })
+                ]);
+                
+                // Tukar teks butang tanda berjaya
+                copyBtn.innerText = "✅ Gambar Disalin!";
+                copyBtn.style.background = "#4CAF50";
+                
+                // Kembalikan ke asal selepas 2.5 saat
+                setTimeout(() => {
+                    copyBtn.innerText = "📋 Salin Gambar";
+                    copyBtn.style.background = "#333333";
+                    copyBtn.disabled = false;
+                }, 2500);
+                
+                alert("Gambar baju berjaya disalin! Sila klik 'Order via WhatsApp' dan 'Paste' (Tampal) terus gambar tersebut di dalam ruangan chat.");
+            } catch (err) {
+                // Jika pelayar web/peranti pelanggan menyekat atau tidak menyokong fungsi salin gambar
+                copyBtn.innerText = "❌ Gagal Salin";
+                copyBtn.style.background = "#d9534f";
+                
+                setTimeout(() => {
+                    copyBtn.innerText = "📋 Salin Gambar";
+                    copyBtn.style.background = "#333333";
+                    copyBtn.disabled = false;
+                }, 2500);
+
+                alert("Peranti anda tidak membenarkan salin gambar automatik. Sila buat tangkapan skrin (screenshot) atau gunakan pautan teks WhatsApp yang disediakan.");
             }
         }
     </script>

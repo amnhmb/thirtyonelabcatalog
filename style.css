@@ -571,6 +571,38 @@ body.no-scroll {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
+/* --- AM AL / DESKTOP BUTANG LIGHTBOX ACTION --- */
+.lightbox-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.lightbox-copy-btn {
+    background-color: #333333;
+    color: white;
+    border: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 70%;
+    max-width: 220px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.lightbox-copy-btn:hover {
+    background-color: #555555;
+}
+
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 1024px) {
     .catalog-grid {
@@ -660,6 +692,13 @@ body.no-scroll {
     .lightbox-wa-btn img {
         /* --- UBAH DI SINI: Tukar dari 1.3em kepada nilai yang lebih besar --- */
         height: 1.6em !important; /* Anda boleh tukar ke 1.6em atau 1.8em mengikut kesesuaian mata */
+    }
+
+    .lightbox-copy-btn {
+        font-size: 0.8rem;
+        padding: 7px 16px;
+        width: 75%;
+        max-width: 200px;
     }
 }
 
