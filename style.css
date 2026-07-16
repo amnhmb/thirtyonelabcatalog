@@ -433,6 +433,21 @@ body {
     border-radius: 12px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
     border: 1px solid #333;
+
+    -webkit-user-select: auto !important;
+    -khtml-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -o-user-select: auto !important;
+    user-select: auto !important;
+    
+    /* Membenarkan semula menu 'Save Image' / 'Copy' keluar di phone (Android/iOS) */
+    -webkit-touch-callout: default !important;
+    
+    /* Membenarkan semula gambar ditarik (drag) jika di desktop */
+    -webkit-user-drag: auto !important;
+    user-drag: auto !important;
+    
+    pointer-events: auto !important; /* Memastikan gambar boleh menerima sentuhan/klik */
 }
 
 /* TOMBOL CLOSE LIGHTBOX: Diubah latar belakangnya menjadi Merah (#FF0000) */
@@ -672,22 +687,6 @@ img {
 
     .lightbox-content img {
         max-height: 65vh;
-
-        -webkit-user-select: auto !important;
-        -khtml-user-select: auto !important;
-        -moz-user-select: auto !important;
-        -o-user-select: auto !important;
-        user-select: auto !important;
-        
-        /* Membenarkan semula menu 'Save Image' / 'Copy' keluar di phone (Android/iOS) */
-        -webkit-touch-callout: default !important;
-        
-        /* Membenarkan semula gambar ditarik (drag) jika di desktop */
-        -webkit-user-drag: auto !important;
-        user-drag: auto !important;
-        
-        pointer-events: auto !important; /* Memastikan gambar boleh menerima sentuhan/klik */
-
     }
     .lightbox-wa-btn {
         font-size: 0.8rem;   
