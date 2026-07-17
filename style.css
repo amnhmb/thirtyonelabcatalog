@@ -1,20 +1,46 @@
+/* ==========================================
+   1. TETAPAN GLOBAL & BASE
+   (Reset margin, padding, & font asas)
+   ========================================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: #faf9f5; /* Warna Milky Off-White yang sangat selesa dan premium */
-    color: #1a1a1a;      /* Teks utama berwarna gelap agar mudah dibaca */
+    background: #faf9f5; /* Milky Off-White premium */
+    color: #1a1a1a;
     padding: 50px 20px;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
+img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
+.edition-btn, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ==========================================
+   2. STRUKTUR UTAMA (LAYOUT)
+   (Container untuk bungkus semua content)
+   ========================================== */
 .container {
-    max-width: 1400px; 
+    max-width: 1400px;
     margin: 0 auto;
     width: 100%;
     display: flex;
@@ -22,6 +48,12 @@ body {
     flex: 1;
 }
 
+
+/* ==========================================
+   3. BAHAGIAN HEADER & SUB-HEADER
+   (Nota: Logo, nama kedai, media sosial, 
+   dan butang tukar edisi kat sini)
+   ========================================== */
 .header {
     text-align: center;
     margin-bottom: 60px;
@@ -38,22 +70,22 @@ body {
 }
 
 .header-logo {
-    width: 80px; 
+    width: 80px;
     height: auto;
-    margin-right: 15px; 
-    border-top-left-radius: 12px;    
-    border-bottom-left-radius: 12px; 
+    margin-right: 15px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     overflow: hidden;
 }
 
-/* GRADASI JUDUL: Diubah menjadi merah tua ke merah terang */
+/* Tajuk utama: Stail font jenis Bebas Neue dengan gradient merah */
 .header h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 4.2rem;                    /* Anda boleh besarkan sedikit saiznya (asal: 2.8rem) kerana fon ini jenis kompak */
-    font-weight: 400;                     /* Bebas Neue secara lalai menggunakan weight 400 */
-    letter-spacing: 2px;                  /* Tambah sedikit jarak huruf untuk gaya yang lebih premium */
+    font-size: 4.2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
     text-transform: uppercase;
     background: linear-gradient(135deg, #ff0000, #990000 100%);
     -webkit-background-clip: text;
@@ -62,15 +94,16 @@ body {
     text-fill-color: transparent;
 }
 
+/* Sub-header / Deskripsi pendek */
 .header p {
     font-size: 1rem;
-    color: #4b5563; /* Warna kelabu gelap sederhana untuk subtajuk */
+    color: #4b5563;
     max-width: 600px;
     margin: 0 auto;
     font-weight: 400;
 }
 
-/* KOTAK INFO KEDAI: Diubah kepada kad putih bersih dengan border halus */
+/* Kotak Info Kedai (Alamat & Sosmed) */
 .store-info {
     margin-top: 20px;
     margin-bottom: 15px;
@@ -89,9 +122,9 @@ body {
 
 .store-info p {
     font-size: 1.05rem;
-    color: #1a1a1a;       /* Tukar kepada hitam pekat supaya jelas */
-    font-weight: 500;     /* Tebalkan sedikit */
-    margin-bottom: 15px;  /* Beri ruang dengan link bawah */
+    color: #1a1a1a;
+    font-weight: 500;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -102,46 +135,33 @@ body {
     justify-content: center;
 }
 
-/*.store-socials a {
-    color: #333;          
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 6px;
-    background: rgba(0,0,0,0.03); 
-    transition: all 0.3s ease;
-    text-decoration: none;
-}*/
-
 .store-socials a {
-    color: #374151; /* Warna ikon & teks kelabu gelap */
-    text-decoration: none; /* Membuang garisan bawah pada teks */
+    color: #374151;
+    text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
     transition: color 0.2s ease;
-    
-    /* --- KEMASKINI BAHAGIAN INI UNTUK LETAK DI TENGAH --- */
-    display: inline-flex;      /* Menggunakan inline-flex supaya elemen sebaris */
-    align-items: center;       /* Menyelaraskan ikon dan teks betul-betul di tengah secara menegak */
-    justify-content: center;   /* Menyelaraskan kandungan di tengah secara mendatar */
-    gap: 8px;                  /* Jarak antara ikon dan teks */
-    line-height: 1;            /* Menghalang tinggi baris (line height) daripada menolak teks ke bawah */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1;
 }
 
 .icon-img {
-    height: 1.5em; 
-    width: auto;   
+    height: 1.5em;
+    width: auto;
     object-fit: contain;
     display: block;
     transition: transform 0.2s ease;
 }
 
-/* HOVER SOSIAL MEDIA: Diubah menjadi Merah */
 .store-socials a:hover {
     color: #FF0000;
 }
 
 .store-socials a:hover .icon-img {
-    transform: scale(1.4); 
+    transform: scale(1.4);
 }
 
 .store-contact {
@@ -174,23 +194,27 @@ body {
 }
 
 .store-address a {
-    color: #6b7280;            
-    text-decoration: none;     
+    color: #6b7280;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;                  
+    gap: 6px;
 }
 
-/* HOVER ALAMAT: Diubah menjadi Merah */
 .store-address a:hover {
     color: #FF0000;
 }
 
 .store-address a:hover .icon-img {
-    transform: scale(1.9); 
+    transform: scale(1.9);
 }
 
+
+/* ==========================================
+   4. BUTANG PILIHAN EDISI (EDITION BUTTONS)
+   (Sistem tab/butang untuk tukar edisi produk)
+   ========================================== */
 .edition-buttons-container {
     display: flex;
     gap: 15px;
@@ -199,12 +223,11 @@ body {
     flex-wrap: wrap;
 }
 
-/* BUTANG EDISI (BIASA): Berwarna kelabu cerah dengan teks gelap */
 .edition-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;              
+    gap: 8px;
     padding: 10px 24px;
     border-radius: 30px;
     font-size: 0.85rem;
@@ -214,13 +237,11 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
-
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE10+ */
-    user-select: none;         /* Standard */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-
 
 .edition-btn.primary {
     background: #e5e7eb;
@@ -232,13 +253,11 @@ body {
     background: #e5e7eb;
     color: #4b5563;
     border-color: #d1d5db;
-
-    font-family: 'Birthstone', cursive; 
-    text-transform: none;              
+    font-family: 'Birthstone', cursive;
+    text-transform: none;
     font-size: 1.7rem;
 }
 
-/* TOMBOL AKTIF (2026): Gradasi merah terang ke merah gelap & bayangan merah */
 .edition-btn.primary.active {
     background: linear-gradient(135deg, #FF0000 0%, #B71C1C 100%);
     color: #ffffff;
@@ -247,7 +266,7 @@ body {
 }
 
 .edition-btn.world-cup.active {
-    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%); 
+    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
     color: #ffffff;
     border-color: transparent;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
@@ -257,30 +276,33 @@ body {
     transform: translateY(-2px);
 }
 
+
+/* ==========================================
+   5. GRID & KAD PRODUK (CATALOG)
+   (Susunan gambar produk dan efek hover)
+   ========================================== */
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px; 
+    gap: 25px;
     padding: 10px 0;
 }
 
-/* KAD PRODUK: Diubah kepada latar belakang putih bersih agar kontra dengan background milky */
 .product-card {
-    background: #ffffff; 
+    background: #ffffff;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-    border: 2px solid #e5e7eb; 
-    display: none; 
+    border: 2px solid #e5e7eb;
+    display: none;
     cursor: pointer;
 }
 
-/* BORDER HOVER KARTU PROD 2026: Diubah menjadi Merah */
 .product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(255, 0, 0, 0.12);
-    border-color: #FF0000; 
+    border-color: #FF0000;
 }
 
 .product-card.prod-wc:hover {
@@ -290,9 +312,9 @@ body {
 
 .image-container {
     position: relative;
-    background: #f3f4f6; /* Warna placeholder gambar yang lebih cerah */
+    background: #f3f4f6;
     width: 100%;
-    padding-top: 125%; 
+    padding-top: 125%;
     overflow: hidden;
 }
 
@@ -303,26 +325,27 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.8s ease 0.3s; 
+    transition: opacity 0.8s ease 0.3s;
 }
 
 .image-container .img-back {
-    opacity: 0; 
+    opacity: 0;
 }
 
 .product-card.prod-wc:not(.no-slide):hover .image-container .img-front {
     opacity: 0;
 }
+
 .product-card.prod-wc:not(.no-slide):hover .image-container .img-back {
     opacity: 1;
 }
 
-/* BADGE NEW: Latar belakang diubah menjadi Merah */
+/* Badges atas kad */
 .badge-new {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #FF0000; 
+    background: #FF0000;
     color: #ffffff;
     font-size: 0.75rem;
     font-weight: 800;
@@ -331,7 +354,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 10; 
+    z-index: 10;
     font-family: Arial, sans-serif;
 }
 
@@ -339,7 +362,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #d4af37; 
+    background: #d4af37;
     color: #1a1a1a;
     font-size: 0.75rem;
     font-weight: 800;
@@ -348,26 +371,30 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 10; 
+    z-index: 10;
     font-family: Arial, sans-serif;
 }
 
+
+/* ==========================================
+   6. SISTEM PAGINASI
+   (Butang nombor muka surat dekat bawah)
+   ========================================== */
 .pagination-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-top: auto;        
-    padding-top: 60px;       
-    padding-bottom: 20px;    
+    margin-top: auto;
+    padding-top: 60px;
+    padding-bottom: 20px;
     width: 100%;
 }
 
-/* BUTANG PAGINASI: Diubah menjadi putih bersih dengan sempadan nipis */
 .page-btn {
     width: 45px;
     height: 45px;
-    border-radius: 50px; 
+    border-radius: 50px;
     border: 2px solid #e5e7eb;
     background: #ffffff;
     color: #4b5563;
@@ -380,14 +407,12 @@ body {
     justify-content: center;
 }
 
-/* HOVER NAVIGASI HALAMAN: Diubah menjadi Merah */
 .page-btn:hover {
     border-color: #FF0000;
     color: #FF0000;
     transform: scale(1.05);
 }
 
-/* NAVIGASI HALAMAN AKTIF: Gradasi Merah */
 .page-btn.active {
     background: linear-gradient(135deg, #FF0000 0%, #B71C1C 100%);
     border-color: transparent;
@@ -395,14 +420,19 @@ body {
     box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
 }
 
-/* LIGHTBOX OVERLAY (Kekal Gelap Gelita agar gambar menonjol sepenuhnya) */
+
+/* ==========================================
+   7. LIGHTBOX DISPLAY (POP-UP GAMBAR)
+   (Stail pop-up bila user klik gambar produk,
+   termasuk butang WhatsApp & teks arahan)
+   ========================================== */
 .lightbox-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 10, 10, 0.95); 
+    background: rgba(10, 10, 10, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -422,8 +452,9 @@ body {
     max-width: 85%;
     max-height: 85vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 12px;
 }
 
 .lightbox-content img {
@@ -433,24 +464,17 @@ body {
     border-radius: 12px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
     border: 1px solid #333;
-
     -webkit-user-select: auto !important;
     -khtml-user-select: auto !important;
     -moz-user-select: auto !important;
     -o-user-select: auto !important;
     user-select: auto !important;
-    
-    /* Membenarkan semula menu 'Save Image' / 'Copy' keluar di phone (Android/iOS) */
     -webkit-touch-callout: default !important;
-    
-    /* Membenarkan semula gambar ditarik (drag) jika di desktop */
     -webkit-user-drag: auto !important;
     user-drag: auto !important;
-    
-    pointer-events: auto !important; /* Memastikan gambar boleh menerima sentuhan/klik */
+    pointer-events: auto !important;
 }
 
-/* TOMBOL CLOSE LIGHTBOX: Diubah latar belakangnya menjadi Merah (#FF0000) */
 .lightbox-close {
     position: absolute;
     top: -25px;
@@ -473,7 +497,7 @@ body {
 }
 
 .lightbox-close:hover {
-    background: #B71C1C; /* Merah gelap saat hover */
+    background: #B71C1C;
     transform: scale(1.1);
 }
 
@@ -481,8 +505,8 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.08); 
-    backdrop-filter: blur(10px); 
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -490,7 +514,7 @@ body {
     height: 60px;
     border-radius: 50%;
     cursor: pointer;
-    display: none; 
+    display: none;
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -509,7 +533,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* NAVIGASI LIGHTBOX HOVER: Diubah menjadi Merah */
 .lightbox-nav:hover {
     background: #FF0000;
     border-color: transparent;
@@ -519,7 +542,6 @@ body {
 
 .lightbox-nav.prev { left: 40px; }
 .lightbox-nav.next { right: 40px; }
-
 .lightbox-nav.prev:hover svg { transform: translateX(-2px); }
 .lightbox-nav.next:hover svg { transform: translateX(2px); }
 
@@ -527,66 +549,7 @@ body.no-scroll {
     overflow: hidden;
 }
 
-/* --- STYLE FOOTER --- */
-.site-footer {
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 50px; /* Jarak antara kandungan atas dengan footer */
-    border-top: 1px solid #e5e7eb; /* Garisan pemisah yang halus */
-    width: 100%;
-}
-
-.site-footer p {
-    font-size: 0.85rem;
-    color: #6b7280; /* Warna kelabu lembut supaya tidak terlalu menyerlah */
-    font-weight: 500;
-}
-
-/* Membuang kesan highlight biru apabila elemen diketik di telefon pintar */
-.edition-btn, a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* --- STYLE BUTANG WHATSAPP DALAM POP-UP --- */
-.lightbox-content {
-    display: flex;
-    flex-direction: column; /* Susun gambar dan butang secara menegak */
-    align-items: center;
-    gap: 12px;              /* Dikurangkan sedikit jarak antara gambar dan butang (asal: 15px) */
-}
-
-.lightbox-wa-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;               /* Kurangkan jarak antara ikon dan teks (asal: 10px) */
-    background-color: #25D366; 
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.85rem;     /* Dikecilkan saiz teks (asal: 1rem) */
-    padding: 8px 20px;      /* Dikecilkan padding atas-bawah & kiri-kanan (asal: 12px 28px) */
-    border-radius: 20px;    /* Laraskan kebulatan mengikut saiz butang baru (asal: 30px) */
-    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
-    transition: all 0.3s ease;
-    width: 70%;             /* Kurangkan lebar peratusan (asal: 80%) */
-    max-width: 220px;       /* Hadkan lebar maksimum yang lebih kecil (asal: 300px) */
-}
-
-.lightbox-wa-btn img {
-    height: 1.6em !important; /* Dikecilkan saiz ikon WhatsApp (asal: 1.5em) */
-    width: auto !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.lightbox-wa-btn:hover {
-    background-color: #128C7E; 
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-}
-
-/* --- STYLE TEKS ARAHAN LIGHTBOX (BARU) --- */
+/* Butang Tempah/WhatsApp & Arahan */
 .lightbox-action-buttons {
     display: flex;
     flex-direction: column;
@@ -596,26 +559,70 @@ body.no-scroll {
     margin-top: 10px;
 }
 
+.lightbox-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 20px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    width: 70%;
+    max-width: 220px;
+}
+
+.lightbox-wa-btn img {
+    height: 1.6em !important;
+    width: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.lightbox-wa-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
 .lightbox-instruction-text {
     font-size: 1rem;
-    color: #6b7280; /* Warna kelabu lembut yang profesional */
+    color: #6b7280;
     font-weight: 600;
     margin: 5px 0 0 0;
     text-align: center;
 }
 
-img {
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-drag: none;
-    user-drag: none;
+
+/* ==========================================
+   8. FOOTER
+   (Kredit hak cipta bahagian paling bawah)
+   ========================================== */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 1px solid #e5e7eb;
+    width: 100%;
 }
 
-/* --- RESPONSIVE MOBILE --- */
+.site-footer p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   9. RESPONSIVE DESIGN (MOBILE & TABLET)
+   (Nota: Penggayaan khas untuk skrin phone 
+   dan tablet supaya tak pecah)
+   ========================================== */
 @media (max-width: 1024px) {
     .catalog-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -625,90 +632,104 @@ img {
 }
 
 @media (max-width: 768px) {
-
+    body { 
+        padding: 30px 15px; 
+    }
+    
     .header-title-container {
-        gap: 6px;              
-        margin-bottom: 8px;    
-        align-items: center;   
-    } 
-    .header-logo { 
-        width: 95px;           
-        height: auto; 
-        margin-right: 0px;     
+        gap: 6px;
+        margin-bottom: 8px;
+        align-items: center;
     }
-    .header h1 { 
-        font-size: 3.2rem;      
-        line-height: 0.95;       
-        margin-bottom: 0px; 
+    
+    .header-logo {
+        width: 95px;
+        height: auto;
+        margin-right: 0px;
     }
-    body { padding: 30px 15px; }
-    .catalog-grid { grid-template-columns: repeat(1, 1fr); gap: 20px; }
-    .lightbox-close { top: -55px; right: 0px; }
-    .lightbox-nav { width: 48px; height: 48px; }
-    .lightbox-nav.prev { left: 15px; }
-    .lightbox-nav.next { right: 15px; }
-    .lightbox-nav svg { width: 20px; height: 20px; }
-    .lightbox-content { max-width: 95%; }
-
-
-    /* Elemen pembungkus untuk kesan fade/blur di hujung kiri & kanan */
+    
+    .header h1 {
+        font-size: 3.2rem;
+        line-height: 0.95;
+        margin-bottom: 0px;
+    }
+    
+    .catalog-grid { 
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 20px; 
+    }
+    
+    /* Layout Skrol Butang Edisi di Phone */
     .scroll-fade-wrapper {
         position: relative;
         width: 100%;
         overflow: hidden;
-        /* Mencipta kesan gradient transparent di kiri (0-5%) dan kanan (95-100%) */
         -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
         mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     }
 
     .edition-buttons-container {
         display: flex;
-        flex-wrap: nowrap;          /* Kekal satu baris */
-        overflow-x: auto;           /* Boleh skrol kiri kanan */
-        justify-content: flex-start; 
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
         width: 100%;
-        /* Tambah padding kiri & kanan supaya butang pertama/terakhir tidak terus hilang terpotong */
-        padding: 15px 20px;          
+        padding: 15px 20px;
         gap: 12px;
-        -webkit-overflow-scrolling: touch; 
-        scrollbar-width: none;      /* Sorok bar skrol Firefox */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
     }
 
-    /* Sorok bar skrol Chrome & Safari */
     .edition-buttons-container::-webkit-scrollbar {
         display: none;
     }
 
     .edition-btn {
-        flex: 0 0 auto;             /* Halang butang mengecut */
-        white-space: nowrap;        /* Teks lurus tidak pecah */
-        height: 50px;               /* Tinggi tetap/statik */
+        flex: 0 0 auto;
+        white-space: nowrap;
+        height: 50px;
     }
 
+    /* Lightbox & Butang WhatsApp Versi Mobile */
+    .lightbox-close { 
+        top: -55px; 
+        right: 0px; 
+    }
+    
+    .lightbox-nav { 
+        width: 48px; 
+        height: 48px; 
+    }
+    
+    .lightbox-nav.prev { left: 15px; }
+    .lightbox-nav.next { right: 15px; }
+    .lightbox-nav svg { width: 20px; height: 20px; }
+    
+    .lightbox-content { 
+        max-width: 95%; 
+    }
+    
     .lightbox-content img {
         max-height: 65vh;
     }
+    
     .lightbox-wa-btn {
-        font-size: 0.8rem;   
-        padding: 7px 16px;   
-        width: 75%;          
-        max-width: 200px;    
-        
-        /* --- TAMBAH INI: Untuk memberi jarak yang selesa antara ikon besar & teks --- */
+        font-size: 0.8rem;
+        padding: 7px 16px;
+        width: 75%;
+        max-width: 200px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;            
+        gap: 8px;
     }
 
     .lightbox-wa-btn img {
-        /* --- UBAH DI SINI: Tukar dari 1.3em kepada nilai yang lebih besar --- */
-        height: 1.6em !important; /* Anda boleh tukar ke 1.6em atau 1.8em mengikut kesesuaian mata */
+        height: 1.6em !important;
     }
 
     .lightbox-instruction-text {
-        font-size: 1rem; /* Kecilkan sedikit saiz tulisan di skrin telefon */
+        font-size: 1rem;
         margin: 3px 0;
     }
 }
-

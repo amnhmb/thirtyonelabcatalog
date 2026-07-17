@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ==========================================
+       1. METADATA & SEO ASAS
+       (Nota: Maklumat asas web untuk browser & Google)
+       ========================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThirtyOne Lab Official</title>
+    <meta name="description" content="ThirtyOne Lab Official - Kedai cetak baju custom apparel specialist di Kajang, Selangor.">
+    <meta name="keywords" content="ThirtyOne Lab, custom apparel, custom jersey, custom jersi, print jersey, cetak baju">
+    <link rel="icon" type="image/jpeg" href="Image/Favicon/Logo Favicon.png">
 
+    <!-- ==========================================
+       2. OPEN GRAPH DATA
+       (Nota: Setup rupa link bila kita share kat WhatsApp/FB/Social Media)
+       ========================================== -->
     <meta property="og:title" content="ThirtyOne Lab Official Catalog" />
     <meta property="og:description" content="Discover our full range of custom apparel in one place. Order your favorite design now!" />
     <meta property="og:image" content="https://amnhmb.github.io/thirtyonelabcatalog/Image/Favicon/Logo%20Favicon.png" />
     <meta property="og:url" content="https://amnhmb.github.io/thirtyonelabcatalog/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ThirtyOne Lab" />
-
-    <title>ThirtyOne Lab Official</title>
-
-    <meta name="description" content="ThirtyOne Lab Official - Kedai cetak baju custom apparel specialist di Kajang, Selangor.">
-    <meta name="keywords" content="ThirtyOne Lab, custom apparel, custom jersey, custom jersi, print jersey, cetak baju">
     
-    <link rel="icon" type="image/jpeg" href="Image/Favicon/Logo Favicon.png">
-    
-    <!-- Fonts -->
+    <!-- ==========================================
+       3. FONTS & EXTERNAL STYLESHEET
+       (Nota: Panggil font Google dengan fail CSS luaran)
+       ========================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
+        <!-- ==========================================
+           4. BAHAGIAN HEADER & INFO KEDAI
+           (Nota: Logo, nama kedai, link sosmed, alamat & butang edisi)
+           ========================================== -->
         <div class="header">
             <div class="header-title-container">
                 <img src="Image/Favicon/Logo Favicon.png" alt="ThirtyOne Lab Logo" class="header-logo">
                 <h1>ThirtyOne Lab Official</h1>
             </div>
+
             <div class="store-info">
                 <p>Discover our full range of custom apparel in one place.</p>
             </div>
+
             <div class="store-info">
+                <!-- Pautan Media Sosial Utama -->
                 <div class="store-socials">
                     <a href="https://www.tiktok.com/@thirtyonelabofficial" target="_blank">
                         <img src="Image/Favicon/Favicon Tiktok.png" alt="TikTok" class="icon-img"> TikTok
@@ -52,11 +66,15 @@
                         <img src="Image/Favicon/Favicon WhatsApp.png" alt="WhatsApp" class="icon-img"> WhatsApp
                     </a>
                 </div>
+
+                <!-- Info Email -->
                 <div class="store-contact">
                     <span>
                         <img src="Image/Favicon/Favicon Email.png" alt="Email" class="icon-img"> thirtyonelabofficial@gmail.com
                     </span>
                 </div>
+
+                <!-- Info Alamat Kedai -->
                 <div class="store-address">
                     <a href="https://maps.app.goo.gl/L6R3bP8RUKCmdaNK9" target="_blank">
                         <img src="Image/Favicon/Favicon Address.png" alt="Address" class="icon-img"> 26A, Jalan 1, Taman Bukit Cantik, 43000 Kajang, Selangor, Malaysia
@@ -64,122 +82,136 @@
                 </div>
             </div>
 
+            <!-- Butang Penukar Edisi Katalog -->
             <div class="scroll-fade-wrapper">
-    <div class="edition-buttons-container">
-        <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne Lab 2026 Edition</button>
-        <button class="edition-btn world-cup" id="btnWC" onclick="switchEdition('worldcup')"><img src="Image/Favicon/WCup.png" alt="World Cup" class="icon-img" style="height: 1.4em;"> World Cup 2026 Edition</button>
-    </div>
-    
-</div>
+                <div class="edition-buttons-container">
+                    <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne Lab 2026 Edition</button>
+                    <button class="edition-btn world-cup" id="btnWC" onclick="switchEdition('worldcup')">
+                        <img src="Image/Favicon/WCup.png" alt="World Cup" class="icon-img" style="height: 1.4em;"> World Cup 2026 Edition
+                    </button>
+                </div>
+            </div>
         </div>
 
+        <!-- ==========================================
+           5. GRID SENARAI PRODUK (CATALOG GRID)
+           (Nota: Semua gambar baju simpan kat sini. Ada kad 2026 & kad World Cup)
+           ========================================== -->
         <div class="catalog-grid" id="catalogGrid">
-            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Image/2026/Sublimation (1).jpg" alt="Sublimation (1).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Image/2026/Sublimation (2).jpg" alt="Sublimation (2).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Image/2026/Sublimation (3).jpg" alt="Sublimation (3).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Image/2026/Sublimation (4).jpg" alt="Sublimation (4).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><span class="badge-new">New</span><img src="Image/2026/Sublimation (5).jpg" alt="Sublimation (5).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (6).jpg" alt="Sublimation (6).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (7).jpg" alt="Sublimation (7).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (8).jpg" alt="Sublimation (8).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (9).jpg" alt="Sublimation (9).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (10).jpg" alt="Sublimation (10).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (11).jpg" alt="Sublimation (11).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (12).jpg" alt="Sublimation (12).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (13).jpg" alt="Sublimation (13).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (14).jpg" alt="Sublimation (14).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (15).jpg" alt="Sublimation (15).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (16).jpg" alt="Sublimation (16).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (17).jpg" alt="Sublimation (17).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (18).jpg" alt="Sublimation (18).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (19).jpg" alt="Sublimation (19).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (20).jpg" alt="Sublimation (20).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (21).jpg" alt="Sublimation (21).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (22).jpg" alt="Sublimation (22).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (23).jpg" alt="Sublimation (23).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (24).jpg" alt="Sublimation (24).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (25).jpg" alt="Sublimation (25).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (26).jpg" alt="Sublimation (26).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (27).jpg" alt="Sublimation (27).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (28).jpg" alt="Sublimation (28).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (29).jpg" alt="Sublimation (29).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (30).jpg" alt="Sublimation (30).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (31).jpg" alt="Sublimation (31).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (32).jpg" alt="Sublimation (32).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (33).jpg" alt="Sublimation (33).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (34).jpg" alt="Sublimation (34).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (35).jpg" alt="Sublimation (35).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (36).jpg" alt="Sublimation (36).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (37).jpg" alt="Sublimation (37).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (38).jpg" alt="Sublimation (38).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (39).jpg" alt="Sublimation (39).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (40).jpg" alt="Sublimation (40).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (41).jpg" alt="Sublimation (41).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (42).jpg" alt="Sublimation (42).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (43).jpg" alt="Sublimation (43).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (45).jpg" alt="Sublimation (44).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (45).jpg" alt="Sublimation (45).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (46).jpg" alt="Sublimation (46).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (47).jpg" alt="Sublimation (47).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (48).jpg" alt="Sublimation (48).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (49).jpg" alt="Sublimation (49).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (50).jpg" alt="Sublimation (50).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (51).jpg" alt="Sublimation (51).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (52).jpg" alt="Sublimation (52).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (53).jpg" alt="Sublimation (53).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (54).jpg" alt="Sublimation (54).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (55).jpg" alt="Sublimation (55).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (56).jpg" alt="Sublimation (56).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (57).jpg" alt="Sublimation (57).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (58).jpg" alt="Sublimation (58).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (59).jpg" alt="Sublimation (59).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (60).jpg" alt="Sublimation (60).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (61).jpg" alt="Sublimation (61).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (62).jpg" alt="Sublimation (62).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (63).jpg" alt="Sublimation (63).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (64).jpg" alt="Sublimation (64).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (65).jpg" alt="Sublimation (65).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (66).jpg" alt="Sublimation (66).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (67).jpg" alt="Sublimation (67).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (68).jpg" alt="Sublimation (68).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (69).jpg" alt="Sublimation (69).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (70).jpg" alt="Sublimation (70).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (71).jpg" alt="Sublimation (71).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (72).jpg" alt="Sublimation (72).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (73).jpg" alt="Sublimation (73).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (74).jpg" alt="Sublimation (74).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (75).jpg" alt="Sublimation (75).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (76).jpg" alt="Sublimation (76).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (77).jpg" alt="Sublimation (77).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (78).jpg" alt="Sublimation (78).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (79).jpg" alt="Sublimation (79).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (80).jpg" alt="Sublimation (80).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (81).jpg" alt="Sublimation (81).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (82).jpg" alt="Sublimation (82).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (83).jpg" alt="Sublimation (83).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (84).jpg" alt="Sublimation (84).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (85).jpg" alt="Sublimation (85).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (86).jpg" alt="Sublimation (86).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (87).jpg" alt="Sublimation (87).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (88).jpg" alt="Sublimation (88).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (89).jpg" alt="Sublimation (89).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (90).jpg" alt="Sublimation (90).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (91).jpg" alt="Sublimation (91).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (92).jpg" alt="Sublimation (92).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (93).jpg" alt="Sublimation (93).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (94).jpg" alt="Sublimation (94).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (95).jpg" alt="Sublimation (95).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (96).jpg" alt="Sublimation (96).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (97).jpg" alt="Sublimation (97).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (98).jpg" alt="Sublimation (98).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (99).jpg" alt="Sublimation (99).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (100).jpg" alt="Sublimation (100).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (101).jpg" alt="Sublimation (101).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (102).jpg" alt="Sublimation (102).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (103).jpg" alt="Sublimation (103).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (104).jpg" alt="Sublimation (104).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Sublimation (105).jpg" alt="Sublimation (105).jpg"></div></div>
+            
+            <!-- === EDISI KAD 2026 === -->
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (1).jpg" alt="Jersey (1).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (2).jpg" alt="Jersey (2).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (3).jpg" alt="Jersey (3).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (4).jpg" alt="Jersey (4).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (5).jpg" alt="Jersey (5).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (6).jpg" alt="Jersey (6).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (7).jpg" alt="Jersey (7).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (8).jpg" alt="Jersey (8).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (9).jpg" alt="Jersey (9).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (10).jpg" alt="Jersey (10).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (11).jpg" alt="Jersey (11).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (12).jpg" alt="Jersey (12).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (13).jpg" alt="Jersey (13).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (14).jpg" alt="Jersey (14).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (15).jpg" alt="Jersey (15).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (16).jpg" alt="Jersey (16).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (17).jpg" alt="Jersey (17).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (18).jpg" alt="Jersey (18).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (19).jpg" alt="Jersey (19).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (20).jpg" alt="Jersey (20).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (21).jpg" alt="Jersey (21).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (22).jpg" alt="Jersey (22).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (23).jpg" alt="Jersey (23).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (24).jpg" alt="Jersey (24).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (25).jpg" alt="Jersey (25).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (26).jpg" alt="Jersey (26).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (27).jpg" alt="Jersey (27).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (28).jpg" alt="Jersey (28).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (29).jpg" alt="Jersey (29).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (30).jpg" alt="Jersey (30).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (31).jpg" alt="Jersey (31).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (32).jpg" alt="Jersey (32).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (33).jpg" alt="Jersey (33).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (34).jpg" alt="Jersey (34).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (35).jpg" alt="Jersey (35).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (36).jpg" alt="Jersey (36).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (37).jpg" alt="Jersey (37).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (38).jpg" alt="Jersey (38).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (39).jpg" alt="Jersey (39).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (40).jpg" alt="Jersey (40).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (41).jpg" alt="Jersey (41).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (42).jpg" alt="Jersey (42).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (43).jpg" alt="Jersey (43).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (45).jpg" alt="Jersey (44).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (45).jpg" alt="Jersey (45).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (46).jpg" alt="Jersey (46).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (47).jpg" alt="Jersey (47).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (48).jpg" alt="Jersey (48).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (49).jpg" alt="Jersey (49).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (50).jpg" alt="Jersey (50).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (51).jpg" alt="Jersey (51).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (52).jpg" alt="Jersey (52).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (53).jpg" alt="Jersey (53).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (54).jpg" alt="Jersey (54).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (55).jpg" alt="Jersey (55).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (56).jpg" alt="Jersey (56).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (57).jpg" alt="Jersey (57).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (58).jpg" alt="Jersey (58).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (59).jpg" alt="Jersey (59).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (60).jpg" alt="Jersey (60).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (61).jpg" alt="Jersey (61).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (62).jpg" alt="Jersey (62).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (63).jpg" alt="Jersey (63).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (64).jpg" alt="Jersey (64).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (65).jpg" alt="Jersey (65).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (66).jpg" alt="Jersey (66).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (67).jpg" alt="Jersey (67).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (68).jpg" alt="Jersey (68).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (69).jpg" alt="Jersey (69).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (70).jpg" alt="Jersey (70).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (71).jpg" alt="Jersey (71).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (72).jpg" alt="Jersey (72).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (73).jpg" alt="Jersey (73).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (74).jpg" alt="Jersey (74).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (75).jpg" alt="Jersey (75).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (76).jpg" alt="Jersey (76).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (77).jpg" alt="Jersey (77).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (78).jpg" alt="Jersey (78).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (79).jpg" alt="Jersey (79).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (80).jpg" alt="Jersey (80).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (81).jpg" alt="Jersey (81).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (82).jpg" alt="Jersey (82).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (83).jpg" alt="Jersey (83).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (84).jpg" alt="Jersey (84).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (85).jpg" alt="Jersey (85).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (86).jpg" alt="Jersey (86).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (87).jpg" alt="Jersey (87).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (88).jpg" alt="Jersey (88).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (89).jpg" alt="Jersey (89).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (90).jpg" alt="Jersey (90).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (91).jpg" alt="Jersey (91).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (92).jpg" alt="Jersey (92).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (93).jpg" alt="Jersey (93).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (94).jpg" alt="Jersey (94).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (95).jpg" alt="Jersey (95).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (96).jpg" alt="Jersey (96).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (97).jpg" alt="Jersey (97).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (98).jpg" alt="Jersey (98).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (99).jpg" alt="Jersey (99).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (100).jpg" alt="Jersey (100).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (101).jpg" alt="Jersey (101).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (102).jpg" alt="Jersey (102).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (103).jpg" alt="Jersey (103).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (104).jpg" alt="Jersey (104).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (105).jpg" alt="Jersey (105).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (106).jpg" alt="Jersey (106).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (107).jpg" alt="Jersey (107).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (108).jpg" alt="Jersey (108).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (109).jpg" alt="Jersey (109).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (110).jpg" alt="Jersey (110).jpg"></div></div>
 
+            <!-- === EDISI KAD WORLD CUP === -->
             <div class="product-card prod-wc">
                 <div class="image-container">
                     <span class="badge-wc">World Cup</span>
@@ -215,38 +247,55 @@
             </div>
         </div> 
         
+        <!-- Bekas untuk Nombor Halaman (Paginasi) -->
         <div class="pagination-container" id="paginationContainer"></div>
     </div>
 
+    <!-- ==========================================
+       6. LIGHTBOX MODULE (POP-UP VIEW)
+       (Nota: Bahagian pop-up besar apabila gambar produk diklik)
+       ========================================== -->
     <div class="lightbox-overlay" id="lightboxOverlay">
+        <!-- Butang Gambar Sebelum -->
         <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous Image">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
+        
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightboxClose">×</button>
             <img src="" alt="Preview Gambar Baju" id="lightboxImg">
-            <div class="lightbox-action-buttons">
-            <p class="lightbox-instruction-text">Save/Screenshot here.📸</p>
             
-            <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
-                <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
-            </a>
+            <!-- Bahagan Aksi: Simpan Gambar & Butang WhatsApp Order -->
+            <div class="lightbox-action-buttons">
+                <p class="lightbox-instruction-text">Save/Screenshot here.📸</p>
+                <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
+                    <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
+                </a>
+            </div>
         </div>
-        </div>
+        
+        <!-- Butang Gambar Seterusnya -->
         <button class="lightbox-nav next" id="lightboxNext" aria-label="Next Image">
             <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
     </div>
 
+    <!-- ==========================================
+       7. SITE FOOTER
+       ========================================== -->
     <footer class="site-footer">
         <p>© 2026 ThirtyOne Lab. All Rights Reserved. Developed with ❤️</p>
     </footer>
 
+    <!-- ==========================================
+       8. JAVASCRIPT LOGIC
+       (Nota: Logik untuk tukar edisi, sistem muka surat/paginasi, & pop-up gambar)
+       ========================================== -->
     <script>
         const cardsPerPage = 16;
         const catalogGrid = document.getElementById('catalogGrid');
         
-        const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026'));
+        const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026')).reverse();
         const allCardsWC = Array.from(catalogGrid.getElementsByClassName('prod-wc'));
         
         let currentEdition = '2026';
@@ -256,6 +305,7 @@
         let lightboxImagesArray = [];
         let currentLightboxIndex = 0;
 
+        // Fungsi papar barisan kad ikut muka surat
         function displayPage(page) {
             currentPage = page;
             const start = (page - 1) * cardsPerPage;
@@ -274,6 +324,7 @@
             setupPaginationButtons();
         }
 
+        // Fungsi jana butang muka surat dinamis
         function setupPaginationButtons() {
             const paginationContainer = document.getElementById('paginationContainer');
             paginationContainer.innerHTML = '';
@@ -302,6 +353,7 @@
             }
         }
 
+        // Fungsi tukar katalog antara edisi biasa dan World Cup
         function switchEdition(edition) {
             if (currentEdition === edition) return;
             
@@ -322,11 +374,14 @@
             displayPage(1); 
         }
 
+        // Setup Lightbox (Pop-up paparan gambar)
         const lightboxOverlay = document.getElementById('lightboxOverlay');
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxClose = document.getElementById('lightboxClose');
         const lightboxPrev = document.getElementById('lightboxPrev');
         const lightboxNext = document.getElementById('lightboxNext');
+        const lightboxWaBtn = document.getElementById('lightboxWaBtn');
+        const myWhatsAppNumber = "601125614436"; 
 
         catalogGrid.addEventListener('click', (e) => {
             const card = e.target.closest('.product-card');
@@ -359,12 +414,18 @@
             }
         });
 
+        // Kemaskini link WhatsApp & gambar dalam pop-up
         function updateLightboxImage() {
             if (lightboxImagesArray.length > 0) {
-                lightboxImg.src = lightboxImagesArray[currentLightboxIndex];
+                const currentSrc = lightboxImagesArray[currentLightboxIndex];
+                lightboxImg.src = currentSrc;
+
+                const message = `Saya berminat dengan baju ini.`;
+                lightboxWaBtn.href = `https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`;
             }
         }
 
+        // Navigasi gambar seterusnya/sebelumnya dalam lightbox
         lightboxNext.addEventListener('click', (e) => {
             e.stopPropagation();
             if (lightboxImagesArray.length > 1) {
@@ -399,39 +460,21 @@
             lightboxImagesArray = [];
         }
 
+        // Jalankan paparan halaman pertama secara automatik semasa load
         displayPage(1);
 
-        const lightboxWaBtn = document.getElementById('lightboxWaBtn');
-        const myWhatsAppNumber = "601125614436"; // Nombor WhatsApp anda
-
-        function updateLightboxImage() {
-            if (lightboxImagesArray.length > 0) {
-                // Ambil URL gambar baju sebenar yang sedang di-zoom
-                const currentSrc = lightboxImagesArray[currentLightboxIndex];
-                lightboxImg.src = currentSrc;
-
-                // --- EDIT DI SINI: Ayat mesej teks yang bersih tanpa link dan tanpa kod nama baju ---
-                const message = `Saya berminat dengan baju ini.`;
-                
-                // Memasukkan mesej ke butang WhatsApp
-                lightboxWaBtn.href = `https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`;
-            }
-        }
-
-        // Menghalang menu klik kanan (Desktop) HANYA pada gambar katalog utama, bukan dalam lightbox
+        // Sekatan klik kanan & tarik gambar khas pada grid katalog utama (untuk elak isu mobile long-press bug)
         document.addEventListener('contextmenu', function(e) {
             if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
                 e.preventDefault();
             }
         }, false);
 
-        // Menghalang fungsi drag/tarik gambar (Desktop) HANYA pada gambar katalog utama
         document.addEventListener('dragstart', function(e) {
             if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
                 e.preventDefault();
             }
         }, false);
-
     </script>
 </body>
 </html>
