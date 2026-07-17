@@ -309,24 +309,23 @@
         // Fungsi papar barisan kad ikut muka surat (Sistem Terbalik/Reverse Betul)[cite: 3]
         function displayPage(page) {
             currentPage = page;
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
 
-            // Sembunyikan semua kad dalam grid dulu[cite: 3]
+            // Sembunyikan semua kad dalam grid terlebih dahulu
             Array.from(catalogGrid.getElementsByClassName('product-card')).forEach(card => {
                 card.style.display = 'none';
             });
 
-            // Pengiraan indeks bermula dari belakang senarai kad asal
-            const totalCards = currentCards.length;
-            const start = Math.max(0, totalCards - (page * cardsPerPage));
-            const end = totalCards - ((page - 1) * cardsPerPage);
+            // Terbalikkan keseluruhan senarai asal terlebih dahulu
+            const reversedOriginalList = [...currentCards].reverse();
 
-            // Ambil segmen kumpulan kad untuk page ini dan terbalikkan susunannya
-            const pageCards = currentCards.slice(start, end).reverse();
-
-            // Paparkan kad yang terlibat sahaja pada grid skrin
-            pageCards.forEach(card => {
-                card.style.display = 'block';
-            });
+            // Potong senarai yang telah diterbalikkan mengikut page semasa
+            reversedOriginalList.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = 'block'; 
+                }
+            }); 
 
             setupPaginationButtons();
         }
