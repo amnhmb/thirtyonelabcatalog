@@ -731,7 +731,21 @@ body.no-scroll {
     }
     
     .lightbox-content img {
-        max-height: 65vh;
+        max-height: 60vh; /* Dikurangkan sedikit daripada 65vh untuk beri lebih ruang teks di bawah */
+    }
+
+    /* --- KHAS UNTUK MEMASTIKAN TEKS CUSTOMIZABLE JELAS DI TELEFON --- */
+    .lightbox-customizable-text {
+        font-size: 0.95rem !important; /* Besarkan saiz teks di phone */
+        font-weight: 700 !important;   /* Tebalkan tulisan sepenuhnya */
+        color: #ffffff !important;      /* Paksa warna putih bersih */
+        padding: 0 10px;
+        line-height: 1.4;
+        margin-bottom: 5px;
+    }
+
+    .lightbox-action-container {
+        padding-bottom: 15px; /* Beri ruang ekstra di bahagian paling bawah skrin phone */
     }
 
     .lightbox-action-row-bottom {
