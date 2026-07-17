@@ -3,18 +3,16 @@
 <head>
     <!-- ==========================================
        1. METADATA & SEO ASAS
-       (Nota: Maklumat asas web untuk browser & Google)
        ========================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThirtyOne Lab Official</title>
     <meta name="description" content="ThirtyOne Lab Official - Kedai cetak baju custom apparel specialist di Kajang, Selangor.">
     <meta name="keywords" content="ThirtyOne Lab, custom apparel, custom jersey, custom jersi, print jersey, cetak baju">
-    <link rel="icon" type="image/jpeg" href="Image/Favicon/Logo Favicon.png">
+    <link rel="icon" type="image/jpeg" href="Image/Favicon/Favicon Tab.png">
 
     <!-- ==========================================
        2. OPEN GRAPH DATA
-       (Nota: Setup rupa link bila kita share kat WhatsApp/FB/Social Media)
        ========================================== -->
     <meta property="og:title" content="ThirtyOne Lab Official Catalog" />
     <meta property="og:description" content="Discover our full range of custom apparel in one place. Order your favorite design now!" />
@@ -25,7 +23,6 @@
     
     <!-- ==========================================
        3. FONTS & EXTERNAL STYLESHEET
-       (Nota: Panggil font Google dengan fail CSS luaran)
        ========================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +35,6 @@
     <div class="container">
         <!-- ==========================================
            4. BAHAGIAN HEADER & INFO KEDAI
-           (Nota: Logo, nama kedai, link sosmed, alamat & butang edisi)
            ========================================== -->
         <div class="header">
             <div class="header-title-container">
@@ -51,7 +47,6 @@
             </div>
 
             <div class="store-info">
-                <!-- Pautan Media Sosial Utama -->
                 <div class="store-socials">
                     <a href="https://www.tiktok.com/@thirtyonelabofficial" target="_blank">
                         <img src="Image/Favicon/Favicon Tiktok.png" alt="TikTok" class="icon-img"> TikTok
@@ -67,14 +62,12 @@
                     </a>
                 </div>
 
-                <!-- Info Email -->
                 <div class="store-contact">
                     <span>
                         <img src="Image/Favicon/Favicon Email.png" alt="Email" class="icon-img"> thirtyonelabofficial@gmail.com
                     </span>
                 </div>
 
-                <!-- Info Alamat Kedai -->
                 <div class="store-address">
                     <a href="https://maps.app.goo.gl/L6R3bP8RUKCmdaNK9" target="_blank">
                         <img src="Image/Favicon/Favicon Address.png" alt="Address" class="icon-img"> 26A, Jalan 1, Taman Bukit Cantik, 43000 Kajang, Selangor, Malaysia
@@ -82,7 +75,6 @@
                 </div>
             </div>
 
-            <!-- Butang Penukar Edisi Katalog -->
             <div class="scroll-fade-wrapper">
                 <div class="edition-buttons-container">
                     <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne Lab 2026 Edition</button>
@@ -95,7 +87,6 @@
 
         <!-- ==========================================
            5. GRID SENARAI PRODUK (CATALOG GRID)
-           (Nota: Semua gambar baju disimpan di sini mengikut turutan kod HTML biasa)
            ========================================== -->
         <div class="catalog-grid" id="catalogGrid">
             
@@ -166,7 +157,7 @@
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0047).jpg" alt="Jersey (0047).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0046).jpg" alt="Jersey (0046).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0045).jpg" alt="Jersey (0045).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0045).jpg" alt="Jersey (0044).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0044).jpg" alt="Jersey (0044).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0043).jpg" alt="Jersey (0043).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0042).jpg" alt="Jersey (0042).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0041).jpg" alt="Jersey (0041).jpg"></div></div>
@@ -253,10 +244,8 @@
 
     <!-- ==========================================
        6. LIGHTBOX MODULE (POP-UP VIEW)
-       (Nota: Bahagian pop-up besar apabila gambar produk diklik)
        ========================================== -->
     <div class="lightbox-overlay" id="lightboxOverlay">
-        <!-- Butang Gambar Sebelum -->
         <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous Image">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
@@ -265,16 +254,26 @@
             <button class="lightbox-close" id="lightboxClose">×</button>
             <img src="" alt="Preview Gambar Baju" id="lightboxImg">
             
-            <!-- Bahagan Aksi: Simpan Gambar & Butang WhatsApp Order -->
-            <div class="lightbox-action-buttons">
-                <p class="lightbox-instruction-text">Save/Screenshot here.📸</p>
-                <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
-                    <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
-                </a>
+            <div class="lightbox-action-container">
+                <div class="lightbox-customizable-text">
+                    💡 Customizable: Collar • Sleeves • Name Set • Material • Graphic/Colour 
+                </div>
+
+                <!-- BLOK SUSUNAN SENTRAL MINIMALIS -->
+                <div class="lightbox-action-row-top">
+                    <p class="lightbox-instruction-text">Save/Screenshot here.📸</p>
+                </div>
+
+                <div class="lightbox-action-row-bottom">
+                    <div class="lightbox-action-buttons">
+                        <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
+                            <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <!-- Butang Gambar Seterusnya -->
         <button class="lightbox-nav next" id="lightboxNext" aria-label="Next Image">
             <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
@@ -293,35 +292,32 @@
 
     <!-- ==========================================
        8. JAVASCRIPT LOGIC
-       (Nota: Logik penukaran edisi, sistem muka surat asal, & zoom gambar)
        ========================================== -->
     <script>
         const cardsPerPage = 16;
         const catalogGrid = document.getElementById('catalogGrid');
         
-        // Membaca kad mengikut susunan asal HTML tanpa sebarang kaedah .reverse()[cite: 3]
         const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026'));
         const allCardsWC = Array.from(catalogGrid.getElementsByClassName('prod-wc'));
         
-        let currentEdition = '2026';
-        let currentCards = allCards2026; 
-        let currentPage = 1;
+        let currentEdition = localStorage.getItem('lastEdition') || '2026';
+        let currentPage = parseInt(localStorage.getItem('lastPage')) || 1;
+        let currentCards = (currentEdition === '2026') ? allCards2026 : allCardsWC; 
 
         let lightboxImagesArray = [];
         let currentLightboxIndex = 0;
 
-        // Fungsi papar barisan kad ikut muka surat (Susunan Standard)
-        function displayPage(page) {
+        function displayPage(page, shouldScroll = true) {
             currentPage = page;
+            localStorage.setItem('lastPage', page);
+
             const start = (page - 1) * cardsPerPage;
             const end = start + cardsPerPage;
 
-            // Sembunyikan semua kad dalam grid dulu
             Array.from(catalogGrid.getElementsByClassName('product-card')).forEach(card => {
                 card.style.display = 'none';
             });
 
-            // Paparkan kad mengikut segmen urutan biasa (1, 2, 3...)
             currentCards.forEach((card, index) => {
                 if (index >= start && index < end) {
                     card.style.display = 'block'; 
@@ -329,9 +325,16 @@
             });
 
             setupPaginationButtons();
+
+            // Memperbaiki glitch: Hanya skrol jika diubah secara manual (bukan semasa reload automatik)
+            if (shouldScroll) {
+                window.scrollTo({
+                    top: catalogGrid.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
         }
 
-        // Fungsi jana butang muka surat dinamis
         function setupPaginationButtons() {
             const paginationContainer = document.getElementById('paginationContainer');
             paginationContainer.innerHTML = '';
@@ -349,22 +352,17 @@
                 }
 
                 button.addEventListener('click', () => {
-                    displayPage(i);
-                    window.scrollTo({
-                        top: catalogGrid.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
+                    displayPage(i, true);
                 });
 
                 paginationContainer.appendChild(button);
             }
         }
 
-        // Fungsi tukar katalog antara edisi biasa dan World Cup
         function switchEdition(edition) {
-            if (currentEdition === edition) return;
-            
             currentEdition = edition;
+            localStorage.setItem('lastEdition', edition);
+
             const btn2026 = document.getElementById('btn2026');
             const btnWC = document.getElementById('btnWC');
 
@@ -378,10 +376,37 @@
                 btn2026.classList.remove('active');
             }
 
-            displayPage(1); 
+            displayPage(1, true); 
         }
 
-        // Setup Lightbox (Pop-up paparan gambar)
+        function initEditionOnLoad() {
+            // Mematikan lompatan auto-scroll browser bawaan semasa reload untuk atasi glitch visual
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+
+            const btn2026 = document.getElementById('btn2026');
+            const btnWC = document.getElementById('btnWC');
+
+            if (currentEdition === '2026') {
+                currentCards = allCards2026;
+                btn2026.classList.add('active');
+                btnWC.classList.remove('active');
+            } else {
+                currentCards = allCardsWC;
+                btnWC.classList.add('active');
+                btn2026.classList.remove('active');
+            }
+            
+            const totalPages = Math.ceil(currentCards.length / cardsPerPage);
+            if (currentPage > totalPages) {
+                currentPage = 1;
+            }
+
+            // Hantar false supaya skrin tidak tersentak/skrol semasa kali pertama sistem dimuatkan
+            displayPage(currentPage, false);
+        }
+
         const lightboxOverlay = document.getElementById('lightboxOverlay');
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxClose = document.getElementById('lightboxClose');
@@ -395,7 +420,7 @@
             if (card) {
                 const imgs = Array.from(card.querySelectorAll('.image-container img'));
                 lightboxImagesArray = imgs.map(img => img.src);
-                
+
                 let imgBack = card.querySelector('.img-back');
                 let initialSrc = imgs[0].src; 
 
@@ -421,7 +446,6 @@
             }
         });
 
-        // Kemaskini link WhatsApp & gambar dalam pop-up
         function updateLightboxImage() {
             if (lightboxImagesArray.length > 0) {
                 const currentSrc = lightboxImagesArray[currentLightboxIndex];
@@ -432,7 +456,6 @@
             }
         }
 
-        // Navigasi gambar seterusnya/sebelumnya dalam lightbox
         lightboxNext.addEventListener('click', (e) => {
             e.stopPropagation();
             if (lightboxImagesArray.length > 1) {
@@ -467,10 +490,8 @@
             lightboxImagesArray = [];
         }
 
-        // Jalankan paparan halaman pertama secara automatik semasa mula dibuka
-        displayPage(1);
+        initEditionOnLoad();
 
-        // Sekatan klik kanan & tarik gambar khas pada grid katalog utama (untuk elak isu mobile long-press bug)
         document.addEventListener('contextmenu', function(e) {
             if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
                 e.preventDefault();
