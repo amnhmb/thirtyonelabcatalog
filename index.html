@@ -95,11 +95,11 @@
 
         <!-- ==========================================
            5. GRID SENARAI PRODUK (CATALOG GRID)
-           (Nota: Semua gambar baju simpan kat sini. Ada kad 2026 & kad World Cup)
+           (Nota: Semua gambar baju disimpan di sini mengikut turutan kod HTML biasa)
            ========================================== -->
         <div class="catalog-grid" id="catalogGrid">
             
-            <!-- === EDISI KAD 2026 (1 sehingga 105) === -->
+            <!-- === EDISI KAD 2026 (1 sehingga 110) === -->
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (1).jpg" alt="Jersey (1).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (2).jpg" alt="Jersey (2).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (3).jpg" alt="Jersey (3).jpg"></div></div>
@@ -211,7 +211,6 @@
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (109).jpg" alt="Jersey (109).jpg"><span class="badge-new">New</span></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (110).jpg" alt="Jersey (110).jpg"><span class="badge-new">New</span></div></div>
 
-
             <!-- === EDISI KAD WORLD CUP === -->
             <div class="product-card prod-wc">
                 <div class="image-container">
@@ -290,13 +289,13 @@
 
     <!-- ==========================================
        8. JAVASCRIPT LOGIC
-       (Nota: Logik penukaran edisi, sistem muka surat terbalik, & zoom gambar)
+       (Nota: Logik penukaran edisi, sistem muka surat terbalik mengikut kumpulan, & zoom gambar)
        ========================================== -->
     <script>
         const cardsPerPage = 16;
         const catalogGrid = document.getElementById('catalogGrid');
         
-        // Ambil mengikut susunan HTML asal (1, 2, 3...)
+        // Ambil mengikut susunan HTML asal (1, 2, 3...)[cite: 3]
         const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026'));
         const allCardsWC = Array.from(catalogGrid.getElementsByClassName('prod-wc'));
         
@@ -307,31 +306,32 @@
         let lightboxImagesArray = [];
         let currentLightboxIndex = 0;
 
-        // Fungsi papar barisan kad ikut muka surat (Sistem Terbalik/Reverse)
+        // Fungsi papar barisan kad ikut muka surat (Sistem Terbalik/Reverse Betul)[cite: 3]
         function displayPage(page) {
             currentPage = page;
-            const start = (page - 1) * cardsPerPage;
-            const end = start + cardsPerPage;
 
-            // Sembunyikan semua kad dalam grid dulu
+            // Sembunyikan semua kad dalam grid dulu[cite: 3]
             Array.from(catalogGrid.getElementsByClassName('product-card')).forEach(card => {
                 card.style.display = 'none';
             });
 
-            // Teras logik reverse: Salin senarai asal dan terbalikkan (contoh: 105, 104, 103...)
-            const reversedCards = [...currentCards].reverse();
+            // Pengiraan indeks bermula dari belakang senarai kad asal
+            const totalCards = currentCards.length;
+            const start = Math.max(0, totalCards - (page * cardsPerPage));
+            const end = totalCards - ((page - 1) * cardsPerPage);
 
-            // Sistem potong kad yang diterbalikkan untuk page semasa (Page 1 dapat nombor besar)
-            reversedCards.forEach((card, index) => {
-                if (index >= start && index < end) {
-                    card.style.display = 'block'; 
-                }
+            // Ambil segmen kumpulan kad untuk page ini dan terbalikkan susunannya
+            const pageCards = currentCards.slice(start, end).reverse();
+
+            // Paparkan kad yang terlibat sahaja pada grid skrin
+            pageCards.forEach(card => {
+                card.style.display = 'block';
             });
 
             setupPaginationButtons();
         }
 
-        // Fungsi jana butang muka surat dinamis
+        // Fungsi jana butang muka surat dinamis[cite: 3]
         function setupPaginationButtons() {
             const paginationContainer = document.getElementById('paginationContainer');
             paginationContainer.innerHTML = '';
@@ -360,7 +360,7 @@
             }
         }
 
-        // Fungsi tukar katalog antara edisi biasa dan World Cup
+        // Fungsi tukar katalog antara edisi biasa dan World Cup[cite: 3]
         function switchEdition(edition) {
             if (currentEdition === edition) return;
             
@@ -381,7 +381,7 @@
             displayPage(1); 
         }
 
-        // Setup Lightbox (Pop-up paparan gambar)
+        // Setup Lightbox (Pop-up paparan gambar)[cite: 3]
         const lightboxOverlay = document.getElementById('lightboxOverlay');
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxClose = document.getElementById('lightboxClose');
@@ -421,7 +421,7 @@
             }
         });
 
-        // Kemaskini link WhatsApp & gambar dalam pop-up
+        // Kemaskini link WhatsApp & gambar dalam pop-up[cite: 3]
         function updateLightboxImage() {
             if (lightboxImagesArray.length > 0) {
                 const currentSrc = lightboxImagesArray[currentLightboxIndex];
@@ -432,7 +432,7 @@
             }
         }
 
-        // Navigasi gambar seterusnya/sebelumnya dalam lightbox
+        // Navigasi gambar seterusnya/sebelumnya dalam lightbox[cite: 3]
         lightboxNext.addEventListener('click', (e) => {
             e.stopPropagation();
             if (lightboxImagesArray.length > 1) {
@@ -467,10 +467,10 @@
             lightboxImagesArray = [];
         }
 
-        // Jalankan paparan halaman pertama secara automatik semasa mula dibuka
+        // Jalankan paparan halaman pertama secara automatik semasa mula dibuka[cite: 3]
         displayPage(1);
 
-        // Sekatan klik kanan & tarik gambar khas pada grid katalog utama (untuk elak isu mobile long-press bug)
+        // Sekatan klik kanan & tarik gambar khas pada grid katalog utama (untuk elak isu mobile long-press bug)[cite: 3]
         document.addEventListener('contextmenu', function(e) {
             if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
                 e.preventDefault();
