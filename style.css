@@ -536,19 +536,19 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    align-items: center; /* Memastikan semua kandungan berada di tengah secara lalai */
+    align-items: center;
 }
 
 /* --- Teks Info Kustom Luaran --- */
 .lightbox-customizable-text {
     width: 100%;
     text-align: center;
-    color: #cccccc; 
-    font-size: 0.78rem; 
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    color: #ffffff; /* DIKEMASKINI: Ditukar kepada putih sepenuhnya untuk kejelasan skrin telefon */
+    font-size: 0.82rem; /* Dinaikkan sedikit untuk keterbacaan yang lebih baik */
+    font-weight: 600; /* Ditebalkan sedikit untuk impak visual premium */
+    letter-spacing: 0.6px;
     font-family: Arial, sans-serif;
-    opacity: 0.85; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Ditambah shadow supaya teks timbul pada imej */
 }
 
 /* --- 1. Baris Atas: Reminder Sentral --- */
@@ -569,7 +569,7 @@ body.no-scroll {
 /* --- 2. Baris Bawah: Blok Butang Sentral --- */
 .lightbox-action-row-bottom {
     display: flex;
-    justify-content: center; /* Dikemaskini: Butang WhatsApp berada tepat di tengah-tengah skrin */
+    justify-content: center; 
     align-items: center;
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
