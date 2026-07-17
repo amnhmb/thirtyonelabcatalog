@@ -296,7 +296,7 @@
         const catalogGrid = document.getElementById('catalogGrid');
         
         // Ambil mengikut susunan HTML asal (1, 2, 3...)[cite: 3]
-        const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026'));
+        const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026')).reverse();
         const allCardsWC = Array.from(catalogGrid.getElementsByClassName('prod-wc'));
         
         let currentEdition = '2026';
