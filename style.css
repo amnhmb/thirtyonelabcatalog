@@ -73,12 +73,9 @@ img {
     width: 80px;
     height: auto;
     margin-right: 15px;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    overflow: hidden;
+
 }
+
 
 /* Tajuk utama: Stail font jenis Bebas Neue dengan gradient merah */
 .header h1 {
@@ -247,6 +244,9 @@ img {
     background: #e5e7eb;
     color: #4b5563;
     border-color: #d1d5db;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: none;
+    font-size: 1.45rem;
 }
 
 .edition-btn.world-cup {
@@ -617,6 +617,18 @@ body.no-scroll {
     font-weight: 500;
 }
 
+.footer-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.footer-logo {
+    width: 35px;
+    height: auto;
+    margin-right: 15px;
+}
 
 /* ==========================================
    9. RESPONSIVE DESIGN (MOBILE & TABLET)
