@@ -99,7 +99,7 @@
            ========================================== -->
         <div class="catalog-grid" id="catalogGrid">
             
-            <!-- === EDISI KAD 2026 === -->
+            <!-- === EDISI KAD 2026 (1 sehingga 105) === -->
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (1).jpg" alt="Jersey (1).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (2).jpg" alt="Jersey (2).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (3).jpg" alt="Jersey (3).jpg"></div></div>
@@ -205,11 +205,12 @@
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (103).jpg" alt="Jersey (103).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (104).jpg" alt="Jersey (104).jpg"></div></div>
             <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (105).jpg" alt="Jersey (105).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (106).jpg" alt="Jersey (106).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (107).jpg" alt="Jersey (107).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (108).jpg" alt="Jersey (108).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (109).jpg" alt="Jersey (109).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (110).jpg" alt="Jersey (110).jpg"></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (106).jpg" alt="Jersey (106).jpg"><span class="badge-new">New</span></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (107).jpg" alt="Jersey (107).jpg"><span class="badge-new">New</span></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (108).jpg" alt="Jersey (108).jpg"><span class="badge-new">New</span></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (109).jpg" alt="Jersey (109).jpg"><span class="badge-new">New</span></div></div>
+            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (110).jpg" alt="Jersey (110).jpg"><span class="badge-new">New</span></div></div>
+
 
             <!-- === EDISI KAD WORLD CUP === -->
             <div class="product-card prod-wc">
@@ -289,13 +290,14 @@
 
     <!-- ==========================================
        8. JAVASCRIPT LOGIC
-       (Nota: Logik untuk tukar edisi, sistem muka surat/paginasi, & pop-up gambar)
+       (Nota: Logik penukaran edisi, sistem muka surat terbalik, & zoom gambar)
        ========================================== -->
     <script>
         const cardsPerPage = 16;
         const catalogGrid = document.getElementById('catalogGrid');
         
-        const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026')).reverse();
+        // Ambil mengikut susunan HTML asal (1, 2, 3...)
+        const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026'));
         const allCardsWC = Array.from(catalogGrid.getElementsByClassName('prod-wc'));
         
         let currentEdition = '2026';
@@ -305,17 +307,22 @@
         let lightboxImagesArray = [];
         let currentLightboxIndex = 0;
 
-        // Fungsi papar barisan kad ikut muka surat
+        // Fungsi papar barisan kad ikut muka surat (Sistem Terbalik/Reverse)
         function displayPage(page) {
             currentPage = page;
             const start = (page - 1) * cardsPerPage;
             const end = start + cardsPerPage;
 
+            // Sembunyikan semua kad dalam grid dulu
             Array.from(catalogGrid.getElementsByClassName('product-card')).forEach(card => {
                 card.style.display = 'none';
             });
 
-            currentCards.forEach((card, index) => {
+            // Teras logik reverse: Salin senarai asal dan terbalikkan (contoh: 105, 104, 103...)
+            const reversedCards = [...currentCards].reverse();
+
+            // Sistem potong kad yang diterbalikkan untuk page semasa (Page 1 dapat nombor besar)
+            reversedCards.forEach((card, index) => {
                 if (index >= start && index < end) {
                     card.style.display = 'block'; 
                 }
@@ -460,7 +467,7 @@
             lightboxImagesArray = [];
         }
 
-        // Jalankan paparan halaman pertama secara automatik semasa load
+        // Jalankan paparan halaman pertama secara automatik semasa mula dibuka
         displayPage(1);
 
         // Sekatan klik kanan & tarik gambar khas pada grid katalog utama (untuk elak isu mobile long-press bug)
