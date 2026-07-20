@@ -30,6 +30,7 @@ const allCardsSponsor = Array.from(catalogGrid.getElementsByClassName('prod-spon
 const allCardsSizeShirt = Array.from(catalogGrid.getElementsByClassName('prod-sizechart-shirt'));
 const allCardsSizePants = Array.from(catalogGrid.getElementsByClassName('prod-sizechart-pants'));
 const allCardsSizeMuslimah = Array.from(catalogGrid.getElementsByClassName('prod-sizechart-muslimah'));
+const allCardsPlacement = Array.from(catalogGrid.getElementsByClassName('prod-placementguide'));
 
 let currentEdition = localStorage.getItem('lastEdition') || '2026';
 let currentPage = parseInt(localStorage.getItem('lastPage')) || 1;
@@ -42,16 +43,47 @@ function initReferenceNumbers() {
         if (card.classList.contains('prod-2026') || card.classList.contains('prod-wc')) {
             const img = card.querySelector('img');
             if (img && img.src) {
-                // Example: Jersey (0110).jpg -> 0110
-                const match = img.src.match(/\((\d+)\)/);
-                if (match && match[1]) {
-                    const refNumber = match[1];
+                const decodedSrc = decodeURIComponent(img.src);
+                
+                if (decodedSrc.includes('For Your Own Design')) {
+                    const refNumber = 'For Your Own Design';
                     card.setAttribute('data-ref', refNumber);
 
                     const refBadge = document.createElement('span');
                     refBadge.className = 'ref-number-badge';
-                    refBadge.innerText = `#${refNumber}`;
+                    refBadge.innerText = refNumber;
                     card.querySelector('.image-container').appendChild(refBadge);
+                } else {
+                    const match = decodedSrc.match(/\((\d+)\)/);
+                    if (match && match[1]) {
+                        const refNumber = match[1];
+                        card.setAttribute('data-ref', refNumber);
+
+                        const refBadge = document.createElement('span');
+                        refBadge.className = 'ref-number-badge';
+                        refBadge.innerText = `#${refNumber}`;
+                        card.querySelector('.image-container').appendChild(refBadge);
+                    }
+                }
+            }
+        } else if (card.classList.contains('prod-material')) {
+            const img = card.querySelector('img');
+            if (img && img.src) {
+                // Extract filename without extension
+                const fileNameMatch = img.src.match(/([^\/]+)(?=\.\w+$)/);
+                if (fileNameMatch && fileNameMatch[1]) {
+                    const refName = decodeURIComponent(fileNameMatch[1]);
+                    card.setAttribute('data-ref', refName);
+
+                    const refBadge = document.createElement('span');
+                    refBadge.className = 'ref-number-badge';
+                    refBadge.innerText = refName;
+
+                    // Look for image container to append badge
+                    const imgContainer = card.querySelector('.image-container, .placementguide-image-block');
+                    if (imgContainer) {
+                        imgContainer.appendChild(refBadge);
+                    }
                 }
             }
         }
@@ -70,18 +102,24 @@ function updateCurrentCards(edition) {
         case 'sizechart-shirt': currentCards = allCardsSizeShirt; break;
         case 'sizechart-pants': currentCards = allCardsSizePants; break;
         case 'sizechart-muslimah': currentCards = allCardsSizeMuslimah; break;
+        case 'placementguide': currentCards = allCardsPlacement; break;
         default: currentCards = allCards2026;
     }
 }
 
 function displayPage(page, shouldScroll = true) {
+    const totalPages = Math.ceil(currentCards.length / cardsPerPage);
+    if (page > totalPages && totalPages > 0) {
+        page = totalPages;
+    }
+
     currentPage = page;
     localStorage.setItem('lastPage', page);
     const start = (page - 1) * cardsPerPage;
     const end = start + cardsPerPage;
 
     Array.from(catalogGrid.getElementsByClassName('product-card')).forEach(card => card.style.display = 'none');
-    catalogGrid.classList.remove('grid-nameset-layout', 'grid-sponsor-layout', 'grid-sizechart-layout', 'grid-neck-layout', 'grid-material-layout');
+    catalogGrid.classList.remove('grid-nameset-layout', 'grid-sponsor-layout', 'grid-sizechart-layout', 'grid-neck-layout', 'grid-material-layout', 'grid-placementguide-layout');
     document.getElementById('sponsorDisclaimer').style.display = 'none';
 
     let isCustomLayout = false;
@@ -90,6 +128,7 @@ function displayPage(page, shouldScroll = true) {
     else if (currentEdition.startsWith('sizechart')) { catalogGrid.classList.add('grid-sizechart-layout'); isCustomLayout = true; }
     else if (currentEdition === 'neck') { catalogGrid.classList.add('grid-neck-layout'); isCustomLayout = true; }
     else if (currentEdition === 'material') { catalogGrid.classList.add('grid-material-layout'); isCustomLayout = true; }
+    else if (currentEdition === 'placementguide') { catalogGrid.classList.add('grid-placementguide-layout'); isCustomLayout = true; }
 
     if (isCustomLayout) {
         currentCards.forEach(card => card.style.display = 'block');
@@ -104,11 +143,11 @@ function displayPage(page, shouldScroll = true) {
     if (shouldScroll) {
         let scrollOffset = 150;
 
-        if (currentEdition === 'sizechart-shirt' || currentEdition === 'sizechart-pants' || currentEdition === 'sizechart-muslimah') {
+        if (currentEdition === 'sizechart-shirt' || currentEdition === 'sizechart-pants' || currentEdition === 'sizechart-muslimah' || currentEdition === 'placementguide' || currentEdition === 'nameset') {
             scrollOffset = 200;
         }
         else if (currentEdition === 'sponsor') {
-            scrollOffset = 180;
+            scrollOffset = 235;
         }
 
         window.scrollTo({ top: catalogGrid.offsetTop - scrollOffset, behavior: 'smooth' });
@@ -142,8 +181,17 @@ function switchEdition(edition) {
     else if (edition === 'worldcup') document.getElementById('btnWC').classList.add('active');
     else if (edition === 'material') document.getElementById('btnMaterial').classList.add('active');
     else if (edition === 'neck') document.getElementById('btnNeck').classList.add('active');
-    else if (edition === 'nameset') document.getElementById('btnNameset').classList.add('active');
-    else if (edition === 'sponsor') document.getElementById('btnSponsor').classList.add('active');
+
+    if (edition === 'nameset' || edition === 'sponsor' || edition === 'placementguide') {
+        document.getElementById('btnPrinting').classList.add('active');
+        document.getElementById('printingSubMenu').classList.add('active');
+
+        if (edition === 'nameset') document.getElementById('btnNameset').classList.add('active');
+        if (edition === 'sponsor') document.getElementById('btnSponsor').classList.add('active');
+        if (edition === 'placementguide') document.getElementById('btnPlacementGuide').classList.add('active');
+    } else {
+        document.getElementById('printingSubMenu').classList.remove('active');
+    }
 
     if (edition === 'sizechart-shirt') {
         document.getElementById('btnSizeChart').classList.add('active');
@@ -163,6 +211,18 @@ function switchEdition(edition) {
 
     updateCurrentCards(edition);
     displayPage(1, true);
+}
+
+function togglePrintingSubMenu() {
+    const subMenu = document.getElementById('printingSubMenu');
+    const mainBtn = document.getElementById('btnPrinting');
+
+    subMenu.classList.toggle('active');
+    mainBtn.classList.toggle('active');
+
+    if (subMenu.classList.contains('active')) {
+        switchEdition('nameset');
+    }
 }
 
 function toggleSizeChartSubMenu() {
@@ -187,27 +247,28 @@ catalogGrid.addEventListener('click', (e) => {
     const card = e.target.closest('.product-card');
     if (!card) return;
 
-    // Block popup for nameset, sponsor, neck, material
+    // Block popup for nameset, sponsor, neck
     if (card.classList.contains('prod-nameset') ||
         card.classList.contains('prod-sponsor') ||
-        card.classList.contains('prod-neck') ||
-        card.classList.contains('prod-material')) {
+        card.classList.contains('prod-neck')) {
         return;
     }
 
-    const isSizeChart = card.classList.contains('prod-sizechart-shirt') ||
+    const isSizeChartOrMaterial = card.classList.contains('prod-sizechart-shirt') ||
         card.classList.contains('prod-sizechart-pants') ||
-        card.classList.contains('prod-sizechart-muslimah');
+        card.classList.contains('prod-sizechart-muslimah') ||
+        card.classList.contains('prod-material') ||
+        card.classList.contains('prod-placementguide');
 
     // Get image from appropriate container
-    const imgs = Array.from(card.querySelectorAll('.image-container img, .sizechart-image-block img'));
+    const imgs = Array.from(card.querySelectorAll('.image-container img, .sizechart-image-block img, .neck-image-block img, .sponsor-image-block img, .nameset-image-block img, .placementguide-image-block img'));
     if (imgs.length === 0) return;
 
     lightboxImg.src = imgs[0].src;
 
     // Show/hide action buttons based on card type
     const actionContainer = document.querySelector('.lightbox-action-container');
-    if (isSizeChart) {
+    if (isSizeChartOrMaterial) {
         actionContainer.style.display = 'none';
     } else {
         actionContainer.style.display = '';
@@ -256,8 +317,13 @@ lightboxOverlay.addEventListener('click', (e) => {
 
 document.getElementById('openQuoteBuilderBtn').addEventListener('click', () => {
     lightboxOverlay.classList.remove('active');
-    quoteSelections.design = currentRefNumber;
-    openQuoteBuilder();
+    if (currentRefNumber === 'For Your Own Design') {
+        quoteSelectionsOwn.design = currentRefNumber;
+        openQuoteBuilderOwn();
+    } else {
+        quoteSelections.design = currentRefNumber;
+        openQuoteBuilder();
+    }
 });
 
 

@@ -89,14 +89,14 @@ Each prompt can be copied directly into your AI tool of choice (e.g. Claude, v0,
 
   ```
   Hi ThirtyOne Lab! I'm interested in ordering:
-  ~
+  
   Design: #0110
   Quantity: 20 pieces
   Material: Interlock 160GSM
   Cutting: Normal Cutting
   Sleeve: Short Sleeve
   Neck/Collar: Collar Button (Polo)
-  ~
+
   Could I get a quotation for this order?
   ```
 

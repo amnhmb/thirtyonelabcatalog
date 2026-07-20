@@ -1,4 +1,10 @@
-﻿const catalogHTML = `
+const catalogHTML = `
+            <!-- === EDISI KAD 2026 (For Your Own Design) === -->
+            <div class="product-card prod-2026">
+                <div class="image-container"><img src="Image/2026/Jersey (For Your Own Design).png" alt="Jersey (For Your Own Design).png"></div>
+            </div>
+
+
             <!-- === EDISI KAD 2026 (1 SEHINGGA 110 LENGKAP) === -->
             <div class="product-card prod-2026">
                 <div class="image-container"><img src="Image/2026/Jersey (0110).jpg" alt="Jersey (0110).jpg"><span
@@ -434,6 +440,11 @@
                 </div>
             </div>
 
+            <!-- === SECTION FOR PLACEMENT GUIDE === -->
+            <div class="product-card prod-placementguide">
+                <div class="placementguide-image-block"><img src="Image/Placement Guide/Placement Guide.jpeg" alt="Placement Guide"></div>
+            </div>
+
             <!-- === SECTION FOR SHIRT SIZE CHART === -->
             <div class="product-card prod-sizechart-shirt">
                 <div class="sizechart-image-block"><img src="Image/SizeChart/Shirts/SCS (1).png"
@@ -476,9 +487,30 @@
                         alt="Muslimah Size Chart 2"></div>
             </div>
 
-            <!-- TEMPLATE ASAL SECTION PAGES LAIN -->
+            <!-- === SECTION FOR MATERIAL === -->
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Sample.jpg" alt="Material 1"></div>
+                <div class="image-container"><img src="Image/Material/Diamond.png" alt="Diamond"></div>
+            </div>
+            <div class="product-card prod-material">
+                <div class="image-container"><img src="Image/Material/Eyelet.png" alt="Eyelet"></div>
+            </div>
+            <div class="product-card prod-material">
+                <div class="image-container"><img src="Image/Material/Interlock.png" alt="Interlock"></div>
+            </div>
+            <div class="product-card prod-material">
+                <div class="image-container"><img src="Image/Material/Lycra.png" alt="Lycra"></div>
+            </div>
+            <div class="product-card prod-material">
+                <div class="image-container"><img src="Image/Material/Mesh.png" alt="Mesh"></div>
+            </div>
+            <div class="product-card prod-material">
+                <div class="image-container"><img src="Image/Material/Mini-Eyelet.png" alt="Mini-Eyelet"></div>
+            </div>
+            <div class="product-card prod-material">
+                <div class="image-container"><img src="Image/Material/Popcorn.png" alt="Popcorn"></div>
+            </div>
+            <div class="product-card prod-material">
+                <div class="image-container"><img src="Image/Material/RJPK.png" alt="RJPK"></div>
             </div>
             <!-- === SECTION FOR NECK === -->
             <div class="product-card prod-neck">

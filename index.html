@@ -115,33 +115,50 @@
                         <img src="Image/Favicon/Favicon Neck.png" alt="Neck" class="spec-icon">
                         Neck
                     </button>
-                    <button class="spec-btn" id="btnNameset" onclick="switchEdition('nameset')">
-                        <img src="Image/Favicon/Favicon NameSet.png" alt="Name Set" class="spec-icon">
-                        Name Set
-                    </button>
-                    <button class="spec-btn" id="btnSponsor" onclick="switchEdition('sponsor')">
-                        <img src="Image/Favicon/Favicon Sponsor.png" alt="Sponsor" class="spec-icon">
-                        Sponsor
+                    <button class="spec-btn" id="btnPrinting" onclick="togglePrintingSubMenu()">
+                        <img src="Image/Favicon/Favicon Printing.png" alt="Printing" class="spec-icon">
+                        Printing
                     </button>
                     <button class="spec-btn" id="btnSizeChart" onclick="toggleSizeChartSubMenu()">
                         <img src="Image/Favicon/Favicon SizeChart.png" alt="Size Chart" class="spec-icon">
                         Size Chart
                     </button>
                 </div>
+                
+                <!-- SUB-BUTTONS DI DALAM PRINTING -->
+                <div class="scroll-fade-wrapper sub-spec-wrapper" id="printingSubMenu">
+                    <div class="sub-spec-container">
+                        <button class="sub-spec-btn" id="btnNameset" onclick="switchEdition('nameset')">
+                            <img src="Image/Favicon/Favicon NameSet.png" alt="Name Set" class="sub-spec-icon">
+                            Name Set
+                        </button>
+                        <button class="sub-spec-btn" id="btnSponsor" onclick="switchEdition('sponsor')">
+                            <img src="Image/Favicon/Favicon Sponsor.png" alt="Sponsor" class="sub-spec-icon">
+                            Sponsor
+                        </button>
+                        <button class="sub-spec-btn" id="btnPlacementGuide" onclick="switchEdition('placementguide')">
+                            <img src="Image/Favicon/Favicon Placement Guide.png" alt="Placement Guide" class="sub-spec-icon">
+                            Placement Guide
+                        </button>
+                    </div>
+                </div>
+
                 <!-- SUB-BUTTONS DI DALAM SIZE CHART -->
-                <div class="sizechart-sub-container" id="sizeChartSubMenu">
-                    <button class="sub-spec-btn" id="btnSizeShirt" onclick="switchEdition('sizechart-shirt')">
-                        <img src="Image/Favicon/Favicon Shirt.png" alt="Shirt" class="sub-spec-icon">
-                        Shirt Size
-                    </button>
-                    <button class="sub-spec-btn" id="btnSizePants" onclick="switchEdition('sizechart-pants')">
-                        <img src="Image/Favicon/Favicon Pants.png" alt="Pants" class="sub-spec-icon">
-                        Pants Size
-                    </button>
-                    <button class="sub-spec-btn" id="btnSizeMuslimah" onclick="switchEdition('sizechart-muslimah')">
-                        <img src="Image/Favicon/Favicon Muslimah.png" alt="Muslimah" class="sub-spec-icon">
-                        Muslimah Size
-                    </button>
+                <div class="scroll-fade-wrapper sub-spec-wrapper" id="sizeChartSubMenu">
+                    <div class="sub-spec-container">
+                        <button class="sub-spec-btn" id="btnSizeShirt" onclick="switchEdition('sizechart-shirt')">
+                            <img src="Image/Favicon/Favicon Shirt.png" alt="Shirt" class="sub-spec-icon">
+                            Shirt Size
+                        </button>
+                        <button class="sub-spec-btn" id="btnSizePants" onclick="switchEdition('sizechart-pants')">
+                            <img src="Image/Favicon/Favicon Pants.png" alt="Pants" class="sub-spec-icon">
+                            Pants Size
+                        </button>
+                        <button class="sub-spec-btn" id="btnSizeMuslimah" onclick="switchEdition('sizechart-muslimah')">
+                            <img src="Image/Favicon/Favicon Muslimah.png" alt="Muslimah" class="sub-spec-icon">
+                            Muslimah Size
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -331,6 +348,122 @@
                 <button id="sendWhatsAppBtn" class="lightbox-wa-btn">Send to WhatsApp</button>
             </div>
         </div>
+
+<!-- ==========================================
+       QUOTE BUILDER MODAL (FOR YOUR OWN DESIGN)
+       ========================================== -->
+    <div class="quote-modal-overlay" id="quoteBuilderOwnModal">
+        <div class="quote-modal-content">
+            <button class="lightbox-close" id="quoteBuilderOwnClose">×</button>
+            <h2>Configure Order</h2>
+            <p id="quoteProgressOwn">Step 1 of 6</p>
+
+            <div id="stepOwn1" class="quote-step">
+                <h3>Design Selected</h3>
+                <p id="summaryOwnDesignPreview">Ready to proceed</p>
+                <div style="margin-top:15px; margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Alter mockup design?</label>
+                    <label style="margin-right:15px;"><input type="radio" name="alterOwnDesign" value="Yes"> Yes</label>
+                    <label><input type="radio" name="alterOwnDesign" value="No" checked> No</label>
+                </div>
+                <button class="qb-own-next">Next: Quantity</button>
+            </div>
+            <div id="stepOwn2" class="quote-step" style="display:none;">
+                <h3>Quantity</h3>
+                <input type="number" id="qbOwnQuantity" min="5" value="5"
+                    style="padding:10px; width:100%; font-size:16px;">
+                <br><br>
+                <button class="qb-own-prev">Back</button>
+                <button class="qb-own-next">Next: Material</button>
+            </div>
+            <div id="stepOwn3" class="quote-step" style="display:none;">
+                <h3>Material</h3>
+                <select id="qbOwnMaterial" style="padding:10px; width:100%; font-size:16px;"></select>
+                <br><br>
+                <button class="qb-own-prev">Back</button>
+                <button class="qb-own-next">Next: Cutting</button>
+            </div>
+            <div id="stepOwn4" class="quote-step" style="display:none;">
+                <h3>Cutting</h3>
+                <select id="qbOwnCutting" style="padding:10px; width:100%; font-size:16px;"></select>
+                <br><br>
+                <button class="qb-own-prev">Back</button>
+                <button class="qb-own-next">Next: Sleeve</button>
+            </div>
+            <div id="stepOwn5" class="quote-step" style="display:none;">
+                <h3>Sleeve</h3>
+                <table class="sleeve-table"
+                    style="width:100%; text-align:left; border-collapse: collapse; margin-bottom: 15px;">
+                    <thead>
+                        <tr>
+                            <th style="padding-bottom: 10px; width: 45%;">Type</th>
+                            <th style="padding-bottom: 10px; text-align:center; width: 15%;">All</th>
+                            <th style="padding-bottom: 10px; text-align:center; width: 40%;">Fill in</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <tr>
+                            <td>Short</td>
+                            <td style="text-align:center;"><input type="radio" name="sleeveOwnShortOpt" value="all" checked
+                                    style="vertical-align: middle; margin-top:0;"></td>
+                            <td style="text-align:center; white-space:nowrap;">
+                                <input type="radio" name="sleeveOwnShortOpt" value="fill"
+                                    style="vertical-align: middle; margin-top:0;">
+                                <input type="number" id="qbOwnSleeveShortQty" min="0" placeholder="Qty"
+                                    style="width:60px; padding:5px; vertical-align: middle; margin-left:3px;" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Long (+RM5/Shirt)</td>
+                            <td style="text-align:center;"><input type="radio" name="sleeveOwnLongOpt" value="all"
+                                    style="vertical-align: middle; margin-top:0;"></td>
+                            <td style="text-align:center; white-space:nowrap;">
+                                <input type="radio" name="sleeveOwnLongOpt" value="fill"
+                                    style="vertical-align: middle; margin-top:0;">
+                                <input type="number" id="qbOwnSleeveLongQty" min="0" placeholder="Qty"
+                                    style="width:60px; padding:5px; vertical-align: middle; margin-left:3px;" disabled>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="sleeveOwnError"
+                    style="color: #e50914; font-size: 0.9rem; margin-top: -10px; margin-bottom: 15px; display: none;">
+                    Total sleeve qty must match total order quantity.</p>
+                <button class="qb-own-prev">Back</button>
+                <button class="qb-own-next" id="btnNextSleeve">Next: Nameset</button>
+            </div>
+            <div id="stepOwn6" class="quote-step" style="display:none;">
+                <h3>Nameset</h3>
+                <div style="margin-top:15px; margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Add Nameset? (+RM3/Shirt)</label>
+                    <label style="margin-right:15px;"><input type="radio" name="addOwnNameset" value="Yes"> Yes</label>
+                    <label><input type="radio" name="addOwnNameset" value="No" checked> No</label>
+                </div>
+                <button class="qb-own-prev">Back</button>
+                <button class="qb-own-next">Next: Neck/Collar</button>
+            </div>
+            <div id="stepOwn7" class="quote-step" style="display:none;">
+                <h3>Neck / Collar</h3>
+                <select id="qbOwnNeck" style="padding:10px; width:100%; font-size:16px;"></select>
+                <br><br>
+                <button class="qb-own-prev">Back</button>
+                <button class="qb-own-next">Next: Review</button>
+            </div>
+            <div id="stepOwn8" class="quote-step" style="display:none;">
+                <h3>Review Summary</h3>
+                <p><strong>Design:</strong> <span id="summaryOwnDesign"></span></p>
+                <p><strong>Quantity:</strong> <span id="summaryOwnQuantity"></span></p>
+                <p><strong>Material:</strong> <span id="summaryOwnMaterial"></span></p>
+                <p><strong>Cutting:</strong> <span id="summaryOwnCutting"></span></p>
+                <p><strong>Sleeve:</strong> <span id="summaryOwnSleeve"></span></p>
+                <p><strong>Nameset:</strong> <span id="summaryOwnNameset"></span></p>
+                <p><strong>Neck/Collar:</strong> <span id="summaryOwnNeck"></span></p>
+                <br>
+                <button class="qb-own-prev">Back</button>
+                <button id="sendWhatsAppOwnBtn" class="lightbox-wa-btn">Send to WhatsApp</button>
+            </div>
+        </div>
     </div>
 
     <!-- ==========================================
@@ -339,6 +472,7 @@
     <script src="config.js"></script>
     <script src="catalogData.js"></script>
     <script src="app.js"></script>
+    <script src="appOwn.js"></script>
     <script type="text/plain">
         const cardsPerPage = 16;
         const catalogGrid = document.getElementById('catalogGrid');
