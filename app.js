@@ -32,8 +32,8 @@ const allCardsSizePants = Array.from(catalogGrid.getElementsByClassName('prod-si
 const allCardsSizeMuslimah = Array.from(catalogGrid.getElementsByClassName('prod-sizechart-muslimah'));
 const allCardsPlacement = Array.from(catalogGrid.getElementsByClassName('prod-placementguide'));
 
-let currentEdition = localStorage.getItem('lastEdition') || '2026';
-let currentPage = parseInt(localStorage.getItem('lastPage')) || 1;
+let currentEdition = '2026';
+let currentPage = 1;
 let currentCards = allCards2026;
 
 // Auto-derive Reference Numbers
@@ -114,7 +114,6 @@ function displayPage(page, shouldScroll = true) {
     }
 
     currentPage = page;
-    localStorage.setItem('lastPage', page);
     const start = (page - 1) * cardsPerPage;
     const end = start + cardsPerPage;
 
@@ -172,7 +171,6 @@ function setupPaginationButtons() {
 
 function switchEdition(edition) {
     currentEdition = edition;
-    localStorage.setItem('lastEdition', edition);
 
     const allEditionBtns = document.querySelectorAll('.edition-btn, .spec-btn, .sub-spec-btn');
     allEditionBtns.forEach(btn => btn.classList.remove('active'));
