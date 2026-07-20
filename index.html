@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- ==========================================
        1. METADATA & SEO ASAS
@@ -7,20 +8,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThirtyOne Lab Official</title>
-    <meta name="description" content="ThirtyOne Lab Official - Kedai cetak baju custom apparel specialist di Kajang, Selangor.">
-    <meta name="keywords" content="ThirtyOne Lab, custom apparel, custom jersey, custom jersi, print jersey, cetak baju">
+    <meta name="description"
+        content="ThirtyOne Lab Official - Kedai cetak baju custom apparel specialist di Kajang, Selangor.">
+    <meta name="keywords"
+        content="ThirtyOne Lab, custom apparel, custom jersey, custom jersi, print jersey, cetak baju">
     <link rel="icon" type="image/jpeg" href="Image/Favicon/Favicon Tab.png">
 
     <!-- ==========================================
        2. OPEN GRAPH DATA
        ========================================== -->
     <meta property="og:title" content="ThirtyOne Lab Official Catalog" />
-    <meta property="og:description" content="Discover our full range of custom apparel in one place. Order your favorite design now!" />
+    <meta property="og:description"
+        content="Discover our full range of custom apparel in one place. Order your favorite design now!" />
     <meta property="og:image" content="https://amnhmb.github.io/thirtyonelabcatalog/Image/Favicon/Logo%20Favicon.png" />
     <meta property="og:url" content="https://amnhmb.github.io/thirtyonelabcatalog/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ThirtyOne Lab" />
-    
+
     <!-- ==========================================
        3. FONTS & EXTERNAL STYLESHEET
        ========================================== -->
@@ -29,7 +33,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
     <div class="container">
@@ -44,6 +50,25 @@
 
             <div class="store-info">
                 <p>Discover our full range of custom apparel in one place.</p>
+            </div>
+
+            <!-- HOW IT WORKS -->
+            <div class="how-it-works">
+                <h2>How It Works</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <p>Choose/Design</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <p>Configure Order</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <p>Send to WhatsApp</p>
+                    </div>
+                </div>
             </div>
 
             <div class="store-info">
@@ -64,22 +89,70 @@
 
                 <div class="store-contact">
                     <span>
-                        <img src="Image/Favicon/Favicon Email.png" alt="Email" class="icon-img"> thirtyonelabofficial@gmail.com
+                        <img src="Image/Favicon/Favicon Email.png" alt="Email" class="icon-img">
+                        thirtyonelabofficial@gmail.com
                     </span>
                 </div>
 
                 <div class="store-address">
                     <a href="https://maps.app.goo.gl/L6R3bP8RUKCmdaNK9" target="_blank">
-                        <img src="Image/Favicon/Favicon Address.png" alt="Address" class="icon-img"> 26A, Jalan 1, Taman Bukit Cantik, 43000 Kajang, Selangor, Malaysia
+                        <img src="Image/Favicon/Favicon Address.png" alt="Address" class="icon-img"> 26A, Jalan 1, Taman
+                        Bukit Cantik, 43000 Kajang, Selangor, Malaysia
                     </a>
                 </div>
             </div>
 
+            <!-- ==========================================
+               5 SECTION PAGES BUTTONS
+               ========================================== -->
+            <div class="scroll-fade-wrapper spec-wrapper">
+                <div class="spec-buttons-container">
+                    <button class="spec-btn" id="btnMaterial" onclick="switchEdition('material')">
+                        <img src="Image/Favicon/Favicon Material.png" alt="Material" class="spec-icon">
+                        Material
+                    </button>
+                    <button class="spec-btn" id="btnNeck" onclick="switchEdition('neck')">
+                        <img src="Image/Favicon/Favicon Neck.png" alt="Neck" class="spec-icon">
+                        Neck
+                    </button>
+                    <button class="spec-btn" id="btnNameset" onclick="switchEdition('nameset')">
+                        <img src="Image/Favicon/Favicon NameSet.png" alt="Name Set" class="spec-icon">
+                        Name Set
+                    </button>
+                    <button class="spec-btn" id="btnSponsor" onclick="switchEdition('sponsor')">
+                        <img src="Image/Favicon/Favicon Sponsor.png" alt="Sponsor" class="spec-icon">
+                        Sponsor
+                    </button>
+                    <button class="spec-btn" id="btnSizeChart" onclick="toggleSizeChartSubMenu()">
+                        <img src="Image/Favicon/Favicon SizeChart.png" alt="Size Chart" class="spec-icon">
+                        Size Chart
+                    </button>
+                </div>
+                <!-- SUB-BUTTONS DI DALAM SIZE CHART -->
+                <div class="sizechart-sub-container" id="sizeChartSubMenu">
+                    <button class="sub-spec-btn" id="btnSizeShirt" onclick="switchEdition('sizechart-shirt')">
+                        <img src="Image/Favicon/Favicon Shirt.png" alt="Shirt" class="sub-spec-icon">
+                        Shirt Size
+                    </button>
+                    <button class="sub-spec-btn" id="btnSizePants" onclick="switchEdition('sizechart-pants')">
+                        <img src="Image/Favicon/Favicon Pants.png" alt="Pants" class="sub-spec-icon">
+                        Pants Size
+                    </button>
+                    <button class="sub-spec-btn" id="btnSizeMuslimah" onclick="switchEdition('sizechart-muslimah')">
+                        <img src="Image/Favicon/Favicon Muslimah.png" alt="Muslimah" class="sub-spec-icon">
+                        Muslimah Size
+                    </button>
+                </div>
+            </div>
+
+            <!-- BUTANG EDISI ASAL -->
             <div class="scroll-fade-wrapper">
                 <div class="edition-buttons-container">
-                    <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne Lab 2026 Edition</button>
+                    <button class="edition-btn primary active" id="btn2026" onclick="switchEdition('2026')">ThirtyOne
+                        Lab 2026 Edition</button>
                     <button class="edition-btn world-cup" id="btnWC" onclick="switchEdition('worldcup')">
-                        <img src="Image/Favicon/WCup.png" alt="World Cup" class="icon-img" style="height: 1.4em;"> World Cup 2026 Edition
+                        <img src="Image/Favicon/WCup.png" alt="World Cup" class="icon-img" style="height: 1.4em;"> World
+                        Cup 2026 Edition
                     </button>
                 </div>
             </div>
@@ -88,156 +161,14 @@
         <!-- ==========================================
            5. GRID SENARAI PRODUK (CATALOG GRID)
            ========================================== -->
-        <div class="catalog-grid" id="catalogGrid">
-            
-            <!-- === EDISI KAD 2026 (1 sehingga 110) === -->
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0110).jpg" alt="Jersey (0110).jpg"><span class="badge-new">New</span></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0109).jpg" alt="Jersey (0109).jpg"><span class="badge-new">New</span></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0108).jpg" alt="Jersey (0108).jpg"><span class="badge-new">New</span></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0107).jpg" alt="Jersey (0107).jpg"><span class="badge-new">New</span></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0106).jpg" alt="Jersey (0106).jpg"><span class="badge-new">New</span></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0105).jpg" alt="Jersey (0105).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0104).jpg" alt="Jersey (0104).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0103).jpg" alt="Jersey (0103).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0102).jpg" alt="Jersey (0102).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0101).jpg" alt="Jersey (0101).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0100).jpg" alt="Jersey (0100).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0099).jpg" alt="Jersey (0099).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0098).jpg" alt="Jersey (0098).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0097).jpg" alt="Jersey (0097).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0096).jpg" alt="Jersey (0096).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0095).jpg" alt="Jersey (0095).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0094).jpg" alt="Jersey (0094).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0093).jpg" alt="Jersey (0093).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0092).jpg" alt="Jersey (0092).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0091).jpg" alt="Jersey (0091).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0090).jpg" alt="Jersey (0090).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0089).jpg" alt="Jersey (0089).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0088).jpg" alt="Jersey (0088).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0087).jpg" alt="Jersey (0087).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0086).jpg" alt="Jersey (0086).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0085).jpg" alt="Jersey (0085).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0084).jpg" alt="Jersey (0084).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0083).jpg" alt="Jersey (0083).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0082).jpg" alt="Jersey (0082).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0081).jpg" alt="Jersey (0081).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0080).jpg" alt="Jersey (0080).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0079).jpg" alt="Jersey (0079).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0078).jpg" alt="Jersey (0078).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0077).jpg" alt="Jersey (0077).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0076).jpg" alt="Jersey (0076).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0075).jpg" alt="Jersey (0075).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0074).jpg" alt="Jersey (0074).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0073).jpg" alt="Jersey (0073).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0072).jpg" alt="Jersey (0072).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0071).jpg" alt="Jersey (0071).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0070).jpg" alt="Jersey (0070).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0069).jpg" alt="Jersey (0069).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0068).jpg" alt="Jersey (0068).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0067).jpg" alt="Jersey (0067).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0066).jpg" alt="Jersey (0066).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0065).jpg" alt="Jersey (0065).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0064).jpg" alt="Jersey (0064).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0063).jpg" alt="Jersey (0063).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0062).jpg" alt="Jersey (0062).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0061).jpg" alt="Jersey (0061).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0060).jpg" alt="Jersey (0060).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0059).jpg" alt="Jersey (0059).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0058).jpg" alt="Jersey (0058).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0057).jpg" alt="Jersey (0057).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0056).jpg" alt="Jersey (0056).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0055).jpg" alt="Jersey (0055).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0054).jpg" alt="Jersey (0054).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0053).jpg" alt="Jersey (0053).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0052).jpg" alt="Jersey (0052).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0051).jpg" alt="Jersey (0051).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0050).jpg" alt="Jersey (0050).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0049).jpg" alt="Jersey (0049).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0048).jpg" alt="Jersey (0048).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0047).jpg" alt="Jersey (0047).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0046).jpg" alt="Jersey (0046).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0045).jpg" alt="Jersey (0045).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0044).jpg" alt="Jersey (0044).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0043).jpg" alt="Jersey (0043).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0042).jpg" alt="Jersey (0042).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0041).jpg" alt="Jersey (0041).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0040).jpg" alt="Jersey (0040).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0039).jpg" alt="Jersey (0039).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0038).jpg" alt="Jersey (0038).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0037).jpg" alt="Jersey (0037).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0036).jpg" alt="Jersey (0036).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0035).jpg" alt="Jersey (0035).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0034).jpg" alt="Jersey (0034).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0033).jpg" alt="Jersey (0033).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0032).jpg" alt="Jersey (0032).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0031).jpg" alt="Jersey (0031).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0030).jpg" alt="Jersey (0030).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0029).jpg" alt="Jersey (0029).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0028).jpg" alt="Jersey (0028).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0027).jpg" alt="Jersey (0027).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0026).jpg" alt="Jersey (0026).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0025).jpg" alt="Jersey (0025).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0024).jpg" alt="Jersey (0024).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0023).jpg" alt="Jersey (0023).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0022).jpg" alt="Jersey (0022).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0021).jpg" alt="Jersey (0021).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0020).jpg" alt="Jersey (0020).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0019).jpg" alt="Jersey (0019).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0018).jpg" alt="Jersey (0018).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0017).jpg" alt="Jersey (0017).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0016).jpg" alt="Jersey (0016).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0015).jpg" alt="Jersey (0015).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0014).jpg" alt="Jersey (0014).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0013).jpg" alt="Jersey (0013).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0012).jpg" alt="Jersey (0012).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0011).jpg" alt="Jersey (0011).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0010).jpg" alt="Jersey (0010).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0009).jpg" alt="Jersey (0009).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0008).jpg" alt="Jersey (0008).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0007).jpg" alt="Jersey (0007).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0006).jpg" alt="Jersey (0006).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0005).jpg" alt="Jersey (0005).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0004).jpg" alt="Jersey (0004).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0003).jpg" alt="Jersey (0003).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0002).jpg" alt="Jersey (0002).jpg"></div></div>
-            <div class="product-card prod-2026"><div class="image-container"><img src="Image/2026/Jersey (0001).jpg" alt="Jersey (0001).jpg"></div></div>
+        <div id="sponsorDisclaimer" class="sponsor-disclaimer" style="display: none;">
+            <p><i>*For illustration purposes only. Text and designs are fully customizable.</i></p>
+        </div>
 
-            <!-- === EDISI KAD WORLD CUP === -->
-            <div class="product-card prod-wc">
-                <div class="image-container">
-                    <span class="badge-wc">World Cup</span>
-                    <img src="Image/WC 2026/WC Argentina (0001).png" alt="WC Argentina Front" class="img-front">
-                    <img src="Image/WC 2026/WC Argentina (0002).jpg" alt="WC Argentina Back" class="img-back">
-                </div>
-            </div>
-            <div class="product-card prod-wc">
-                <div class="image-container">
-                    <span class="badge-wc">World Cup</span>
-                    <img src="Image/WC 2026/WC Brazil (0001).png" alt="WC Brazil Front" class="img-front">
-                    <img src="Image/WC 2026/WC Brazil (0002).jpg" alt="WC Brazil Back" class="img-back">
-                </div>
-            </div>
-            <div class="product-card prod-wc">
-                <div class="image-container">
-                    <span class="badge-wc">World Cup</span>
-                    <img src="Image/WC 2026/WC Portugal (0001).png" alt="WC Portugal Front" class="img-front">
-                    <img src="Image/WC 2026/WC Portugal (0002).jpg" alt="WC Portugal Back" class="img-back">
-                </div>
-            </div>
-            <div class="product-card prod-wc no-slide">
-                <div class="image-container">
-                    <span class="badge-wc">World Cup</span>
-                    <img src="Image/WC 2026/WC Spain (0002).jpg" alt="WC Spain Back" class="img-front">
-                </div>
-            </div>
-            <div class="product-card prod-wc no-slide">
-                <div class="image-container">
-                    <span class="badge-wc">World Cup</span>
-                    <img src="Image/WC 2026/WC England (0002).jpg" alt="WC England Back" class="img-front">
-                </div>
-            </div>
-        </div> 
-        
+        <div class="catalog-grid" id="catalogGrid">
+
+        </div>
+
         <!-- Bekas untuk Nombor Halaman (Paginasi) -->
         <div class="pagination-container" id="paginationContainer"></div>
     </div>
@@ -247,35 +178,30 @@
        ========================================== -->
     <div class="lightbox-overlay" id="lightboxOverlay">
         <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous Image">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <svg viewBox="0 0 24 24">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
         </button>
-        
+
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightboxClose">×</button>
             <img src="" alt="Preview Gambar Baju" id="lightboxImg">
-            
+
             <div class="lightbox-action-container">
-                <div class="lightbox-customizable-text">
-                    💡 Customizable: Collar • Sleeves • Name Set • Material • Graphic/Colour 
-                </div>
-
-                <!-- BLOK SUSUNAN SENTRAL MINIMALIS -->
-                <div class="lightbox-action-row-top">
-                    <p class="lightbox-instruction-text">Save/Screenshot here.📸</p>
-                </div>
-
                 <div class="lightbox-action-row-bottom">
+                    <div id="lightboxRefDisplay" class="lightbox-ref-display"
+                        style="margin-bottom: 10px; font-weight: bold;"></div>
                     <div class="lightbox-action-buttons">
-                        <a href="#" target="_blank" id="lightboxWaBtn" class="lightbox-wa-btn">
-                            <img src="Image/Favicon/Favicon WhatsApp Order.png" alt="WhatsApp"> Order via WhatsApp
-                        </a>
+                        <button id="openQuoteBuilderBtn" class="lightbox-wa-btn">Build Quote for this Design</button>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <button class="lightbox-nav next" id="lightboxNext" aria-label="Next Image">
-            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <svg viewBox="0 0 24 24">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
         </button>
     </div>
 
@@ -291,18 +217,172 @@
     </footer>
 
     <!-- ==========================================
+       QUOTE BUILDER MODAL
+       ========================================== -->
+    <div class="quote-modal-overlay" id="quoteBuilderModal">
+        <div class="quote-modal-content">
+            <button class="lightbox-close" id="quoteBuilderClose">×</button>
+            <h2>Configure Order</h2>
+            <p id="quoteProgress">Step 1 of 6</p>
+
+            <div id="step1" class="quote-step">
+                <h3>Design Selected</h3>
+                <p id="summaryDesignPreview">Ready to proceed</p>
+                <div style="margin-top:15px; margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Alter mockup design?</label>
+                    <label style="margin-right:15px;"><input type="radio" name="alterDesign" value="Yes"> Yes</label>
+                    <label><input type="radio" name="alterDesign" value="No" checked> No</label>
+                </div>
+                <button class="qb-next">Next: Quantity</button>
+            </div>
+            <div id="step2" class="quote-step" style="display:none;">
+                <h3>Quantity</h3>
+                <input type="number" id="qbQuantity" min="5" value="5"
+                    style="padding:10px; width:100%; font-size:16px;">
+                <br><br>
+                <button class="qb-prev">Back</button>
+                <button class="qb-next">Next: Material</button>
+            </div>
+            <div id="step3" class="quote-step" style="display:none;">
+                <h3>Material</h3>
+                <select id="qbMaterial" style="padding:10px; width:100%; font-size:16px;"></select>
+                <br><br>
+                <button class="qb-prev">Back</button>
+                <button class="qb-next">Next: Cutting</button>
+            </div>
+            <div id="step4" class="quote-step" style="display:none;">
+                <h3>Cutting</h3>
+                <select id="qbCutting" style="padding:10px; width:100%; font-size:16px;"></select>
+                <br><br>
+                <button class="qb-prev">Back</button>
+                <button class="qb-next">Next: Sleeve</button>
+            </div>
+            <div id="step5" class="quote-step" style="display:none;">
+                <h3>Sleeve</h3>
+                <table class="sleeve-table"
+                    style="width:100%; text-align:left; border-collapse: collapse; margin-bottom: 15px;">
+                    <thead>
+                        <tr>
+                            <th style="padding-bottom: 10px; width: 45%;">Type</th>
+                            <th style="padding-bottom: 10px; text-align:center; width: 15%;">All</th>
+                            <th style="padding-bottom: 10px; text-align:center; width: 40%;">Fill in</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <tr>
+                            <td>Short</td>
+                            <td style="text-align:center;"><input type="radio" name="sleeveShortOpt" value="all" checked
+                                    style="vertical-align: middle; margin-top:0;"></td>
+                            <td style="text-align:center; white-space:nowrap;">
+                                <input type="radio" name="sleeveShortOpt" value="fill"
+                                    style="vertical-align: middle; margin-top:0;">
+                                <input type="number" id="qbSleeveShortQty" min="0" placeholder="Qty"
+                                    style="width:60px; padding:5px; vertical-align: middle; margin-left:3px;" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Long (+RM5/Shirt)</td>
+                            <td style="text-align:center;"><input type="radio" name="sleeveLongOpt" value="all"
+                                    style="vertical-align: middle; margin-top:0;"></td>
+                            <td style="text-align:center; white-space:nowrap;">
+                                <input type="radio" name="sleeveLongOpt" value="fill"
+                                    style="vertical-align: middle; margin-top:0;">
+                                <input type="number" id="qbSleeveLongQty" min="0" placeholder="Qty"
+                                    style="width:60px; padding:5px; vertical-align: middle; margin-left:3px;" disabled>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="sleeveError"
+                    style="color: #e50914; font-size: 0.9rem; margin-top: -10px; margin-bottom: 15px; display: none;">
+                    Total sleeve qty must match total order quantity.</p>
+                <button class="qb-prev">Back</button>
+                <button class="qb-next" id="btnNextSleeve">Next: Nameset</button>
+            </div>
+            <div id="step6" class="quote-step" style="display:none;">
+                <h3>Nameset</h3>
+                <div style="margin-top:15px; margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold;">Add Nameset? (+RM3/Shirt)</label>
+                    <label style="margin-right:15px;"><input type="radio" name="addNameset" value="Yes"> Yes</label>
+                    <label><input type="radio" name="addNameset" value="No" checked> No</label>
+                </div>
+                <button class="qb-prev">Back</button>
+                <button class="qb-next">Next: Neck/Collar</button>
+            </div>
+            <div id="step7" class="quote-step" style="display:none;">
+                <h3>Neck / Collar</h3>
+                <select id="qbNeck" style="padding:10px; width:100%; font-size:16px;"></select>
+                <br><br>
+                <button class="qb-prev">Back</button>
+                <button class="qb-next">Next: Review</button>
+            </div>
+            <div id="step8" class="quote-step" style="display:none;">
+                <h3>Review Summary</h3>
+                <p><strong>Design:</strong> <span id="summaryDesign"></span></p>
+                <p><strong>Quantity:</strong> <span id="summaryQuantity"></span></p>
+                <p><strong>Material:</strong> <span id="summaryMaterial"></span></p>
+                <p><strong>Cutting:</strong> <span id="summaryCutting"></span></p>
+                <p><strong>Sleeve:</strong> <span id="summarySleeve"></span></p>
+                <p><strong>Nameset:</strong> <span id="summaryNameset"></span></p>
+                <p><strong>Neck/Collar:</strong> <span id="summaryNeck"></span></p>
+                <br>
+                <button class="qb-prev">Back</button>
+                <button id="sendWhatsAppBtn" class="lightbox-wa-btn">Send to WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
        8. JAVASCRIPT LOGIC
        ========================================== -->
-    <script>
+    <script src="config.js"></script>
+    <script src="catalogData.js"></script>
+    <script src="app.js"></script>
+    <script type="text/plain">
         const cardsPerPage = 16;
         const catalogGrid = document.getElementById('catalogGrid');
-        
+
         const allCards2026 = Array.from(catalogGrid.getElementsByClassName('prod-2026'));
         const allCardsWC = Array.from(catalogGrid.getElementsByClassName('prod-wc'));
-        
+        const allCardsMaterial = Array.from(catalogGrid.getElementsByClassName('prod-material'));
+        const allCardsNeck = Array.from(catalogGrid.getElementsByClassName('prod-neck'));
+        const allCardsNameset = Array.from(catalogGrid.getElementsByClassName('prod-nameset'));
+        const allCardsSponsor = Array.from(catalogGrid.getElementsByClassName('prod-sponsor'));
+        const allCardsSizeShirt = Array.from(catalogGrid.getElementsByClassName('prod-sizechart-shirt'));
+        const allCardsSizePants = Array.from(catalogGrid.getElementsByClassName('prod-sizechart-pants'));
+        const allCardsSizeMuslimah = Array.from(catalogGrid.getElementsByClassName('prod-sizechart-muslimah'));
+
         let currentEdition = localStorage.getItem('lastEdition') || '2026';
         let currentPage = parseInt(localStorage.getItem('lastPage')) || 1;
-        let currentCards = (currentEdition === '2026') ? allCards2026 : allCardsWC; 
+        let currentCards = allCards2026;
+
+        function updateCurrentCards(edition) {
+            switch (edition) {
+                case '2026': currentCards = allCards2026; break;
+                case 'worldcup': currentCards = allCardsWC; break;
+                case 'material': currentCards = allCardsMaterial; break;
+                case 'neck': currentCards = allCardsNeck; break;
+                case 'nameset': currentCards = allCardsNameset; break;
+                case 'sponsor': currentCards = allCardsSponsor; break;
+                case 'sizechart-shirt': currentCards = allCardsSizeShirt; break;
+                case 'sizechart-pants': currentCards = allCardsSizePants; break;
+                case 'sizechart-muslimah': currentCards = allCardsSizeMuslimah; break;
+                default: currentCards = allCards2026;
+            }
+        }
+
+        function toggleSizeChartSubMenu() {
+            const subMenu = document.getElementById('sizeChartSubMenu');
+            const mainBtn = document.getElementById('btnSizeChart');
+
+            subMenu.classList.toggle('active');
+            mainBtn.classList.toggle('active');
+
+            if (subMenu.classList.contains('active')) {
+                switchEdition('sizechart-shirt');
+            }
+        }
 
         let lightboxImagesArray = [];
         let currentLightboxIndex = 0;
@@ -318,18 +398,67 @@
                 card.style.display = 'none';
             });
 
-            currentCards.forEach((card, index) => {
-                if (index >= start && index < end) {
-                    card.style.display = 'block'; 
-                }
-            });
+            // Reset kelas mod susunan grid asal
+            catalogGrid.classList.remove('grid-nameset-layout', 'grid-sponsor-layout', 'grid-sizechart-layout', 'grid-neck-layout', 'grid-material-layout');
 
-            setupPaginationButtons();
+            // Sembunyikan disclaimer
+            document.getElementById('sponsorDisclaimer').style.display = 'none';
 
-            // Memperbaiki glitch: Hanya skrol jika diubah secara manual (bukan semasa reload automatik)
+            let isCustomLayout = false;
+
+            if (currentEdition === 'nameset') {
+                catalogGrid.classList.add('grid-nameset-layout');
+                currentCards.forEach(card => card.style.display = 'block');
+                document.getElementById('paginationContainer').innerHTML = '';
+                isCustomLayout = true;
+            }
+            else if (currentEdition === 'sponsor') {
+                catalogGrid.classList.add('grid-sponsor-layout');
+                currentCards.forEach(card => card.style.display = 'block');
+                document.getElementById('paginationContainer').innerHTML = '';
+                document.getElementById('sponsorDisclaimer').style.display = 'block';
+                isCustomLayout = true;
+            }
+            else if (currentEdition === 'sizechart-shirt' || currentEdition === 'sizechart-pants' || currentEdition === 'sizechart-muslimah') {
+                catalogGrid.classList.add('grid-sizechart-layout');
+                currentCards.forEach(card => card.style.display = 'block');
+                document.getElementById('paginationContainer').innerHTML = '';
+                isCustomLayout = true;
+            }
+            else if (currentEdition === 'neck') {
+                catalogGrid.classList.add('grid-neck-layout');
+                currentCards.forEach(card => card.style.display = 'block');
+                document.getElementById('paginationContainer').innerHTML = '';
+                isCustomLayout = true;
+            }
+            else if (currentEdition === 'material') {
+                catalogGrid.classList.add('grid-material-layout');
+                currentCards.forEach(card => card.style.display = 'block');
+                document.getElementById('paginationContainer').innerHTML = '';
+                isCustomLayout = true;
+            }
+
+            if (!isCustomLayout) {
+                currentCards.forEach((card, index) => {
+                    if (index >= start && index < end) {
+                        card.style.display = 'block';
+                    }
+                });
+                setupPaginationButtons();
+            }
+
             if (shouldScroll) {
+                let scrollOffset = 150;
+
+                if (currentEdition === 'sizechart-shirt' || currentEdition === 'sizechart-pants' || currentEdition === 'sizechart-muslimah') {
+                    scrollOffset = 200;
+                }
+                else if (currentEdition === 'sponsor') {
+                    scrollOffset = 180;
+                }
+
                 window.scrollTo({
-                    top: catalogGrid.offsetTop - 100,
+                    top: catalogGrid.offsetTop - scrollOffset,
                     behavior: 'smooth'
                 });
             }
@@ -340,13 +469,13 @@
             paginationContainer.innerHTML = '';
             const totalPages = Math.ceil(currentCards.length / cardsPerPage);
 
-            if (totalPages <= 1) return; 
+            if (totalPages <= 1) return;
 
             for (let i = 1; i <= totalPages; i++) {
                 const button = document.createElement('button');
                 button.innerText = i;
                 button.classList.add('page-btn');
-                
+
                 if (i === currentPage) {
                     button.classList.add('active');
                 }
@@ -363,47 +492,70 @@
             currentEdition = edition;
             localStorage.setItem('lastEdition', edition);
 
-            const btn2026 = document.getElementById('btn2026');
-            const btnWC = document.getElementById('btnWC');
+            const allEditionBtns = document.querySelectorAll('.edition-btn, .spec-btn, .sub-spec-btn');
+            allEditionBtns.forEach(btn => btn.classList.remove('active'));
 
-            if (edition === '2026') {
-                currentCards = allCards2026;
-                btn2026.classList.add('active');
-                btnWC.classList.remove('active');
-            } else {
-                currentCards = allCardsWC;
-                btnWC.classList.add('active');
-                btn2026.classList.remove('active');
+            if (edition === '2026') document.getElementById('btn2026').classList.add('active');
+            else if (edition === 'worldcup') document.getElementById('btnWC').classList.add('active');
+            else if (edition === 'material') document.getElementById('btnMaterial').classList.add('active');
+            else if (edition === 'neck') document.getElementById('btnNeck').classList.add('active');
+            else if (edition === 'nameset') document.getElementById('btnNameset').classList.add('active');
+            else if (edition === 'sponsor') document.getElementById('btnSponsor').classList.add('active');
+
+            if (edition === 'sizechart-shirt') {
+                document.getElementById('btnSizeChart').classList.add('active');
+                document.getElementById('sizeChartSubMenu').classList.add('active');
+                document.getElementById('btnSizeShirt').classList.add('active');
+            } else if (edition === 'sizechart-pants') {
+                document.getElementById('btnSizeChart').classList.add('active');
+                document.getElementById('sizeChartSubMenu').classList.add('active');
+                document.getElementById('btnSizePants').classList.add('active');
+            } else if (edition === 'sizechart-muslimah') {
+                document.getElementById('btnSizeChart').classList.add('active');
+                document.getElementById('sizeChartSubMenu').classList.add('active');
+                document.getElementById('btnSizeMuslimah').classList.add('active');
+            } else if (!edition.startsWith('sizechart')) {
+                document.getElementById('sizeChartSubMenu').classList.remove('active');
             }
 
-            displayPage(1, true); 
+            updateCurrentCards(edition);
+            displayPage(1, true);
         }
 
         function initEditionOnLoad() {
-            // Mematikan lompatan auto-scroll browser bawaan semasa reload untuk atasi glitch visual
             if ('scrollRestoration' in history) {
                 history.scrollRestoration = 'manual';
             }
 
-            const btn2026 = document.getElementById('btn2026');
-            const btnWC = document.getElementById('btnWC');
+            const allEditionBtns = document.querySelectorAll('.edition-btn, .spec-btn, .sub-spec-btn');
+            allEditionBtns.forEach(btn => btn.classList.remove('active'));
 
-            if (currentEdition === '2026') {
-                currentCards = allCards2026;
-                btn2026.classList.add('active');
-                btnWC.classList.remove('active');
-            } else {
-                currentCards = allCardsWC;
-                btnWC.classList.add('active');
-                btn2026.classList.remove('active');
+            if (currentEdition === '2026') document.getElementById('btn2026').classList.add('active');
+            else if (currentEdition === 'worldcup') document.getElementById('btnWC').classList.add('active');
+            else if (currentEdition === 'material') document.getElementById('btnMaterial').classList.add('active');
+            else if (currentEdition === 'neck') document.getElementById('btnNeck').classList.add('active');
+            else if (currentEdition === 'nameset') document.getElementById('btnNameset').classList.add('active');
+            else if (currentEdition === 'sponsor') document.getElementById('btnSponsor').classList.add('active');
+            else if (currentEdition === 'sizechart-shirt') {
+                document.getElementById('btnSizeChart').classList.add('active');
+                document.getElementById('sizeChartSubMenu').classList.add('active');
+                document.getElementById('btnSizeShirt').classList.add('active');
+            } else if (currentEdition === 'sizechart-pants') {
+                document.getElementById('btnSizeChart').classList.add('active');
+                document.getElementById('sizeChartSubMenu').classList.add('active');
+                document.getElementById('btnSizePants').classList.add('active');
+            } else if (currentEdition === 'sizechart-muslimah') {
+                document.getElementById('btnSizeChart').classList.add('active');
+                document.getElementById('sizeChartSubMenu').classList.add('active');
+                document.getElementById('btnSizeMuslimah').classList.add('active');
             }
-            
+
+            updateCurrentCards(currentEdition);
             const totalPages = Math.ceil(currentCards.length / cardsPerPage);
             if (currentPage > totalPages) {
                 currentPage = 1;
             }
 
-            // Hantar false supaya skrin tidak tersentak/skrol semasa kali pertama sistem dimuatkan
             displayPage(currentPage, false);
         }
 
@@ -413,26 +565,43 @@
         const lightboxPrev = document.getElementById('lightboxPrev');
         const lightboxNext = document.getElementById('lightboxNext');
         const lightboxWaBtn = document.getElementById('lightboxWaBtn');
-        const myWhatsAppNumber = "601125614436"; 
+        const myWhatsAppNumber = "601125614436";
 
         catalogGrid.addEventListener('click', (e) => {
             const card = e.target.closest('.product-card');
             if (card) {
-                const imgs = Array.from(card.querySelectorAll('.image-container img'));
+                // SEKATAN POP-UP: Halang pembukaan pop-up bagi kategori statik (Sponsor, Nameset, Neck)
+                if (card.classList.contains('prod-nameset') ||
+                    card.classList.contains('prod-sponsor') ||
+                    card.classList.contains('prod-neck')) {
+                    return;
+                }
+
+                const imgs = Array.from(card.querySelectorAll('.image-container img, .sizechart-image-block img'));
                 lightboxImagesArray = imgs.map(img => img.src);
 
                 let imgBack = card.querySelector('.img-back');
-                let initialSrc = imgs[0].src; 
+                let initialSrc = imgs[0].src;
 
                 if (imgBack && window.getComputedStyle(imgBack).opacity === "1") {
-                    initialSrc = imgBack.src; 
+                    initialSrc = imgBack.src;
                 }
 
                 currentLightboxIndex = lightboxImagesArray.indexOf(initialSrc);
-                if(currentLightboxIndex === -1) currentLightboxIndex = 0;
+                if (currentLightboxIndex === -1) currentLightboxIndex = 0;
 
                 updateLightboxImage();
-                
+
+                // Papar/Sembunyikan butang tindakan bergantung kepada jenis kad
+                const actionContainer = document.querySelector('.lightbox-action-container');
+                if (card.classList.contains('prod-sizechart-shirt') ||
+                    card.classList.contains('prod-sizechart-pants') ||
+                    card.classList.contains('prod-sizechart-muslimah')) {
+                    actionContainer.style.display = 'none';
+                } else {
+                    actionContainer.style.display = '';
+                }
+
                 if (lightboxImagesArray.length > 1) {
                     lightboxPrev.style.display = 'flex';
                     lightboxNext.style.display = 'flex';
@@ -441,8 +610,8 @@
                     lightboxNext.style.display = 'none';
                 }
 
-                lightboxOverlay.classList.add('active'); 
-                document.body.classList.add('no-scroll'); 
+                lightboxOverlay.classList.add('active');
+                document.body.classList.add('no-scroll');
             }
         });
 
@@ -451,7 +620,7 @@
                 const currentSrc = lightboxImagesArray[currentLightboxIndex];
                 lightboxImg.src = currentSrc;
 
-                const message = `Saya berminat dengan baju ini.`;
+                const message = `Saya berminat dengan produk ini.`;
                 lightboxWaBtn.href = `https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`;
             }
         }
@@ -473,7 +642,7 @@
         });
 
         lightboxClose.addEventListener('click', (e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             closeLightbox();
         });
 
@@ -484,25 +653,43 @@
         });
 
         function closeLightbox() {
+            // Sembunyikan kandungan serta-merta supaya tiada flash semasa fade-out
+            const content = document.querySelector('.lightbox-content');
+            const navPrev = document.getElementById('lightboxPrev');
+            const navNext = document.getElementById('lightboxNext');
+            const actionContainer = document.querySelector('.lightbox-action-container');
+            content.style.opacity = '0';
+            navPrev.style.opacity = '0';
+            navNext.style.opacity = '0';
+
             lightboxOverlay.classList.remove('active');
             document.body.classList.remove('no-scroll');
-            lightboxImg.src = ""; 
-            lightboxImagesArray = [];
+
+            // Reset semula selepas overlay selesai fade-out (300ms)
+            setTimeout(() => {
+                lightboxImg.src = "";
+                lightboxImagesArray = [];
+                actionContainer.style.display = '';
+                content.style.opacity = '';
+                navPrev.style.opacity = '';
+                navNext.style.opacity = '';
+            }, 300);
         }
 
         initEditionOnLoad();
 
-        document.addEventListener('contextmenu', function(e) {
+        document.addEventListener('contextmenu', function (e) {
             if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
                 e.preventDefault();
             }
         }, false);
 
-        document.addEventListener('dragstart', function(e) {
+        document.addEventListener('dragstart', function (e) {
             if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
                 e.preventDefault();
             }
         }, false);
     </script>
 </body>
+
 </html>
