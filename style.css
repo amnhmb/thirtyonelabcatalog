@@ -1258,6 +1258,8 @@ body.no-scroll {
 }
 .qb-next,
 .qb-prev,
+.qb-own-next,
+.qb-own-prev,
 .custom-design-btn {
     background: #e50914;
     color: white;
@@ -1269,15 +1271,18 @@ body.no-scroll {
     margin-right: 10px;
 }
 
-.qb-prev {
+.qb-prev,
+.qb-own-prev {
     background: #555;
 }
 
-.qb-next:hover {
+.qb-next:hover,
+.qb-own-next:hover {
     background: #b0070f;
 }
 
-.qb-prev:hover {
+.qb-prev:hover,
+.qb-own-prev:hover {
     background: #333;
 }
 
