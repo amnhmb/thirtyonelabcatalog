@@ -489,35 +489,236 @@ const catalogHTML = `
 
             <!-- === SECTION FOR MATERIAL === -->
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Diamond.png" alt="Diamond"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/Eyelet.png" alt="Eyelet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">EYELET<img src="Image/Material/Recommend.png" alt="Recommend" class="stat-icon"><img src="Image/Material/Hot Sale.png" alt="Hot Sale" class="stat-icon"></h1>
+                        <span class="collection-name">Eyelet 160gsm is a lightweight, breathable jersey fabric that dries sweat quickly. Perfect for sports gear with bright, long-lasting printed colors.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports • Corporate • Casual • Uniform • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Eyelet.png" alt="Eyelet"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/Diamond.png" alt="Diamond" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">DIAMOND<img src="Image/Material/Recommend.png" alt="Recommend" class="stat-icon"></h1>
+                        <span class="collection-name">Diamond 160gsm is a lightweight, breathable jersey fabric with a stylish diamond texture that wicks sweat quickly. Ideal for activewear, it delivers vivid, long-lasting printed colors while keeping you comfortable and moving freely.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports • Corporate • Casual • Uniform • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Interlock.png" alt="Interlock"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/Lycra.png" alt="Lycra" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">LYCRA<img src="Image/Material/Recommend.png" alt="Recommend" class="stat-icon"></h1>
+                        <span class="collection-name">Lycra 280gsm is a premium, thicker jersey fabric with extra stretch and great durability. Perfect for formal teamwear, it offers a neat fit and vibrant, long-lasting printed colors that keep their shape over time.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports (Indoor) • Corporate • Casual • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Lycra.png" alt="Lycra"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/Interlock.png" alt="Interlock" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">INTERLOCK</h1>
+                        <span class="collection-name">Interlock 160gsm is a smooth, lightweight jersey fabric with great stretch and durability. Perfect for teamwear, it offers comfortable breathability and vibrant, long-lasting printed colors that won't fade or crack.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports • Corporate • Casual • Uniform • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Mesh.png" alt="Mesh"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/Mini-Eyelet.png" alt="Mini-Eyelet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">MINI-EYELET</h1>
+                        <span class="collection-name">Mini Eyelet 160gsm is a lightweight, breathable jersey fabric with tiny holes for extra airflow and quick sweat drying. Perfect for sportswear, it offers bright, long-lasting printed colors while remaining soft, durable, and comfortable.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports • Corporate • Casual • Uniform • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Mini-Eyelet.png" alt="Mini-Eyelet"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/RJPK.png" alt="RJPK" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">RJPK</h1>
+                        <span class="collection-name">RJPK 180gsm is a medium-weight, durable jersey fabric with a structured feel while remaining soft and breathable. Perfect for premium team jerseys, it wicks sweat away and features vibrant, long-lasting printed colors that won't fade or crack.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports • Corporate • Casual • Uniform • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/Popcorn.png" alt="Popcorn"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/Mesh.png" alt="Mesh" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">MESH<img src="Image/Material/Premium.png" alt="Premium" class="stat-icon"></h1>
+                        <span class="collection-name">Mesh 230gsm is a durable, thicker jersey fabric with a classic netted texture that provides maximum airflow and ventilation. Perfect for sports jerseys and activewear, it dries sweat quickly and features bright, long-lasting printed colors while keeping you comfortable and cool.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports • Casual • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-material">
-                <div class="image-container"><img src="Image/Material/RJPK.png" alt="RJPK"></div>
+                <div class="card-image-wrapper">
+                    <img src="Image/Material/Popcorn.png" alt="Popcorn" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">POPCORN<img src="Image/Material/Premium.png" alt="Premium" class="stat-icon"></h1>
+                        <span class="collection-name">Popcorn 160gsm is a lightweight, breathable jersey fabric featuring a unique textured "popcorn" knit pattern that promotes airflow and wicks sweat quickly. Ideal for activewear and sports jerseys, it provides a comfortable, soft feel with bright, long-lasting printed colors that won't fade or crack.</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">Sports • Corporate • Casual • Uniform • Event</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- === SECTION FOR NECK === -->
+                       <!-- === SECTION FOR NECK === -->
             <div class="product-card prod-neck">
-                <div class="neck-image-block"><img src="Image/Neck/Neck (1).jpg" alt="Neck Design 1"></div>
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/Round.png" alt="Kolar Bulat (Roundneck)" class="neck-image">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">Roundneck</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card prod-neck">
-                <div class="neck-image-block"><img src="Image/Neck/Neck (2).jpg" alt="Neck Design 2"></div>
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/V-neck.png" alt="V-neck" class="neck-image">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">V-neck</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
+            <div class="product-card prod-neck">
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/V-neck End.png" alt="V-Neck End" class="neck-image">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">V-Neck End</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card prod-neck">
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/Polo.png" alt="Collar Button (Polo)" class="neck-image-button">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">Collar Button (Polo)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card prod-neck">
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/Mandarin Zip.png" alt="Mandarin Zip" class="neck-image-button">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">Mandarin Zip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card prod-neck">
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/Retro.png" alt="Retro" class="neck-image">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">Retro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card prod-neck">
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/Retro End.png" alt="Retro End" class="neck-image">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">Retro End</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card prod-neck">
+                <div class="neck-image-wrapper">
+                    <img src="Image/Neck/V-neck Outer.png" alt="V-neck Outer" class="neck-image">
+                </div>
+                <div class="neck-content">
+                    <div class="neck-title-container">
+                        <div class="neck-title-box">
+                            <span class="neck-title">V-neck Outer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 `;

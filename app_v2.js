@@ -7,6 +7,7 @@ let quoteSelections = {
     cutting: null,
     sleeve: null,
     nameset: 'No',
+    sponsor: 'No',
     neck: null
 };
 let currentQuoteStep = 1;
@@ -44,7 +45,7 @@ function initReferenceNumbers() {
             const img = card.querySelector('img');
             if (img && img.src) {
                 const decodedSrc = decodeURIComponent(img.src);
-                
+
                 if (decodedSrc.includes('For Your Own Design')) {
                     const refNumber = 'For Your Own Design';
                     card.setAttribute('data-ref', refNumber);
@@ -259,7 +260,7 @@ catalogGrid.addEventListener('click', (e) => {
         card.classList.contains('prod-placementguide');
 
     // Get image from appropriate container
-    const imgs = Array.from(card.querySelectorAll('.image-container img, .sizechart-image-block img, .neck-image-block img, .sponsor-image-block img, .nameset-image-block img, .placementguide-image-block img'));
+    const imgs = Array.from(card.querySelectorAll('.image-container img, .sizechart-image-block img, .neck-image-block img, .sponsor-image-block img, .nameset-image-block img, .placementguide-image-block img, .card-image-wrapper img'));
     if (imgs.length === 0) return;
 
     lightboxImg.src = imgs[0].src;
@@ -334,10 +335,178 @@ document.getElementById('openQuoteBuilderBtn').addEventListener('click', () => {
 
 
 
+// Preview Cards Mapping & Logic
+const materialDetailsMap = {
+    "Eyelet 165GSM (BEST SELLER)": {
+        title: "EYELET",
+        image: "Image/Material/Eyelet.png",
+        badges: ["Image/Material/Recommend.png", "Image/Material/Hot Sale.png"],
+        desc: "Eyelet 160gsm is a lightweight, breathable jersey fabric that dries sweat quickly. Perfect for sports gear with bright, long-lasting printed colors.",
+        recommend: "Sports • Corporate • Casual • Uniform • Event"
+    },
+    "Diamond 160GSM": {
+        title: "DIAMOND",
+        image: "Image/Material/Diamond.png",
+        badges: ["Image/Material/Recommend.png"],
+        desc: "Diamond 160gsm is a lightweight, breathable jersey fabric with a stylish diamond texture that wicks sweat quickly. Ideal for activewear, it delivers vivid, long-lasting printed colors while keeping you comfortable and moving freely.",
+        recommend: "Sports • Corporate • Casual • Uniform • Event"
+    },
+    "Lycra 280GSM": {
+        title: "LYCRA",
+        image: "Image/Material/Lycra.png",
+        badges: ["Image/Material/Recommend.png"],
+        desc: "Lycra 280gsm is a premium, thicker jersey fabric with extra stretch and great durability. Perfect for formal teamwear, it offers a neat fit and vibrant, long-lasting printed colors that keep their shape over time.",
+        recommend: "Sports (Indoor) • Corporate • Casual • Event"
+    },
+    "Interlock 160GSM": {
+        title: "INTERLOCK",
+        image: "Image/Material/Interlock.png",
+        badges: [],
+        desc: "Interlock 160gsm is a smooth, lightweight jersey fabric with great stretch and durability. Perfect for teamwear, it offers comfortable breathability and vibrant, long-lasting printed colors that won't fade or crack.",
+        recommend: "Sports • Corporate • Casual • Uniform • Event"
+    },
+    "Mini Eyelet 165GSM": {
+        title: "MINI-EYELET",
+        image: "Image/Material/Mini-Eyelet.png",
+        badges: [],
+        desc: "Mini Eyelet 160gsm is a lightweight, breathable jersey fabric with tiny holes for extra airflow and quick sweat drying. Perfect for sportswear, it offers bright, long-lasting printed colors while remaining soft, durable, and comfortable.",
+        recommend: "Sports • Corporate • Casual • Uniform • Event"
+    },
+    "RJPK 180GSM": {
+        title: "RJPK",
+        image: "Image/Material/RJPK.png",
+        badges: [],
+        desc: "RJPK 180gsm is a medium-weight, durable jersey fabric with a structured feel while remaining soft and breathable. Perfect for premium team jerseys, it wicks sweat away and features vibrant, long-lasting printed colors that won't fade or crack.",
+        recommend: "Sports • Corporate • Casual • Uniform • Event"
+    },
+    "Mesh 230GSM": {
+        title: "MESH",
+        image: "Image/Material/Mesh.png",
+        badges: ["Image/Material/Premium.png"],
+        desc: "Mesh 230gsm is a durable, thicker jersey fabric with a classic netted texture that provides maximum airflow and ventilation. Perfect for sports jerseys and activewear, it dries sweat quickly and features bright, long-lasting printed colors while keeping you comfortable and cool.",
+        recommend: "Sports • Casual • Event"
+    },
+    "Popcorn 160GSM": {
+        title: "POPCORN",
+        image: "Image/Material/Popcorn.png",
+        badges: ["Image/Material/Premium.png"],
+        desc: "Popcorn 160gsm is a lightweight, breathable jersey fabric featuring a unique textured \"popcorn\" knit pattern that promotes airflow and wicks sweat quickly. Ideal for activewear and sports jerseys, it provides a comfortable, soft feel with bright, long-lasting printed colors that won't fade or crack.",
+        recommend: "Sports • Corporate • Casual • Uniform • Event"
+    }
+};
+
+const neckCardMap = {
+    "Roundneck": "Image/Neck/Round.png",
+    "V-neck": "Image/Neck/V-neck.png",
+    "V-Neck End": "Image/Neck/V-neck End.png",
+    "Collar Button (Polo)": "Image/Neck/Polo.png",
+    "Mandarin Zip": "Image/Neck/Mandarin Zip.png",
+    "Retro": "Image/Neck/Retro.png",
+    "Retro End": "Image/Neck/Retro End.png",
+    "V-neck Outer": "Image/Neck/V-neck Outer.png"
+};
+
+function getMaterialData(label) {
+    if (!label) return null;
+    if (materialDetailsMap[label]) return materialDetailsMap[label];
+    const lower = label.toLowerCase();
+    if (lower.includes("eyelet") && !lower.includes("mini")) return materialDetailsMap["Eyelet 165GSM (BEST SELLER)"];
+    if (lower.includes("diamond")) return materialDetailsMap["Diamond 160GSM"];
+    if (lower.includes("lycra")) return materialDetailsMap["Lycra 280GSM"];
+    if (lower.includes("interlock")) return materialDetailsMap["Interlock 160GSM"];
+    if (lower.includes("mini")) return materialDetailsMap["Mini Eyelet 165GSM"];
+    if (lower.includes("rjpk")) return materialDetailsMap["RJPK 180GSM"];
+    if (lower.includes("mesh")) return materialDetailsMap["Mesh 230GSM"];
+    if (lower.includes("popcorn")) return materialDetailsMap["Popcorn 160GSM"];
+    return null;
+}
+
+function getNeckCardImg(label) {
+    if (!label) return null;
+    if (neckCardMap[label]) return neckCardMap[label];
+    const lower = label.toLowerCase();
+    if (lower.includes("round")) return "Image/Neck/Round.png";
+    if (lower.includes("v-neck end") || lower.includes("v-neck-end")) return "Image/Neck/V-neck End.png";
+    if (lower.includes("v-neck outer")) return "Image/Neck/V-neck Outer.png";
+    if (lower.includes("v-neck") || lower.includes("vneck")) return "Image/Neck/V-neck.png";
+    if (lower.includes("polo") || lower.includes("collar")) return "Image/Neck/Polo.png";
+    if (lower.includes("mandarin")) return "Image/Neck/Mandarin Zip.png";
+    if (lower.includes("retro end")) return "Image/Neck/Retro End.png";
+    if (lower.includes("retro")) return "Image/Neck/Retro.png";
+    return null;
+}
+
+function updateMaterialPreview(containerId, selectedVal) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const data = getMaterialData(selectedVal);
+    if (data) {
+        const badgesHtml = data.badges.map(b => `<img src="${b}" alt="badge" class="stat-icon">`).join('');
+        container.innerHTML = `
+            <div class="product-card prod-material qb-material-card-full">
+                <div class="card-image-wrapper">
+                    <img src="${data.image}" alt="${data.title}" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div class="header-inline">
+                        <h1 class="material-title">${data.title} ${badgesHtml}</h1>
+                        <span class="collection-name">${data.desc}</span>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <span class="stat-label">Recommend</span>
+                            <span class="stat-value">${data.recommend}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.style.display = 'block';
+    } else {
+        container.style.display = 'none';
+        container.innerHTML = '';
+    }
+}
+
+function updateNeckPreview(containerId, selectedVal) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const imgPath = getNeckCardImg(selectedVal);
+    if (imgPath) {
+        container.innerHTML = `
+            <div class="qb-card-preview">
+                <img src="${imgPath}" alt="${selectedVal}" class="qb-card-preview-img">
+            </div>
+        `;
+        container.style.display = 'flex';
+    } else {
+        container.style.display = 'none';
+        container.innerHTML = '';
+    }
+}
+
 function openQuoteBuilder() {
     quoteBuilderModal.classList.add('active');
     document.body.classList.add('no-scroll');
     currentQuoteStep = 1;
+
+    // Reset quantity checkbox and state
+    document.getElementById('qbQuantityNotSure').checked = false;
+    document.getElementById('qbQuantity').disabled = false;
+    document.getElementById('qbQuantity').style.opacity = '';
+    document.getElementById('qbQuantity').value = configData.minimumOrderQuantity;
+
+    // Reset sleeve state
+    document.querySelector('input[name="sleeveShortOpt"][value="all"]').checked = true;
+    document.querySelector('input[name="sleeveLongOpt"][value="all"]').checked = false;
+    if (typeof updateSleeveState === 'function') updateSleeveState();
+
+    // Reset card previews
+    updateMaterialPreview('qbMaterialPreview', '');
+    updateNeckPreview('qbNeckPreview', '');
+
     updateQuoteStep();
 }
 
@@ -355,6 +524,29 @@ function initQuoteBuilder() {
     populateSelect('qbMaterial', configData.materials);
     populateSelect('qbCutting', configData.cuttings);
     populateSelect('qbNeck', configData.necks);
+
+    // Bind change listeners for material & neck previews
+    document.getElementById('qbMaterial').addEventListener('change', (e) => {
+        updateMaterialPreview('qbMaterialPreview', e.target.value);
+    });
+
+    document.getElementById('qbNeck').addEventListener('change', (e) => {
+        updateNeckPreview('qbNeckPreview', e.target.value);
+    });
+
+    // Quantity Not Sure Change Event Listener
+    document.getElementById('qbQuantityNotSure').addEventListener('change', (e) => {
+        const qtyInput = document.getElementById('qbQuantity');
+        if (e.target.checked) {
+            qtyInput.disabled = true;
+            qtyInput.style.opacity = '0.5';
+        } else {
+            qtyInput.disabled = false;
+            qtyInput.style.opacity = '';
+        }
+    });
+
+    // Sleeve Not Sure Event Listener is added below where updateSleeveState is defined
 }
 
 function populateSelect(id, list) {
@@ -366,15 +558,21 @@ function populateSelect(id, list) {
 }
 
 function updateQuoteStep() {
-    document.querySelectorAll('.quote-step').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('#quoteBuilderModal .quote-step').forEach(el => el.style.display = 'none');
     document.getElementById(`step${currentQuoteStep}`).style.display = 'block';
 
     const progressText = currentQuoteStep <= 7 ? `Step ${currentQuoteStep} of 7` : 'Summary';
     document.getElementById('quoteProgress').innerText = progressText;
 
+    if (currentQuoteStep === 3) {
+        updateMaterialPreview('qbMaterialPreview', document.getElementById('qbMaterial').value);
+    } else if (currentQuoteStep === 5) {
+        updateNeckPreview('qbNeckPreview', document.getElementById('qbNeck').value);
+    }
+
     if (currentQuoteStep === 8) {
         // Build summary
-        let designStr = quoteSelections.design === 'Custom' ? 'Custom Design' : `#${quoteSelections.design}`;
+        let designStr = quoteSelections.design === 'Custom' || quoteSelections.design === 'For Your Own Design' ? 'Use My Own Design' : `#${quoteSelections.design}`;
         if (quoteSelections.alterDesign === 'Yes') designStr += ' (Alter Mockup)';
 
         document.getElementById('summaryDesign').innerText = designStr;
@@ -383,6 +581,7 @@ function updateQuoteStep() {
         document.getElementById('summaryCutting').innerText = quoteSelections.cutting;
         document.getElementById('summarySleeve').innerText = quoteSelections.sleeve;
         document.getElementById('summaryNameset').innerText = quoteSelections.nameset;
+        document.getElementById('summarySponsor').innerText = quoteSelections.sponsor;
         document.getElementById('summaryNeck').innerText = quoteSelections.neck;
     }
 }
@@ -392,9 +591,14 @@ function nextStep() {
         quoteSelections.alterDesign = document.querySelector('input[name="alterDesign"]:checked').value;
     }
     if (currentQuoteStep === 2) {
-        quoteSelections.quantity = document.getElementById('qbQuantity').value;
-        if (quoteSelections.quantity < configData.minimumOrderQuantity) {
-            alert(`Minimum order is ${configData.minimumOrderQuantity}`); return;
+        const notSure = document.getElementById('qbQuantityNotSure').checked;
+        if (notSure) {
+            quoteSelections.quantity = "Not Sure Yet";
+        } else {
+            quoteSelections.quantity = document.getElementById('qbQuantity').value;
+            if (quoteSelections.quantity < configData.minimumOrderQuantity) {
+                alert(`Minimum order is ${configData.minimumOrderQuantity}`); return;
+            }
         }
     }
     if (currentQuoteStep === 3) {
@@ -406,6 +610,10 @@ function nextStep() {
         quoteSelections.cutting = document.getElementById('qbCutting').value;
     }
     if (currentQuoteStep === 5) {
+        if (!document.getElementById('qbNeck').value) { alert('Please select neck'); return; }
+        quoteSelections.neck = document.getElementById('qbNeck').value;
+    }
+    if (currentQuoteStep === 6) {
         const totalQty = parseInt(quoteSelections.quantity);
         if (document.querySelector('input[name="sleeveShortOpt"][value="all"]').checked) {
             quoteSelections.sleeve = "Short Sleeve (All)";
@@ -415,7 +623,7 @@ function nextStep() {
             const sQty = parseInt(document.getElementById('qbSleeveShortQty').value) || 0;
             const lQty = parseInt(document.getElementById('qbSleeveLongQty').value) || 0;
 
-            if (sQty + lQty !== totalQty) {
+            if (quoteSelections.quantity !== "Not Sure Yet" && sQty + lQty !== totalQty) {
                 document.getElementById('sleeveError').style.display = 'block';
                 return;
             }
@@ -424,15 +632,12 @@ function nextStep() {
             let sleeveStr = [];
             if (sQty > 0) sleeveStr.push(`Short Sleeve (${sQty})`);
             if (lQty > 0) sleeveStr.push(`Long Sleeve (${lQty})`);
-            quoteSelections.sleeve = sleeveStr.join(', ');
+            quoteSelections.sleeve = sleeveStr.join(', ') || "No sleeve config selected";
         }
     }
-    if (currentQuoteStep === 6) {
-        quoteSelections.nameset = document.querySelector('input[name="addNameset"]:checked').value;
-    }
     if (currentQuoteStep === 7) {
-        if (!document.getElementById('qbNeck').value) { alert('Please select neck'); return; }
-        quoteSelections.neck = document.getElementById('qbNeck').value;
+        quoteSelections.nameset = document.querySelector('input[name="addNameset"]:checked').value;
+        quoteSelections.sponsor = document.querySelector('input[name="addSponsor"]:checked').value;
     }
 
     currentQuoteStep++;
@@ -455,18 +660,22 @@ document.querySelectorAll('.qb-prev').forEach((btn) => {
 
 // WhatsApp Generator
 document.getElementById('sendWhatsAppBtn').addEventListener('click', () => {
-    let designText = quoteSelections.design === 'Custom' ? 'Custom Design' : `#${quoteSelections.design}`;
+    let designText = quoteSelections.design === 'Custom' || quoteSelections.design === 'For Your Own Design' ? 'Use My Own Design' : `#${quoteSelections.design}`;
     if (quoteSelections.alterDesign === 'Yes') designText += ' (Alter Mockup)';
+
+    // Format quantity text
+    const qtyText = quoteSelections.quantity === "Not Sure Yet" ? "Not Sure Yet" : `${quoteSelections.quantity} pieces`;
 
     const message = `Hi ThirtyOne Lab! I'm interested in ordering:
 
 Design: ${designText}
-Quantity: ${quoteSelections.quantity} pieces
+Quantity: ${qtyText}
 Material: ${quoteSelections.material}
 Cutting: ${quoteSelections.cutting}
+Neck/Collar: ${quoteSelections.neck}
 Sleeve: ${quoteSelections.sleeve}
 Nameset: ${quoteSelections.nameset}
-Neck/Collar: ${quoteSelections.neck}
+Sponsor: ${quoteSelections.sponsor}
 
 Could I get a quotation for this order?`;
 
@@ -488,30 +697,51 @@ const sleeveLongAll = document.querySelector('input[name="sleeveLongOpt"][value=
 const sleeveLongFill = document.querySelector('input[name="sleeveLongOpt"][value="fill"]');
 const sleeveLongQty = document.getElementById('qbSleeveLongQty');
 
-function updateSleeveState() {
+function updateSleeveState(event) {
+    // Uncheck quantity "Not sure yet" if Short or Long Sleeve "All" is selected
+    if (sleeveShortAll.checked || sleeveLongAll.checked) {
+        const qtyNotSure = document.getElementById('qbQuantityNotSure');
+        if (qtyNotSure && qtyNotSure.checked) {
+            qtyNotSure.checked = false;
+            const qtyInput = document.getElementById('qbQuantity');
+            qtyInput.disabled = false;
+            qtyInput.style.opacity = '';
+        }
+    }
+
+    // Handle mutual exclusivity of options
+    if (sleeveShortAll.checked && event && (event.target === sleeveShortAll || event.target.name === 'sleeveShortOpt')) {
+        sleeveLongAll.checked = false;
+        sleeveLongFill.checked = false;
+    } else if (sleeveLongAll.checked && event && (event.target === sleeveLongAll || event.target.name === 'sleeveLongOpt')) {
+        sleeveShortAll.checked = false;
+        sleeveShortFill.checked = false;
+    } else if (sleeveShortFill.checked && event && event.target === sleeveShortFill) {
+        sleeveLongFill.checked = true;
+        sleeveLongAll.checked = false;
+    } else if (sleeveLongFill.checked && event && event.target === sleeveLongFill) {
+        sleeveShortFill.checked = true;
+        sleeveShortAll.checked = false;
+    }
+
     if (sleeveShortAll.checked) {
         sleeveShortQty.disabled = true;
         sleeveShortQty.value = '';
-        sleeveLongAll.disabled = true;
-        sleeveLongFill.disabled = true;
-        sleeveLongQty.disabled = true;
+
         sleeveLongAll.checked = false;
         sleeveLongFill.checked = false;
+        sleeveLongQty.disabled = true;
         sleeveLongQty.value = '';
     } else if (sleeveLongAll.checked) {
         sleeveLongQty.disabled = true;
         sleeveLongQty.value = '';
-        sleeveShortAll.disabled = true;
-        sleeveShortFill.disabled = true;
-        sleeveShortQty.disabled = true;
+
         sleeveShortAll.checked = false;
         sleeveShortFill.checked = false;
+        sleeveShortQty.disabled = true;
         sleeveShortQty.value = '';
     } else {
-        sleeveShortAll.disabled = false;
-        sleeveShortFill.disabled = false;
-        sleeveLongAll.disabled = false;
-        sleeveLongFill.disabled = false;
+        // Both are Fill in
         sleeveShortQty.disabled = !sleeveShortFill.checked;
         if (!sleeveShortFill.checked) sleeveShortQty.value = '';
         sleeveLongQty.disabled = !sleeveLongFill.checked;
@@ -523,3 +753,17 @@ document.querySelectorAll('input[name="sleeveShortOpt"], input[name="sleeveLongO
     radio.addEventListener('change', updateSleeveState);
 });
 updateSleeveState();
+
+// Image protection (prevent right-click and drag on images except inside lightbox content)
+document.addEventListener('contextmenu', function (e) {
+    if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
+        e.preventDefault();
+    }
+}, false);
+
+document.addEventListener('dragstart', function (e) {
+    if (e.target.tagName === 'IMG' && !e.target.closest('.lightbox-content')) {
+        e.preventDefault();
+    }
+}, false);
+

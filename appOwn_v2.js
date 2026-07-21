@@ -6,6 +6,7 @@ let quoteSelectionsOwn = {
     cutting: null,
     sleeve: null,
     nameset: 'No',
+    sponsor: 'No',
     neck: null
 };
 let currentQuoteStepOwn = 1;
@@ -19,6 +20,24 @@ function openQuoteBuilderOwn() {
         quoteBuilderOwnModal.classList.add('active');
         document.body.classList.add('no-scroll');
         currentQuoteStepOwn = 1;
+
+        // Reset quantity checkbox and input status
+        document.getElementById('qbOwnQuantityNotSure').checked = false;
+        document.getElementById('qbOwnQuantity').disabled = false;
+        document.getElementById('qbOwnQuantity').style.opacity = '';
+        document.getElementById('qbOwnQuantity').value = configData.minimumOrderQuantity;
+
+        // Reset sleeve state
+        document.querySelector('input[name="sleeveOwnShortOpt"][value="all"]').checked = true;
+        document.querySelector('input[name="sleeveOwnLongOpt"][value="all"]').checked = false;
+        if (typeof updateSleeveOwnState === 'function') updateSleeveOwnState();
+
+        // Reset card previews
+        if (typeof updateMaterialPreview === 'function') {
+            updateMaterialPreview('qbOwnMaterialPreview', '');
+            updateNeckPreview('qbOwnNeckPreview', '');
+        }
+
         updateQuoteStepOwn();
     } catch (e) {
         alert("Error in openQuoteBuilderOwn: " + e.message);
@@ -39,6 +58,39 @@ function initQuoteBuilderOwn() {
     populateSelectOwn('qbOwnMaterial', configData.materials);
     populateSelectOwn('qbOwnCutting', configData.cuttings);
     populateSelectOwn('qbOwnNeck', configData.necks);
+
+    // Bind change listeners for material & neck previews
+    const matSelect = document.getElementById('qbOwnMaterial');
+    if (matSelect) {
+        matSelect.addEventListener('change', (e) => {
+            if (typeof updateMaterialPreview === 'function') {
+                updateMaterialPreview('qbOwnMaterialPreview', e.target.value);
+            }
+        });
+    }
+
+    const neckSelect = document.getElementById('qbOwnNeck');
+    if (neckSelect) {
+        neckSelect.addEventListener('change', (e) => {
+            if (typeof updateNeckPreview === 'function') {
+                updateNeckPreview('qbOwnNeckPreview', e.target.value);
+            }
+        });
+    }
+
+    // Quantity Not Sure Change Event Listener
+    document.getElementById('qbOwnQuantityNotSure').addEventListener('change', (e) => {
+        const qtyInput = document.getElementById('qbOwnQuantity');
+        if (e.target.checked) {
+            qtyInput.disabled = true;
+            qtyInput.style.opacity = '0.5';
+        } else {
+            qtyInput.disabled = false;
+            qtyInput.style.opacity = '';
+        }
+    });
+
+    // Sleeve Not Sure Event Listener is added below where updateSleeveOwnState is defined
 }
 
 function populateSelectOwn(id, list) {
@@ -57,9 +109,32 @@ function updateQuoteStepOwn() {
     const progressText = currentQuoteStepOwn <= 7 ? `Step ${currentQuoteStepOwn} of 7` : 'Summary';
     document.getElementById('quoteProgressOwn').innerText = progressText;
 
+    // Show/hide WhatsApp guide panel (only on step 1)
+    const guidePanel = document.getElementById('waGuidePanel');
+    const modalContent = document.querySelector('.quote-modal-content--own');
+    if (guidePanel) {
+        if (currentQuoteStepOwn === 1) {
+            guidePanel.style.display = '';
+            if (modalContent) modalContent.style.maxWidth = '860px';
+        } else {
+            guidePanel.style.display = 'none';
+            if (modalContent) modalContent.style.maxWidth = '480px';
+        }
+    }
+
+    if (currentQuoteStepOwn === 3) {
+        if (typeof updateMaterialPreview === 'function') {
+            updateMaterialPreview('qbOwnMaterialPreview', document.getElementById('qbOwnMaterial').value);
+        }
+    } else if (currentQuoteStepOwn === 5) {
+        if (typeof updateNeckPreview === 'function') {
+            updateNeckPreview('qbOwnNeckPreview', document.getElementById('qbOwnNeck').value);
+        }
+    }
+
     if (currentQuoteStepOwn === 8) {
         // Build summary
-        let designStr = quoteSelectionsOwn.design === 'Custom' || quoteSelectionsOwn.design === 'For Your Own Design' ? 'For Your Own Design' : `#${quoteSelectionsOwn.design}`;
+        let designStr = quoteSelectionsOwn.design === 'Custom' || quoteSelectionsOwn.design === 'For Your Own Design' ? 'Use My Own Design' : `#${quoteSelectionsOwn.design}`;
         if (quoteSelectionsOwn.alterDesign === 'Yes') designStr += ' (Alter Mockup)';
 
         document.getElementById('summaryOwnDesign').innerText = designStr;
@@ -68,6 +143,7 @@ function updateQuoteStepOwn() {
         document.getElementById('summaryOwnCutting').innerText = quoteSelectionsOwn.cutting;
         document.getElementById('summaryOwnSleeve').innerText = quoteSelectionsOwn.sleeve;
         document.getElementById('summaryOwnNameset').innerText = quoteSelectionsOwn.nameset;
+        document.getElementById('summaryOwnSponsor').innerText = quoteSelectionsOwn.sponsor;
         document.getElementById('summaryOwnNeck').innerText = quoteSelectionsOwn.neck;
     }
 }
@@ -78,9 +154,14 @@ function nextStepOwn() {
         if (checked) quoteSelectionsOwn.alterDesign = checked.value;
     }
     if (currentQuoteStepOwn === 2) {
-        quoteSelectionsOwn.quantity = document.getElementById('qbOwnQuantity').value;
-        if (quoteSelectionsOwn.quantity < configData.minimumOrderQuantity) {
-            alert(`Minimum order is ${configData.minimumOrderQuantity}`); return;
+        const notSure = document.getElementById('qbOwnQuantityNotSure').checked;
+        if (notSure) {
+            quoteSelectionsOwn.quantity = "Not Sure Yet";
+        } else {
+            quoteSelectionsOwn.quantity = document.getElementById('qbOwnQuantity').value;
+            if (quoteSelectionsOwn.quantity < configData.minimumOrderQuantity) {
+                alert(`Minimum order is ${configData.minimumOrderQuantity}`); return;
+            }
         }
     }
     if (currentQuoteStepOwn === 3) {
@@ -92,6 +173,10 @@ function nextStepOwn() {
         quoteSelectionsOwn.cutting = document.getElementById('qbOwnCutting').value;
     }
     if (currentQuoteStepOwn === 5) {
+        if (!document.getElementById('qbOwnNeck').value) { alert('Please select neck'); return; }
+        quoteSelectionsOwn.neck = document.getElementById('qbOwnNeck').value;
+    }
+    if (currentQuoteStepOwn === 6) {
         const totalQty = parseInt(quoteSelectionsOwn.quantity);
         if (document.querySelector('input[name="sleeveOwnShortOpt"][value="all"]').checked) {
             quoteSelectionsOwn.sleeve = "Short Sleeve (All)";
@@ -101,7 +186,7 @@ function nextStepOwn() {
             const sQty = parseInt(document.getElementById('qbOwnSleeveShortQty').value) || 0;
             const lQty = parseInt(document.getElementById('qbOwnSleeveLongQty').value) || 0;
 
-            if (sQty + lQty !== totalQty) {
+            if (quoteSelectionsOwn.quantity !== "Not Sure Yet" && sQty + lQty !== totalQty) {
                 document.getElementById('sleeveOwnError').style.display = 'block';
                 return;
             }
@@ -110,16 +195,14 @@ function nextStepOwn() {
             let sleeveStr = [];
             if (sQty > 0) sleeveStr.push(`Short Sleeve (${sQty})`);
             if (lQty > 0) sleeveStr.push(`Long Sleeve (${lQty})`);
-            quoteSelectionsOwn.sleeve = sleeveStr.join(', ');
+            quoteSelectionsOwn.sleeve = sleeveStr.join(', ') || "No sleeve config selected";
         }
     }
-    if (currentQuoteStepOwn === 6) {
-        const checked = document.querySelector('input[name="addOwnNameset"]:checked');
-        if(checked) quoteSelectionsOwn.nameset = checked.value;
-    }
     if (currentQuoteStepOwn === 7) {
-        if (!document.getElementById('qbOwnNeck').value) { alert('Please select neck'); return; }
-        quoteSelectionsOwn.neck = document.getElementById('qbOwnNeck').value;
+        const namesetChecked = document.querySelector('input[name="addOwnNameset"]:checked');
+        if (namesetChecked) quoteSelectionsOwn.nameset = namesetChecked.value;
+        const sponsorChecked = document.querySelector('input[name="addOwnSponsor"]:checked');
+        if (sponsorChecked) quoteSelectionsOwn.sponsor = sponsorChecked.value;
     }
 
     currentQuoteStepOwn++;
@@ -142,18 +225,22 @@ document.querySelectorAll('.qb-own-prev').forEach((btn) => {
 
 // WhatsApp Generator
 document.getElementById('sendWhatsAppOwnBtn').addEventListener('click', () => {
-    let designText = quoteSelectionsOwn.design === 'Custom' || quoteSelectionsOwn.design === 'For Your Own Design' ? 'For Your Own Design' : `#${quoteSelectionsOwn.design}`;
+    let designText = quoteSelectionsOwn.design === 'Custom' || quoteSelectionsOwn.design === 'For Your Own Design' ? 'Use My Own Design' : `#${quoteSelectionsOwn.design}`;
     if (quoteSelectionsOwn.alterDesign === 'Yes') designText += ' (Alter Mockup)';
+
+    // Format quantity text
+    const qtyText = quoteSelectionsOwn.quantity === "Not Sure Yet" ? "Not Sure Yet" : `${quoteSelectionsOwn.quantity} pieces`;
 
     const message = `Hi ThirtyOne Lab! I'm interested in ordering:
 
 Design: ${designText}
-Quantity: ${quoteSelectionsOwn.quantity} pieces
+Quantity: ${qtyText}
 Material: ${quoteSelectionsOwn.material}
 Cutting: ${quoteSelectionsOwn.cutting}
+Neck/Collar: ${quoteSelectionsOwn.neck}
 Sleeve: ${quoteSelectionsOwn.sleeve}
 Nameset: ${quoteSelectionsOwn.nameset}
-Neck/Collar: ${quoteSelectionsOwn.neck}
+Sponsor: ${quoteSelectionsOwn.sponsor}
 
 Could I get a quotation for this order?`;
 
@@ -171,38 +258,61 @@ const sleeveOwnLongAll = document.querySelector('input[name="sleeveOwnLongOpt"][
 const sleeveOwnLongFill = document.querySelector('input[name="sleeveOwnLongOpt"][value="fill"]');
 const sleeveOwnLongQty = document.getElementById('qbOwnSleeveLongQty');
 
-function updateSleeveOwnState() {
+function updateSleeveOwnState(event) {
     if (!sleeveOwnShortAll) return; // safety
+
+    // Uncheck quantity "Not sure yet" if Short or Long Sleeve "All" is selected
+    if (sleeveOwnShortAll.checked || (sleeveOwnLongAll && sleeveOwnLongAll.checked)) {
+        const qtyNotSure = document.getElementById('qbOwnQuantityNotSure');
+        if (qtyNotSure && qtyNotSure.checked) {
+            qtyNotSure.checked = false;
+            const qtyInput = document.getElementById('qbOwnQuantity');
+            qtyInput.disabled = false;
+            qtyInput.style.opacity = '';
+        }
+    }
+
+    // Handle mutual exclusivity of options
+    if (sleeveOwnShortAll.checked && event && (event.target === sleeveOwnShortAll || event.target.name === 'sleeveOwnShortOpt')) {
+        if (sleeveOwnLongAll) sleeveOwnLongAll.checked = false;
+        if (sleeveOwnLongFill) sleeveOwnLongFill.checked = false;
+    } else if (sleeveOwnLongAll && sleeveOwnLongAll.checked && event && (event.target === sleeveOwnLongAll || event.target.name === 'sleeveOwnLongOpt')) {
+        sleeveOwnShortAll.checked = false;
+        sleeveOwnShortFill.checked = false;
+    } else if (sleeveOwnShortFill.checked && event && event.target === sleeveOwnShortFill) {
+        if (sleeveOwnLongFill) sleeveOwnLongFill.checked = true;
+        if (sleeveOwnLongAll) sleeveOwnLongAll.checked = false;
+    } else if (sleeveOwnLongFill && sleeveOwnLongFill.checked && event && event.target === sleeveOwnLongFill) {
+        sleeveOwnShortFill.checked = true;
+        sleeveOwnShortAll.checked = false;
+    }
+
     if (sleeveOwnShortAll.checked) {
         sleeveOwnShortQty.disabled = true;
         sleeveOwnShortQty.value = '';
-        if(sleeveOwnLongAll) {
-            sleeveOwnLongAll.disabled = true;
-            sleeveOwnLongFill.disabled = true;
+
+        if (sleeveOwnLongAll) sleeveOwnLongAll.checked = false;
+        if (sleeveOwnLongFill) sleeveOwnLongFill.checked = false;
+        if (sleeveOwnLongQty) {
             sleeveOwnLongQty.disabled = true;
-            sleeveOwnLongAll.checked = false;
-            sleeveOwnLongFill.checked = false;
             sleeveOwnLongQty.value = '';
         }
     } else if (sleeveOwnLongAll && sleeveOwnLongAll.checked) {
-        sleeveOwnLongQty.disabled = true;
-        sleeveOwnLongQty.value = '';
-        sleeveOwnShortAll.disabled = true;
-        sleeveOwnShortFill.disabled = true;
-        sleeveOwnShortQty.disabled = true;
+        if (sleeveOwnLongQty) {
+            sleeveOwnLongQty.disabled = true;
+            sleeveOwnLongQty.value = '';
+        }
+
         sleeveOwnShortAll.checked = false;
         sleeveOwnShortFill.checked = false;
+        sleeveOwnShortQty.disabled = true;
         sleeveOwnShortQty.value = '';
     } else {
-        sleeveOwnShortAll.disabled = false;
-        if(sleeveOwnShortFill) sleeveOwnShortFill.disabled = false;
-        if(sleeveOwnLongAll) sleeveOwnLongAll.disabled = false;
-        if(sleeveOwnLongFill) sleeveOwnLongFill.disabled = false;
-        
+        // Both are Fill in
         sleeveOwnShortQty.disabled = !sleeveOwnShortFill.checked;
         if (!sleeveOwnShortFill.checked) sleeveOwnShortQty.value = '';
-        
-        if(sleeveOwnLongQty && sleeveOwnLongFill) {
+
+        if (sleeveOwnLongQty && sleeveOwnLongFill) {
             sleeveOwnLongQty.disabled = !sleeveOwnLongFill.checked;
             if (!sleeveOwnLongFill.checked) sleeveOwnLongQty.value = '';
         }
@@ -212,4 +322,4 @@ function updateSleeveOwnState() {
 document.querySelectorAll('input[name="sleeveOwnShortOpt"], input[name="sleeveOwnLongOpt"]').forEach(radio => {
     radio.addEventListener('change', updateSleeveOwnState);
 });
-if(sleeveOwnShortAll) updateSleeveOwnState();
+if (sleeveOwnShortAll) updateSleeveOwnState();
