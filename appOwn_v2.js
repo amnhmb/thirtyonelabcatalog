@@ -115,7 +115,7 @@ function updateQuoteStepOwn() {
     if (guidePanel) {
         if (currentQuoteStepOwn === 1) {
             guidePanel.style.display = '';
-            if (modalContent) modalContent.style.maxWidth = '860px';
+            if (modalContent) modalContent.style.maxWidth = '';
         } else {
             guidePanel.style.display = 'none';
             if (modalContent) modalContent.style.maxWidth = '480px';
