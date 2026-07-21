@@ -489,6 +489,7 @@ function updateNeckPreview(containerId, selectedVal) {
 
 function openQuoteBuilder() {
     quoteBuilderModal.classList.add('active');
+    quoteBuilderModal.scrollTop = 0;
     document.body.classList.add('no-scroll');
     currentQuoteStep = 1;
 

@@ -18,6 +18,7 @@ initQuoteBuilderOwn();
 function openQuoteBuilderOwn() {
     try {
         quoteBuilderOwnModal.classList.add('active');
+        quoteBuilderOwnModal.scrollTop = 0;
         document.body.classList.add('no-scroll');
         currentQuoteStepOwn = 1;
 
